@@ -1,0 +1,6 @@
+App\BookStore\Domain\Model\VO\Amount:
+    attributes:
+        amount:
+            groups:
+                - read
+                - write

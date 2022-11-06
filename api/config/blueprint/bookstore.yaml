@@ -1,0 +1,138 @@
+App:
+    BookStore:
+        Entity:
+            Book:
+                root: true
+                attributes:
+                    author:
+                        type: ManyToOne(Author)
+                        inversedBy: books
+                        cascade:
+                            - PERSIST
+                        example: {
+                            books: [ ],
+                            "name": {
+                                "firstName": "pepe",
+                                "lastName": "martinez"
+                            }
+                        }
+                    
+                    title:
+                        type: VO(Title)
+                        example: the summary                    
+                    
+                    summary:
+                        type: VO(Summary)
+                        example: the summary
+                    
+                    price:
+                        type: VO(Money)
+                        example: {
+                            amount: 10,
+                            currency: EUR
+                        }
+                    
+                    tags:
+                        type: ManyToMany(Tag)
+                        inversedBy: books
+                        nullable: true
+                        cascade:
+                            - PERSIST
+                        example: [
+                            { "name": "the tag name" }
+                        ]
+            
+            
+            Author:
+                root: true
+                attributes:
+                    books:
+                        type: OneToMany(Book)
+                        nullable: true
+                        mappedBy: author
+                        cascade:
+                            - PERSIST
+                    name:
+                        type: VO(Fullname)
+                        example: {
+                            firstName: the name,
+                            lastName: the lastName
+                        }
+            
+            Tag:
+                root: true
+                attributes:
+                    name:
+                        type: VO(TagName)
+                        example: the tag name
+                    
+                    books:
+                        type: ManyToMany(Book)
+                        nullable: true
+                        inversedBy: tags
+        
+        VO:
+            Title:
+                attributes:
+                    title:
+                        type: string
+                        constraints:
+                            Length:
+                                min: 3            
+            
+            Summary:
+                attributes:
+                    summary:
+                        type: string
+                        constraints:
+                            Length:
+                                min: 10
+            
+            Fullname:
+                attributes:
+                    firstName:
+                        type: string
+                        constraints:
+                            Regex:
+                                pattern: /^[\p{L} ]*$/u
+                            Length:
+                                min: 3
+                    lastName:
+                        type: string
+                        constraints:
+                            Regex:
+                                pattern: /^[\p{L} \-]*$/u
+                            Length:
+                                min: 3
+            
+            TagName:
+                attributes:
+                    name:
+                        type: string
+                        constraints:
+                            Regex:
+                                pattern: /^[\p{L} \-]*$/u
+                            Length:
+                                min: 3
+            Money:
+                attributes:
+                    amount: VO(Amount)
+                    currency: VO(Currency)
+            
+            Amount:
+                attributes:
+                    amount:
+                        type: int
+                        nullable: false
+                        constraints:
+                            Range:
+                                min: 0
+            
+            Currency:
+                attributes:
+                    currency:
+                        type: string
+                        nullable: false
+                        constraints:
+                            Regex:
+                                pattern: /^[A-Z]{3}$/

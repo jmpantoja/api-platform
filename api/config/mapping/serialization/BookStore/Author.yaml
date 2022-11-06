@@ -1,0 +1,21 @@
+App\BookStore\Domain\Model\Author:
+    attributes:
+        id:
+            groups:
+                - read
+        name:
+            groups:
+                - read
+                - write
+        books:
+            groups:
+                - read
+                - write
+App\BookStore\Application\Input\AuthorInput:
+    attributes:
+        name:
+            groups:
+                - write
+        books:
+            groups:
+                - write

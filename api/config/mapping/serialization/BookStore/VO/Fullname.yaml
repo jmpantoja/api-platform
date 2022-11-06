@@ -1,0 +1,10 @@
+App\BookStore\Domain\Model\VO\Fullname:
+    attributes:
+        firstName:
+            groups:
+                - read
+                - write
+        lastName:
+            groups:
+                - read
+                - write

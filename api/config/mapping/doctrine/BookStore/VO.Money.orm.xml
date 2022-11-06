@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping https://www.doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <embeddable name="App\BookStore\Domain\Model\VO\Money">
+    <field name="amount" type="BookStore.Amount"/>
+    <field name="currency" type="BookStore.Currency"/>
+  </embeddable>
+</doctrine-mapping>

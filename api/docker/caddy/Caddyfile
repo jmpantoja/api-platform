@@ -1,0 +1,63 @@
+{
+    # Debug
+    {$DEBUG}
+    # HTTP/3 support
+    #servers {
+    #    protocol {
+    #        experimental_http3
+    #    }
+    #}
+}
+
+{$SERVER_NAME} {
+	redir https://www.{host}{uri}
+}
+
+www.{$SERVER_NAME} {
+    log
+    reverse_proxy http://www:3000
+}
+
+admin.{$SERVER_NAME} {
+    log
+    reverse_proxy http://admin:3000
+}
+
+api.{$SERVER_NAME}, caddy:80 {
+    log
+    root * /srv/app/public
+
+    route {
+        mercure {
+            # Transport to use (default to Bolt)
+            transport_url {$MERCURE_TRANSPORT_URL:bolt:///data/mercure.db}
+            # Publisher JWT key
+            publisher_jwt {env.MERCURE_PUBLISHER_JWT_KEY} {env.MERCURE_PUBLISHER_JWT_ALG}
+            # Subscriber JWT key
+            subscriber_jwt {env.MERCURE_SUBSCRIBER_JWT_KEY} {env.MERCURE_SUBSCRIBER_JWT_ALG}
+            # Allow anonymous subscribers (double-check that it's what you want)
+            anonymous
+            cors_origins https://www.{$SERVER_NAME} https://admin.{$SERVER_NAME}
+
+            # Enable the subscription API (double-check that it's what you want)
+            subscriptions
+            # Extra directives
+            {$MERCURE_EXTRA_DIRECTIVES}
+
+        }
+        vulcain
+        push
+    }
+
+    # Add links to the API docs and to the Mercure Hub if not set explicitly (e.g. the PWA)
+    header ?Link `</docs.jsonld>; rel="http://www.w3.org/ns/hydra/core#apiDocumentation", </.well-known/mercure>; rel="mercure"`
+    # Disable Topics tracking if not enabled explicitly: https://github.com/jkarlin/topics
+    header ?Permissions-Policy "browsing-topics=()"
+
+    php_fastcgi unix//var/run/php/php-fpm.sock
+    encode zstd gzip
+    file_server
+}
+
+{$EXTRA}
+

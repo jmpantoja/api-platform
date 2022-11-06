@@ -1,0 +1,128 @@
+@view-padding: 24px;
+@view-height: calc(95vh - @view-padding * 2);
+
+@view-header-height: 5em;
+@view-content-height: calc(@view-height - @view-header-height);
+@view-border: solid 1px #d9d9d9;
+
+
+.editView {
+    height: @view-height;
+    position: relative;
+
+    :local & > div {
+        height: @view-height;
+    }
+
+    :global {
+        .ant-anchor-wrapper {
+            position: absolute;
+            top: @view-header-height;
+            left: 0;
+            z-index: 1;
+            height: @view-content-height;
+            //background-color: white;
+            //border: @view-border;
+            width: 20rem;
+            padding-top: 3em;
+
+        }
+
+        .ant-anchor-link.error a {
+            color: red;
+        }
+
+        .ant-page-header {
+            background-color: transparent;
+            padding: 0;
+            height: 100%;
+            display: grid;
+            grid-template-rows: @view-header-height auto;
+
+        }
+
+        //
+        .ant-page-header-heading {
+            .ant-page-header-heading-extra {
+                display: flex;
+            }
+        }
+
+        .ant-page-header-heading-title {
+            color: @text-color;
+            font-size: 3em;
+            font-weight: normal;
+        }
+
+
+        .ant-page-header-content,
+        .ant-spin-nested-loading,
+        .ant-spin-container,
+        .ant-card {
+            height: @view-content-height;
+            padding: 0;
+        }
+
+        .ant-card {
+            display: grid;
+            grid-template-rows: auto 4rem;
+            gap: 1em;
+            margin: 0 auto;
+            width: 55em;
+            height: 100%;
+            border: @view-border;
+        }
+
+        .ant-card-body {
+            height: 100%;
+            overflow: auto;
+        }
+
+        .ant-card-actions {
+            margin-right: -12px;
+            background-color: transparent;
+        }
+
+        .ant-form-item-has-error {
+            label {
+                color: @error-color;
+            }
+            margin-bottom: 1em;
+        }
+
+        label {
+            font-weight: bold;
+            font-size: 1.1em;
+        }
+    }
+}
+
+.fieldset {
+    margin-bottom: calc(@view-padding * 2);
+
+    :global {
+        legend {
+            font-size: 1.8em;
+            line-height: 2em;
+            font-weight: bold;
+            font-variant: small-caps;
+            color: @text-color;
+
+        }
+
+        .fieldset-body {
+            margin: @view-padding;
+            height: 40em;
+        }
+    }
+}
+
+.fieldsetError {
+
+    :global {
+        legend {
+            color: @error-color;
+            border-color: @error-color;
+        }
+    }
+}

@@ -1,0 +1,36 @@
+api_platform:
+    title: Hello API Platform
+    version: 1.0.0
+    show_webby: false
+    path_segment_name_generator: api_platform.path_segment_name_generator.dash
+    mapping:
+        paths: [ '%kernel.project_dir%/config/mapping/api' ]
+    #        paths: ['%kernel.project_dir%/src/BookStore/Application/Input']
+    formats:
+        jsonld: [ 'application/ld+json' ]
+        jsonhal: [ 'application/hal+json' ]
+        jsonapi: [ 'application/vnd.api+json' ]
+        json: [ 'application/json' ]
+        html: [ 'text/html' ]
+    patch_formats:
+        json: [ 'application/merge-patch+json' ]
+    
+    swagger:
+        versions: [ 3 ]
+        api_keys:
+            Token:
+                name: Authorization
+                type: header
+    
+    
+    # Mercure integration, remove if unwanted
+    mercure: ~
+    # Good cache defaults for REST APIs
+    defaults:
+        stateless: true
+        pagination_items_per_page: 10
+        pagination_client_items_per_page: true
+        pagination_maximum_items_per_page: 50
+        
+        cache_headers:
+            vary: [ 'Content-Type', 'Authorization', 'Origin' ]

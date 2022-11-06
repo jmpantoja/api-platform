@@ -1,0 +1,28 @@
+App\Auth\Domain\Model\User:
+    attributes:
+        id:
+            groups:
+                - read
+        username:
+            groups:
+                - read
+                - write
+        email:
+            groups:
+                - read
+                - write
+        password:
+            groups:
+                - write
+
+App\Auth\Application\Input\UserInput:
+    attributes:
+        username:
+            groups:
+                - write
+        email:
+            groups:
+                - write
+        password:
+            groups:
+                - write
