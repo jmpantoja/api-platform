@@ -1,0 +1,6 @@
+App\Auth\Domain\Model\VO\Username:
+    attributes:
+        username:
+            groups:
+                - read
+                - write

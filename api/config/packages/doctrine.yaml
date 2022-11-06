@@ -1,0 +1,21 @@
+imports:
+    - { resource: 'doctrine/' }
+
+doctrine:
+    orm:
+        auto_generate_proxy_classes: true
+        naming_strategy: doctrine.orm.naming_strategy.underscore_number_aware
+        auto_mapping: true
+        mappings:
+            Auth:
+                is_bundle: false
+                type: xml
+                dir: '%kernel.project_dir%/config/mapping/doctrine/Auth'
+                prefix: App\Auth\Domain\Model
+    dbal:
+        url: '%env(resolve:DATABASE_URL)%'
+        types:
+            Auth.UserId: \App\Auth\Framework\Doctrine\DBAL\UserIdDBALType
+            Auth.Email: \App\Auth\Framework\Doctrine\DBAL\EmailDBALType
+            Auth.Username: \App\Auth\Framework\Doctrine\DBAL\UsernameDBALType
+            Auth.Roles: \App\Auth\Framework\Doctrine\DBAL\RolesDBALType

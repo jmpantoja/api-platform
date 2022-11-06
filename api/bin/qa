@@ -1,0 +1,37 @@
+#!/usr/bin/env bash
+
+if ! [ -z "$1" ]; then
+  target=$1
+  add_to_stage=0
+else
+  add_to_stage=1
+  files=()
+  staged_files=$(git diff --cached --name-only)
+  for file in ${staged_files}; do
+    if [[ -f ${file} && ${file} == src/*.php ]]; then
+      files+=("$file")
+    fi
+  done
+  target=${files[*]}
+fi
+
+if [ -z "$target" ]; then
+  echo "Nothing to analyze"
+  exit 0
+fi
+
+phpstan analyze --level 6 $target
+stan_code=$?
+
+php-cs-fixer --config=.php-cs-fixer.dist.php -q fix $target -vvv
+fix_code=$?
+
+if ! [[ ${fix_code} -eq 0 && ${stan_code} -eq 0 ]]; then
+  exit 1
+fi
+
+if [[ ${add_to_stage} -eq 1 ]]; then
+  git add $target
+fi
+
+exit 0

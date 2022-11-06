@@ -1,0 +1,42 @@
+App\BookStore\Domain\Model\Book:
+    attributes:
+        id:
+            groups:
+                - read
+        author:
+            groups:
+                - read
+                - write
+        title:
+            groups:
+                - read
+                - write
+        summary:
+            groups:
+                - read
+                - write
+        price:
+            groups:
+                - read
+                - write
+        tags:
+            groups:
+                - read
+                - write
+App\BookStore\Application\Input\BookInput:
+    attributes:
+        author:
+            groups:
+                - write
+        title:
+            groups:
+                - write
+        summary:
+            groups:
+                - write
+        price:
+            groups:
+                - write
+        tags:
+            groups:
+                - write

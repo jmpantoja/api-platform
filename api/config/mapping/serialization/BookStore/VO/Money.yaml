@@ -1,0 +1,10 @@
+App\BookStore\Domain\Model\VO\Money:
+    attributes:
+        amount:
+            groups:
+                - read
+                - write
+        currency:
+            groups:
+                - read
+                - write

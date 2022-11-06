@@ -1,0 +1,117 @@
+version: "3.4"
+
+services:
+  php:
+    build:
+      context: ./api
+      target: app_php
+    depends_on:
+      - database
+    restart: unless-stopped
+    volumes:
+      - ./storage/php_socket:/var/run/php
+    tty: true
+    healthcheck:
+      interval: 10s
+      timeout: 3s
+      retries: 3
+      start_period: 30s
+    environment:
+      DATABASE_URL: postgresql://${POSTGRES_USER}:${POSTGRES_PASSWORD}@database:5432/${POSTGRES_DB}?serverVersion=${POSTGRES_VERSION:-14}
+      TRUSTED_PROXIES: ${TRUSTED_PROXIES:-127.0.0.0/8,10.0.0.0/8,172.16.0.0/12,192.168.0.0/16}
+      TRUSTED_HOSTS: ^api.${SERVER_NAME}|caddy|localhost$$
+      MERCURE_URL: ${CADDY_MERCURE_URL:-http://caddy/.well-known/mercure}
+      MERCURE_PUBLIC_URL: https://api.${SERVER_NAME}/.well-known/mercure
+      MERCURE_JWT_SECRET: ${CADDY_MERCURE_JWT_SECRET}
+      CORS_ALLOW_ORIGIN: https://admin.${SERVER_NAME}|https://www.${SERVER_NAME}
+      JWT_SECRET_KEY: '%kernel.project_dir%/config/jwt/private.pem'
+      JWT_PUBLIC_KEY: '%kernel.project_dir%/config/jwt/public.pem'
+      
+      JWT_PASSPHRASE: 41ab70f93ddb0f6c381061aedb9de89f
+      
+      #    
+      #  pwa:
+      #    build:
+      #      context: ./pwa
+      #      target: app_pwa      
+      #    environment:
+      #      API_PLATFORM_CLIENT_GENERATOR_ENTRYPOINT: http://caddy
+      #      NEXT_PUBLIC_ENTRYPOINT: http://caddy
+  
+  caddy:
+    build:
+      context: api/
+      target: app_caddy
+    depends_on:
+      - php
+      - www
+      - admin
+    environment:
+#      WWW_UPSTREAM: www:3000
+#      ADMIN_UPSTREAM: admin:3000      
+      SERVER_NAME: ${SERVER_NAME:-localhost}
+      MERCURE_PUBLISHER_JWT_KEY: ${CADDY_MERCURE_JWT_SECRET}
+      MERCURE_SUBSCRIBER_JWT_KEY: ${CADDY_MERCURE_JWT_SECRET}
+    restart: unless-stopped
+    volumes:
+      - ./storage/php_socket:/var/run/php
+      - ./storage/caddy/data:/data
+      - ./storage/caddy/config:/config
+      - ./api/public:/srv/app/public:ro
+        
+    ports:
+      # HTTP
+      - target: 80
+        published: ${HTTP_PORT:-80}
+        protocol: tcp
+      # HTTPS
+      - target: 443
+        published: ${HTTPS_PORT:-443}
+        protocol: tcp
+      # HTTP/3
+      - target: 443
+        published: ${HTTP3_PORT:-443}
+        protocol: udp
+
+
+  database:
+    image: postgres:${POSTGRES_VERSION:-14}-alpine
+    environment:
+      - POSTGRES_DB=${POSTGRES_DB:-api}
+      # You should definitely change the password in production
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+      - POSTGRES_USER=${POSTGRES_USER}
+    volumes:
+      - ./storage/db/data:/var/lib/postgresql/data
+      # you may use a bind-mounted host directory instead, so that it is harder to accidentally remove the volume and lose all your data!
+      # - ./api/docker/db/data:/var/lib/postgresql/data
+
+  www:
+    build:
+      context: ./www
+      target: app_www
+    volumes:
+      - ./www:/usr/src/www
+
+  admin:
+    build:
+      context: admin.old
+      target: app_admin
+    volumes:
+      - ./admin:/usr/src/admin
+      
+#    environment:
+#      API_PLATFORM_CLIENT_GENERATOR_ENTRYPOINT: http://caddy
+#      NEXT_PUBLIC_ENTRYPOINT: http://caddy
+
+
+
+# Mercure is installed as a Caddy module, prevent the Flex recipe from installing another service
+###> symfony/mercure-bundle ###
+###< symfony/mercure-bundle ###
+
+###> doctrine/doctrine-bundle ###
+
+###< doctrine/doctrine-bundle ###
+###> symfony/mercure-bundle ###
+###< symfony/mercure-bundle ###

@@ -1,0 +1,164 @@
+.listView {
+    height: 100%;
+    background-color: transparent;
+
+    :local & > div {
+        height: 100%;
+        background-color: transparent;
+        padding: 0;
+    }
+
+    :global {
+        .ant-page-header {
+            background-color: transparent;
+            padding: 0;
+            height: 100%;
+            display: grid;
+            grid-template-rows: 4rem auto;
+        }
+
+        .ant-page-header-heading {
+            .ant-page-header-heading-extra {
+                display: flex;
+            }
+        }
+
+        .ant-page-header-heading-title {
+            color: @text-color;
+            line-height: 2em;
+            font-size: 3em;
+            font-weight: normal;
+        }
+
+        .ant-page-header-content > div {
+            height: 100%;
+        }
+    }
+
+}
+
+.listViewSearchable {
+    :global {
+        .ant-page-header-content > div {
+            height: 100%;
+            display: grid;
+            grid-template-columns: 20rem auto;
+            gap: 1em;
+        }
+    }
+
+}
+
+.tableWrapper {
+    height: 100%;
+    background-color: white;
+
+    :global {
+        .ant-spin-nested-loading {
+            height: 100%;
+
+            .ant-spin-container {
+                height: 100%;
+                display: grid;
+                grid-template-rows: auto 3rem;
+                gap: 1em;
+            }
+        }
+
+        .ant-table {
+            .ant-table-thead {
+                height: 3.5rem;
+
+                .ant-table-cell {
+                    font-weight: bold;
+                }
+            }
+        }
+
+        .ant-table-pagination {
+            margin: 0 1em;
+        }
+    }
+}
+
+.searchPanel {
+    padding: 0;
+
+    display: grid;
+    grid-template-rows: 3.5rem auto;
+
+
+    :global {
+        .ant-card-head {
+            background-color: #fafafa;
+            padding-left: 1em;
+        }
+
+        .search-form-title {
+            span {
+                margin-left: 0.5rem;
+            }
+        }
+
+        .ant-card-body {
+            height: 100%;
+            padding: 1em;
+        }
+
+        form {
+            height: 100%;
+            display: grid;
+            grid-template-rows: auto 2.5rem;
+
+            label {
+                font-weight: bold;
+            };
+        }
+
+        .search-panel-actions {
+            .ant-form-item-control-input-content {
+                display: flex;
+                justify-content: space-between;
+            }
+        }
+    }
+}
+
+.drawerWrapper {
+    :global {
+        .ant-page-header {
+            padding: 0.5em;
+        }
+
+        .ant-card-body {
+            padding: 0;
+        }
+
+        .ant-drawer-body {
+            & > div {
+                height: 100%;
+            }
+
+            .ant-page-header {
+                height: 100%;
+                display: grid;
+                grid-template-rows: 2rem auto;
+            }
+
+            .ant-spin-nested-loading, .ant-spin-container {
+                height: 100%;
+            }
+
+        }
+
+        .ant-card {
+            height: 100%;
+            display: grid;
+            grid-template-rows: auto 2rem;
+        }
+
+        .ant-card-actions {
+            border: none;
+        }
+    }
+}

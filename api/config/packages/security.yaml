@@ -1,0 +1,70 @@
+security:
+    enable_authenticator_manager: true
+    # https://symfony.com/doc/current/security.html#registering-the-user-hashing-passwords
+    password_hashers:
+        Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface: 'auto'
+    # https://symfony.com/doc/current/security.html#loading-the-user-the-user-provider
+    providers:
+        auth_provider:
+            entity:
+                class: App\Auth\Domain\Model\User
+    #                property: email
+    
+    role_hierarchy:
+        ROLE_BOOKSTORE_TAGS: [ ROLE_BOOKSTORE_TAGS_CREATE, ROLE_BOOKSTORE_TAGS_LIST, ROLE_BOOKSTORE_TAGS_EDIT, ROLE_BOOKSTORE_TAGS_DELETE, ROLE_BOOKSTORE_TAGS_SHOW ]
+        ROLE_BOOKSTORE_BOOKS: [ ROLE_BOOKSTORE_BOOKS_CREATE, ROLE_BOOKSTORE_BOOKS_LIST, ROLE_BOOKSTORE_BOOKS_EDIT, ROLE_BOOKSTORE_BOOKS_DELETE, ROLE_BOOKSTORE_BOOKS_SHOW ]
+        ROLE_EDITOR: [ ROLE_BOOKSTORE_BOOKS, ROLE_BOOKSTORE_TAGS, ROLE_DASHBOARD_LIST ]
+        ROLE_ADMIN: [ ROLE_EDITOR ]
+        
+    
+    firewalls:
+        dev:
+            pattern: ^/(_(profiler|wdt)|css|images|js)/
+            security: false
+        
+        main:
+            stateless: true
+            entry_point: jwt
+            provider: auth_provider
+            json_login:
+                check_path: /token/auth
+                username_path: username
+                password_path: password
+                success_handler: lexik_jwt_authentication.handler.authentication_success
+                failure_handler: lexik_jwt_authentication.handler.authentication_failure
+            
+            logout:
+                path: token_logout
+            
+            jwt: ~
+            refresh_jwt:
+                check_path: /token/refresh
+            
+            #        main:
+            #            lazy: true
+            #            provider: users_in_memory
+
+            # activate different ways to authenticate
+            # https://symfony.com/doc/current/security.html#the-firewall
+
+            # https://symfony.com/doc/current/security/impersonating_user.html
+            # switch_user: true
+
+    # Easy way to control access for large sections of your site
+    # Note: Only the *first* access control that matches will be used
+    access_control:
+        - { path: ^/bookstore, roles: ROLE_EDITOR }
+        # - { path: ^/profile, roles: ROLE_USER }
+
+when@test:
+    security:
+        password_hashers:
+            # By default, password hashers are resource intensive and take time. This is
+            # important to generate secure password hashes. In tests however, secure hashes
+            # are not important, waste resources and increase test times. The following
+            # reduces the work factor to the lowest possible values.
+            Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface:
+                algorithm: auto
+                cost: 4 # Lowest possible value for bcrypt
+                time_cost: 3 # Lowest possible value for argon
+                memory_cost: 10 # Lowest possible value for argon

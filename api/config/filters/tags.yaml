@@ -1,0 +1,29 @@
+services:
+    _defaults:
+        autowire: false
+        autoconfigure: false
+        public: false
+    
+    tag.order_filter:
+        parent: 'api_platform.doctrine.orm.order_filter'
+        arguments:
+            $properties: { name: ~ }
+            $orderParameterName: order
+        tags: [ 'api_platform.filter' ]
+       
+    tag.text_filter:
+        parent: 'planb.doctrine.orm.text_filter'
+        arguments:
+            $properties: { name: ~}
+        tags: [ 'api_platform.filter' ]
+    
+    
+    planb.doctrine.orm.text_filter:
+        class: App\BookStore\Framework\Api\Filter\TextFilter
+        arguments:
+            $managerRegistry: '@doctrine'
+            $logger: '@?logger'
+            $properties: ~
+            $nameConverter: '@?api_platform.name_converter'
+
+        tags: [ 'api_platform.filter' ]     
