@@ -19,11 +19,11 @@ services:
     environment:
       DATABASE_URL: postgresql://${POSTGRES_USER}:${POSTGRES_PASSWORD}@database:5432/${POSTGRES_DB}?serverVersion=${POSTGRES_VERSION:-14}
       TRUSTED_PROXIES: ${TRUSTED_PROXIES:-127.0.0.0/8,10.0.0.0/8,172.16.0.0/12,192.168.0.0/16}
-      TRUSTED_HOSTS: ^api.${SERVER_NAME}|caddy|localhost$$
+      TRUSTED_HOSTS: ^${SERVER_NAME}|caddy|localhost$$
       MERCURE_URL: ${CADDY_MERCURE_URL:-http://caddy/.well-known/mercure}
       MERCURE_PUBLIC_URL: https://api.${SERVER_NAME}/.well-known/mercure
       MERCURE_JWT_SECRET: ${CADDY_MERCURE_JWT_SECRET}
-      CORS_ALLOW_ORIGIN: https://admin.${SERVER_NAME}|https://www.${SERVER_NAME}
+      CORS_ALLOW_ORIGIN: https://${SERVER_NAME}
       JWT_SECRET_KEY: '%kernel.project_dir%/config/jwt/private.pem'
       JWT_PUBLIC_KEY: '%kernel.project_dir%/config/jwt/public.pem'
       
@@ -47,8 +47,8 @@ services:
       - www
       - admin
     environment:
-#      WWW_UPSTREAM: www:3000
-#      ADMIN_UPSTREAM: admin:3000      
+      WWW_UPSTREAM: www:3000
+      ADMIN_UPSTREAM: admin:3000      
       SERVER_NAME: ${SERVER_NAME:-localhost}
       MERCURE_PUBLISHER_JWT_KEY: ${CADDY_MERCURE_JWT_SECRET}
       MERCURE_SUBSCRIBER_JWT_KEY: ${CADDY_MERCURE_JWT_SECRET}
@@ -95,7 +95,7 @@ services:
 
   admin:
     build:
-      context: admin.old
+      context: ./admin
       target: app_admin
     volumes:
       - ./admin:/usr/src/admin

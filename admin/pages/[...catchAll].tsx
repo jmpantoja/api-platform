@@ -26,19 +26,19 @@ export const getServerSideProps: GetServerSideProps<{}> = async (context) => {
     ["common"],
   );
 
-  if (!authenticated) {
-    return {
-      props: {
-        ...translateProps,
-      },
-      redirect: {
-        destination: `${redirectTo}?to=${encodeURIComponent(
-          context.req.url || "/"
-        )}`,
-        permanent: false,
-      },
-    };
-  }
+  // if (!authenticated) {
+  //   return {
+  //     props: {
+  //       ...translateProps,
+  //     },
+  //     redirect: {
+  //       destination: `${redirectTo}?to=${encodeURIComponent(
+  //         context.req.url || "/"
+  //       )}`,
+  //       permanent: false,
+  //     },
+  //   };
+  // }
 
   return {
     props: {

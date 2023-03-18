@@ -24,7 +24,8 @@ import {
   CategoryEdit
 } from "@components/crud";
 
-const API_URL = "https://api.fake-rest.refine.dev";
+// const API_URL = "https://api.fake-rest.refine.dev";
+const API_URL = "https://www.prueba.local/api";
 
 
 export type NextPageWithLayout<P = {}, IP = P> = NextPage<P, IP> & {
@@ -65,28 +66,48 @@ function MyApp({Component, pageProps}: AppPropsWithLayout): JSX.Element {
             dataProvider={dataProvider(API_URL)}
             notificationProvider={notificationProvider}
             resources={[
+              // {
+              //   name: "products",
+              //   list: {
+              //     path: "/products",
+              //     component: ProductList
+              //   },
+              //   create: {
+              //     path: "/products/create",
+              //     component: ProductCreate
+              //   },
+              //   edit: {
+              //     path: "/products/edit/:id",
+              //     component: ProductEdit
+              //   },
+              //   show: {
+              //     path: "/products/show/:id",
+              //     component: ProductShow
+              //   },
+              //   canDelete: true,
+              // },
+              // {
+              //   name: "categories",
+              //   list: {
+              //     path: "/categories",
+              //     component: CategoryList
+              //   },
+              //   create: {
+              //     path: "/categories/create",
+              //     component: CategoryCreate
+              //   },
+              //   edit: {
+              //     path: "/categories/edit/:id",
+              //     component: CategoryEdit
+              //   },
+              //   show: {
+              //     path: "/categories/show/:id",
+              //     component: CategoryShow
+              //   },
+              //   canDelete: true,
+              // },
               {
-                name: "products",
-                list: {
-                  path: "/products",
-                  component: ProductList
-                },
-                create: {
-                  path: "/products/create",
-                  component: ProductCreate
-                },
-                edit: {
-                  path: "/products/edit/:id",
-                  component: ProductEdit
-                },
-                show: {
-                  path: "/products/show/:id",
-                  component: ProductShow
-                },
-                canDelete: true,
-              },
-              {
-                name: "categories",
+                name: "bookstore/tags",
                 list: {
                   path: "/categories",
                   component: CategoryList
@@ -105,6 +126,7 @@ function MyApp({Component, pageProps}: AppPropsWithLayout): JSX.Element {
                 },
                 canDelete: true,
               },
+
             ]}
             authProvider={authProvider}
             i18nProvider={i18nProvider}
