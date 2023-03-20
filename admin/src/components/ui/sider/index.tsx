@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, {useState} from "react";
 import {
   ITreeMenu,
   CanAccess,
@@ -8,25 +8,29 @@ import {
   useLogout,
   useMenu,
 } from "@refinedev/core";
-// import { Link } from "react-router-dom";
-import { Sider as AntdSider } from "@refinedev/antd";
-import { Layout as AntdLayout, Menu, Grid } from "antd";
+
+import {Sider as AntdSider} from "@refinedev/antd";
+import {Layout as AntdLayout, Menu, Grid} from "antd";
+import Image from 'next/image'
+
 import {
   DashboardOutlined,
   LogoutOutlined,
   UnorderedListOutlined,
 } from "@ant-design/icons";
-import { antLayoutSider, antLayoutSiderMobile } from "./styles";
+import {antLayoutSider, antLayoutSiderMobile} from "./styles";
 import Link from "next/link";
+import Icon from "@components/ui/icon";
 
-export const Sider: typeof AntdSider = ({ render }) => {
+
+export const Sider: typeof AntdSider = ({render}) => {
   const [collapsed, setCollapsed] = useState<boolean>(false);
   const isExistAuthentication = useIsExistAuthentication();
-  const { mutate: mutateLogout } = useLogout();
+  const {mutate: mutateLogout} = useLogout();
   const translate = useTranslate();
-  const { menuItems, selectedKey, defaultOpenKeys } = useMenu();
-  const { hasDashboard } = useRefineContext();
-  const { SubMenu } = Menu;
+  const {menuItems, selectedKey, defaultOpenKeys} = useMenu();
+  const {hasDashboard} = useRefineContext();
+  const {SubMenu} = Menu;
 
   const breakpoint = Grid.useBreakpoint();
 
@@ -50,7 +54,7 @@ export const Sider: typeof AntdSider = ({ render }) => {
         return (
           <SubMenu
             key={route}
-            icon={icon ?? <UnorderedListOutlined />}
+            icon={icon ?? <UnorderedListOutlined/>}
             title={label}
           >
             {renderTreeView(children, selectedKey)}
@@ -67,18 +71,18 @@ export const Sider: typeof AntdSider = ({ render }) => {
           key={route}
           resource={name.toLowerCase()}
           action="list"
-          params={{ resource: item }}
+          params={{resource: item}}
         >
           <Menu.Item
             key={route}
             style={{
               fontWeight: isSelected ? "bold" : "normal",
             }}
-            icon={icon ?? (isRoute && <UnorderedListOutlined />)}
+            icon={icon ?? (isRoute && <UnorderedListOutlined/>)}
           >
             {route ? <Link href={route}>{label}</Link> : label}
             {!collapsed && isSelected && (
-              <div className="ant-menu-tree-arrow" />
+              <div className="ant-menu-tree-arrow"/>
             )}
           </Menu.Item>
         </CanAccess>
@@ -90,7 +94,7 @@ export const Sider: typeof AntdSider = ({ render }) => {
     <Menu.Item
       key="logout"
       onClick={() => mutateLogout()}
-      icon={<LogoutOutlined />}
+      icon={<LogoutOutlined/>}
     >
       {translate("buttons.logout", "Logout")}
     </Menu.Item>
@@ -102,11 +106,11 @@ export const Sider: typeof AntdSider = ({ render }) => {
       style={{
         fontWeight: selectedKey === "/" ? "bold" : "normal",
       }}
-      icon={<DashboardOutlined />}
+      icon={<DashboardOutlined/>}
     >
       <Link href="/">{translate("dashboard.title", "Dashboard")}</Link>
       {!collapsed && selectedKey === "/" && (
-        <div className="ant-menu-tree-arrow" />
+        <div className="ant-menu-tree-arrow"/>
       )}
     </Menu.Item>
   ) : null;
@@ -142,25 +146,16 @@ export const Sider: typeof AntdSider = ({ render }) => {
     >
       <Link href="/">
         {collapsed ? (
-          <img
-            src="/images/refine-collapsed.svg"
-            alt="Refine"
-            style={{
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              padding: "12px 24px",
-            }}
-          />
+          <Icon.LogoMini style={{
+            padding: "12px 24px"
+          }}/>
         ) : (
-          <img
-            src="/images/refine.svg"
-            alt="Refine"
-            style={{
+          <>
+            <Icon.Logo style={{
               width: "200px",
-              padding: "12px 24px",
-            }}
-          />
+              padding: "12px 24px"
+            }}/>
+          </>
         )}
       </Link>
       <Menu
