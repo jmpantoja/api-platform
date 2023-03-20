@@ -6,13 +6,13 @@ import {RefineKbar, RefineKbarProvider} from "@refinedev/kbar";
 import {Layout, notificationProvider} from '@refinedev/antd';
 import routerProvider, {UnsavedChangesNotifier} from "@refinedev/nextjs-router";
 
-import dataProvider from "@refinedev/simple-rest";
+// import dataProvider from "@refinedev/simple-rest";
 import "@refinedev/antd/dist/reset.css";
 
 import {appWithTranslation, useTranslation} from "next-i18next";
 import {Header, Sider} from "@components/ui"
 import {ColorModeContextProvider} from "@contexts";
-import {authProvider} from "@planb/provider";
+import {authProvider, dataProvider} from "@planb/provider";
 import {
   ProductCreate,
   ProductEdit,
@@ -109,19 +109,19 @@ function MyApp({Component, pageProps}: AppPropsWithLayout): JSX.Element {
               {
                 name: "bookstore/tags",
                 list: {
-                  path: "/categories",
+                  path: "/tags",
                   component: CategoryList
                 },
                 create: {
-                  path: "/categories/create",
+                  path: "/tags/create",
                   component: CategoryCreate
                 },
                 edit: {
-                  path: "/categories/edit/:id",
+                  path: "/tags/edit/:id",
                   component: CategoryEdit
                 },
                 show: {
-                  path: "/categories/show/:id",
+                  path: "/tags/show/:id",
                   component: CategoryShow
                 },
                 canDelete: true,
