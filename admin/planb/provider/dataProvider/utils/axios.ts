@@ -1,9 +1,11 @@
 import { HttpError } from "@refinedev/core";
 import axios from "axios";
 
-const axiosInstance = axios.create();
+const apiClient = axios.create({
+  baseURL: 'http://127.0.0.1:8000/api'
+});
 
-axiosInstance.interceptors.response.use(
+apiClient.interceptors.response.use(
     (response) => {
         return response;
     },
@@ -18,4 +20,4 @@ axiosInstance.interceptors.response.use(
     },
 );
 
-export { axiosInstance };
+export { apiClient };

@@ -2,14 +2,16 @@ import type {AxiosInstance, AxiosRequestConfig} from "axios";
 import {stringify} from "query-string";
 
 import {DataProvider} from "@refinedev/core";
-import {axiosInstance, generateQuery} from "./utils";
+import {generateQuery} from "./utils";
+import {apiClient} from './axios'
 
 
 export const dataProvider = (
   apiUrl: string,
-  httpClient: AxiosInstance = axiosInstance,
+  httpClient: AxiosInstance = apiClient,
 ): DataProvider => ({
   getList: async ({resource, pagination, filters, sorters}) => {
+
     const query = generateQuery({
       filters,
       sorters,
