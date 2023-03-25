@@ -6,26 +6,13 @@ import {RefineKbar, RefineKbarProvider} from "@refinedev/kbar";
 import {Layout, notificationProvider} from '@refinedev/antd';
 import routerProvider, {UnsavedChangesNotifier} from "@refinedev/nextjs-router";
 
-// import dataProvider from "@refinedev/simple-rest";
 import "@refinedev/antd/dist/reset.css";
 
 import {appWithTranslation, useTranslation} from "next-i18next";
 import {Header, Sider} from "@components/ui"
 import {ColorModeContextProvider} from "@contexts";
 import {authProvider, dataProvider} from "@planb/provider";
-import {
-  ProductCreate,
-  ProductEdit,
-  ProductList,
-  ProductShow,
-  CategoryList,
-  CategoryCreate,
-  CategoryShow,
-  CategoryEdit
-} from "@components/crud";
-
-// const API_URL = "https://api.fake-rest.refine.dev";
-const API_URL = "https://www.prueba.local/api";
+import {CategoryCreate, CategoryEdit, CategoryList, CategoryShow} from "@components/crud";
 
 
 export type NextPageWithLayout<P = {}, IP = P> = NextPage<P, IP> & {
@@ -63,7 +50,7 @@ function MyApp({Component, pageProps}: AppPropsWithLayout): JSX.Element {
         <ColorModeContextProvider>
           <Refine
             routerProvider={routerProvider}
-            dataProvider={dataProvider(API_URL)}
+            dataProvider={dataProvider()}
             notificationProvider={notificationProvider}
             resources={[
               // {
@@ -109,19 +96,19 @@ function MyApp({Component, pageProps}: AppPropsWithLayout): JSX.Element {
               {
                 name: "bookstore/tags",
                 list: {
-                  path: "/tags",
+                  path: "bookstore/tags",
                   component: CategoryList
                 },
                 create: {
-                  path: "/tags/create",
+                  path: "bookstore/tags/create",
                   component: CategoryCreate
                 },
                 edit: {
-                  path: "/tags/edit/:id",
+                  path: "bookstore/tags/edit/:id",
                   component: CategoryEdit
                 },
                 show: {
-                  path: "/tags/show/:id",
+                  path: "bookstore/tags/show/:id",
                   component: CategoryShow
                 },
                 canDelete: true,

@@ -6,12 +6,18 @@ namespace App\Auth\Framework\Api\OpenApi;
 use ApiPlatform\OpenApi\Factory\OpenApiFactoryInterface;
 use ApiPlatform\OpenApi\OpenApi;
 use ApiPlatform\OpenApi\Model;
+use Symfony\Component\Routing\RouterInterface;
 
 final class JwtDecorator implements OpenApiFactoryInterface
 {
-    public function __construct(
-        private OpenApiFactoryInterface $decorated
-    ) {}
+    private OpenApiFactoryInterface $decorated;
+    private RouterInterface $router;
+
+    public function __construct(OpenApiFactoryInterface $decorated, RouterInterface $router)
+    {
+        $this->decorated = $decorated;
+        $this->router = $router;
+    }
 
     public function __invoke(array $context = []): OpenApi
     {
@@ -79,7 +85,9 @@ final class JwtDecorator implements OpenApiFactoryInterface
                 security: [],
             ),
         );
-        $openApi->getPaths()->addPath('/token/auth', $pathItem);
+
+        $path = $this->router->generate('authentication_token');
+        $openApi->getPaths()->addPath($path, $pathItem);
 
         return $openApi;
     }

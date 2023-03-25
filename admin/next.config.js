@@ -15,5 +15,5 @@ module.exports = {
     '@ant-design/pro-provider',
     'rc-pagination',
     'rc-picker'
-  ],
+  ]
 };

@@ -2,13 +2,10 @@ import type {AxiosInstance, AxiosRequestConfig} from "axios";
 import {stringify} from "query-string";
 
 import {DataProvider} from "@refinedev/core";
-import {generateQuery} from "./utils";
-import {apiClient} from './axios'
-
+import {generateQuery, proxy} from "./utils";
 
 export const dataProvider = (
-  apiUrl: string,
-  httpClient: AxiosInstance = apiClient,
+  httpClient: AxiosInstance = proxy,
 ): DataProvider => ({
   getList: async ({resource, pagination, filters, sorters}) => {
 
@@ -18,7 +15,7 @@ export const dataProvider = (
       pagination,
     })
 
-    const url = `${apiUrl}/${resource}?${query}`;
+    const url = `${resource}?${query}`;
     const {data} = await httpClient.get(url);
 
     return {
@@ -28,7 +25,7 @@ export const dataProvider = (
   },
 
   getMany: async ({resource, ids}) => {
-    const url = `${apiUrl}/${resource}?${stringify({id: ids})}`;
+    const url = `${resource}?${stringify({id: ids})}`;
     const {data} = await httpClient.get(url);
 
     return {
@@ -38,7 +35,7 @@ export const dataProvider = (
   },
 
   create: async ({resource, variables}) => {
-    const url = `${apiUrl}/${resource}`;
+    const url = `${resource}`;
     const {data} = await httpClient.post(url, variables);
 
     return {
@@ -49,7 +46,7 @@ export const dataProvider = (
   createMany: async ({resource, variables}) => {
     const response = await Promise.all(
       variables.map(async (param) => {
-        const url = `${apiUrl}/${resource}`;
+        const url = `${resource}`;
         const {data} = await httpClient.post(url, param);
         return data;
       }),
@@ -59,7 +56,7 @@ export const dataProvider = (
   },
 
   update: async ({resource, id, variables}) => {
-    const url = `${apiUrl}/${resource}/${id}`;
+    const url = `${resource}/${id}`;
     const {data} = await httpClient.put(url, variables);
 
     return {
@@ -70,7 +67,7 @@ export const dataProvider = (
   updateMany: async ({resource, ids, variables}) => {
     const response = await Promise.all(
       ids.map(async (id) => {
-        const url = `${apiUrl}/${resource}/${id}`;
+        const url = `${resource}/${id}`;
         const {data} = await httpClient.patch(url, variables);
         return data;
       }),
@@ -80,7 +77,7 @@ export const dataProvider = (
   },
 
   getOne: async ({resource, id}) => {
-    const url = `${apiUrl}/${resource}/${id}`;
+    const url = `${resource}/${id}`;
     const {data} = await httpClient.get(url);
 
     return {
@@ -89,7 +86,7 @@ export const dataProvider = (
   },
 
   deleteOne: async ({resource, id, variables}) => {
-    const url = `${apiUrl}/${resource}/${id}`;
+    const url = `${resource}/${id}`;
     const {data} = await httpClient.delete(url, (variables as AxiosRequestConfig));
 
     return {
@@ -100,7 +97,7 @@ export const dataProvider = (
   deleteMany: async ({resource, ids, variables}) => {
     const response = await Promise.all(
       ids.map(async (id) => {
-        const url = `${apiUrl}/${resource}/${id}`;
+        const url = `${resource}/${id}`;
         const {data} = await httpClient.delete(url, (variables as AxiosRequestConfig));
         return data;
       }),
@@ -109,7 +106,7 @@ export const dataProvider = (
   },
 
   getApiUrl: () => {
-    return `${apiUrl}`;
+    return ``;
   },
 
   // custom: async ({url, method, filters, sort, payload, query, headers}) => {

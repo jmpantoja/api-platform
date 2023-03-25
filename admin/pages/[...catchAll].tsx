@@ -1,9 +1,10 @@
 import {ErrorComponent} from "@refinedev/antd";
 import {GetServerSideProps} from "next";
-import {authProvider} from "src/authProvider";
+import {authProvider} from "@planb/provider";
 import {serverSideTranslations} from "next-i18next/serverSideTranslations";
-import {useResource} from "@refinedev/core";
+import {Authenticated, useResource} from "@refinedev/core";
 import {ResourceRouteDefinition} from "@refinedev/core/dist/interfaces/bindings/resource"
+import axios from "axios";
 
 export default function CatchAll() {
   const {resource, action} = useResource()
@@ -26,19 +27,20 @@ export const getServerSideProps: GetServerSideProps<{}> = async (context) => {
     ["common"],
   );
 
-  // if (!authenticated) {
-  //   return {
-  //     props: {
-  //       ...translateProps,
-  //     },
-  //     redirect: {
-  //       destination: `${redirectTo}?to=${encodeURIComponent(
-  //         context.req.url || "/"
-  //       )}`,
-  //       permanent: false,
-  //     },
-  //   };
-  // }
+  if (!authenticated) {
+    return {
+      props: {
+        ...translateProps,
+      },
+      redirect: {
+        // destination: `${redirectTo}?to=${encodeURIComponent(
+        //   context.req.url || "/"
+        // )}`,
+        destination: redirectTo,
+        permanent: false,
+      },
+    };
+  }
 
   return {
     props: {

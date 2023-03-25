@@ -1,23 +1,18 @@
 import React, {useState} from "react";
 import {
-  ITreeMenu,
   CanAccess,
-  useRefineContext,
+  ITreeMenu,
   useIsExistAuthentication,
-  useTranslate,
   useLogout,
   useMenu,
+  useRefineContext,
+  useTranslate,
 } from "@refinedev/core";
 
 import {Sider as AntdSider} from "@refinedev/antd";
-import {Layout as AntdLayout, Menu, Grid} from "antd";
-import Image from 'next/image'
+import {Grid, Layout as AntdLayout, Menu} from "antd";
 
-import {
-  DashboardOutlined,
-  LogoutOutlined,
-  UnorderedListOutlined,
-} from "@ant-design/icons";
+import {DashboardOutlined, LogoutOutlined, UnorderedListOutlined,} from "@ant-design/icons";
 import {antLayoutSider, antLayoutSiderMobile} from "./styles";
 import Link from "next/link";
 import Icon from "@components/ui/icon";
@@ -118,19 +113,19 @@ export const Sider: typeof AntdSider = ({render}) => {
   const items = renderTreeView(menuItems, selectedKey);
 
   const renderSider = () => {
-    if (render) {
-      return render({
-        dashboard,
-        items,
-        logout,
-        collapsed,
-      });
-    }
+    // if (render) {
+    //   return render({
+    //     dashboard,
+    //     items,
+    //     logout,
+    //     collapsed,
+    //   });
+    // }
     return (
       <>
         {dashboard}
         {items}
-        {/*{logout}*/}
+        {logout}
       </>
     );
   };

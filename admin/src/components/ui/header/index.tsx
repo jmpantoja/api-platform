@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import {useContext} from "react";
 import {
   useGetLocale,
   useSetLocale,
@@ -14,25 +14,25 @@ import {
   Typography,
   Switch,
 } from "antd";
-import { DownOutlined } from "@ant-design/icons";
-import { useRouter } from "next/router";
+import {DownOutlined} from "@ant-design/icons";
+import {useRouter} from "next/router";
 import Link from "next/link";
 
-import { ColorModeContext } from "@contexts";
+import {ColorModeContext} from "@contexts";
 
-const { Text } = Typography;
+const {Text} = Typography;
 
- interface IUser {
-    name: string;
-    avatar: string;
-  }
+interface IUser {
+  username: string;
+  avatar: string;
+}
 
 export const Header: React.FC = () => {
   const locale = useGetLocale();
-  const { locales } = useRouter();
+  const {locales} = useRouter();
   const currentLocale = locale();
-  const { data: user } = useGetIdentity<IUser>();
-  const { mode, setMode } = useContext(ColorModeContext);
+  const {data: user} = useGetIdentity<IUser>();
+  const {mode, setMode} = useContext(ColorModeContext);
 
   const menu = (
     <Menu selectedKeys={currentLocale ? [currentLocale] : []}>
@@ -40,8 +40,8 @@ export const Header: React.FC = () => {
         <Menu.Item
           key={lang}
           icon={
-            <span style={{ marginRight: 8 }}>
-              <Avatar size={16} src={`/images/flags/${lang}.svg`} />
+            <span style={{marginRight: 8}}>
+              <Avatar size={16} src={`/images/flags/${lang}.svg`}/>
             </span>
           }
         >
@@ -72,19 +72,19 @@ export const Header: React.FC = () => {
       <Dropdown overlay={menu}>
         <Button type="link">
           <Space>
-            <Avatar size={16} src={`/images/flags/${currentLocale}.svg`} />
+            <Avatar size={16} src={`/images/flags/${currentLocale}.svg`}/>
             {currentLocale === "en" ? "English" : "German"}
-            <DownOutlined />
+            <DownOutlined/>
           </Space>
         </Button>
       </Dropdown>
-      <Space style={{ marginLeft: "8px" }}>
-        {user?.name && (
-          <Text style={{ color: "white" }} strong>
-            {user.name}
+      <Space style={{marginLeft: "8px"}}>
+        {user?.username && (
+          <Text style={{color: "white"}} strong>
+            {user.username}
           </Text>
         )}
-        {user?.avatar && <Avatar src={user?.avatar} alt={user?.name} />}
+        {user?.avatar && <Avatar src={user?.avatar} alt={user?.username}/>}
       </Space>
     </AntdLayout.Header>
   );

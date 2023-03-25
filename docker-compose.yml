@@ -29,15 +29,6 @@ services:
       
       JWT_PASSPHRASE: 41ab70f93ddb0f6c381061aedb9de89f
       
-      #    
-      #  pwa:
-      #    build:
-      #      context: ./pwa
-      #      target: app_pwa      
-      #    environment:
-      #      API_PLATFORM_CLIENT_GENERATOR_ENTRYPOINT: http://caddy
-      #      NEXT_PUBLIC_ENTRYPOINT: http://caddy
-  
   caddy:
     build:
       context: api/
@@ -100,12 +91,11 @@ services:
     volumes:
       - ./admin:/usr/src/admin
       
-#    environment:
-#      API_PLATFORM_CLIENT_GENERATOR_ENTRYPOINT: http://caddy
-#      NEXT_PUBLIC_ENTRYPOINT: http://caddy
+    environment:
+      SERVER_NAME: ${SERVER_NAME:-localhost}
 
 
-
+  
 # Mercure is installed as a Caddy module, prevent the Flex recipe from installing another service
 ###> symfony/mercure-bundle ###
 ###< symfony/mercure-bundle ###

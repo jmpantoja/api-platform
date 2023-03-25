@@ -1,2 +1,3 @@
 export {generateQuery} from './generateQuery'
-export {axiosInstance} from './axios'
+export {proxy} from './proxy'
+export {backend} from './backend'

@@ -3,11 +3,11 @@ kernel:
     type: annotation
 
 authentication_token:
-    path: /token/auth
+    path: /api/token/auth
     methods: ['POST']
 
 gesdinet_jwt_refresh_token:
-    path: /token/refresh
+    path: /api/token/refresh
 
 token_logout:
-    path: /token/logout
+    path: /api/token/logout

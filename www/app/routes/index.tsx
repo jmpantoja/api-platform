@@ -5,7 +5,7 @@ export default function Index() {
 
 
   useEffect(() => {
-    const url = new URL('https://api.prueba.local/.well-known/mercure?topic=kokoloco')
+    const url = new URL('https://www.prueba.local/.well-known/mercure?topic=kokoloco')
     const eventSource = new EventSource(url)
     eventSource.onmessage = (event) => {
       const data = JSON.parse(event.data);
