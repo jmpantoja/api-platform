@@ -1,7 +1,7 @@
 import React from "react";
 import {useLogin} from "@refinedev/core";
 import {Button, Card, Col, Form, Input, Layout as AntdLayout, Row, Typography, theme} from "antd";
-import Icon from "@components/ui/icon";
+import Icon from "@components/icon";
 import {serialize} from 'cookie'
 
 

@@ -54,6 +54,12 @@ export const ColorModeContextProvider: React.FC<PropsWithChildren> = ({
           algorithm: mode === "light" ? defaultAlgorithm : darkAlgorithm,
           token: {
             colorPrimary: '#FA541C'
+          },
+          components: {
+            Menu: {
+              colorItemText: "#fff",
+              radiusItem: 5,
+            }
           }
         }}
       >

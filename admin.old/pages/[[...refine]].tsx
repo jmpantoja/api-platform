@@ -2,9 +2,7 @@ import {GetServerSideProps} from "next";
 import {checkAuthentication, handleRefineParams, NextRouteComponent,} from "@pankod/refine-nextjs-router";
 import {authProvider} from "@planb/provider/authProvider";
 import {serverSideTranslations} from "next-i18next/serverSideTranslations";
-import dataProvider, {backend} from "@planb/provider/dataProvider";
 import axios from "axios";
-import {API_URL} from "~/config";
 
 
 const http = axios.create({

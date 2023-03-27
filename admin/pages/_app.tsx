@@ -9,7 +9,7 @@ import routerProvider, {UnsavedChangesNotifier} from "@refinedev/nextjs-router";
 import "@refinedev/antd/dist/reset.css";
 
 import {appWithTranslation, useTranslation} from "next-i18next";
-import {Header, Sider} from "@components/ui"
+import {Header, Sider} from "@components/layout"
 import {ColorModeContextProvider} from "@contexts";
 import {authProvider, dataProvider} from "@planb/provider";
 import {CategoryCreate, CategoryEdit, CategoryList, CategoryShow} from "@components/crud";
@@ -30,7 +30,7 @@ function MyApp({Component, pageProps}: AppPropsWithLayout): JSX.Element {
     }
 
     return (
-      <Layout Header={Header} Sider={Sider}>
+      <Layout Header={Header} Sider={Sider} Footer={()=><></>}>
         <Component {...pageProps} />
       </Layout>
     );
@@ -53,46 +53,10 @@ function MyApp({Component, pageProps}: AppPropsWithLayout): JSX.Element {
             dataProvider={dataProvider()}
             notificationProvider={notificationProvider}
             resources={[
-              // {
-              //   name: "products",
-              //   list: {
-              //     path: "/products",
-              //     component: ProductList
-              //   },
-              //   create: {
-              //     path: "/products/create",
-              //     component: ProductCreate
-              //   },
-              //   edit: {
-              //     path: "/products/edit/:id",
-              //     component: ProductEdit
-              //   },
-              //   show: {
-              //     path: "/products/show/:id",
-              //     component: ProductShow
-              //   },
-              //   canDelete: true,
-              // },
-              // {
-              //   name: "categories",
-              //   list: {
-              //     path: "/categories",
-              //     component: CategoryList
-              //   },
-              //   create: {
-              //     path: "/categories/create",
-              //     component: CategoryCreate
-              //   },
-              //   edit: {
-              //     path: "/categories/edit/:id",
-              //     component: CategoryEdit
-              //   },
-              //   show: {
-              //     path: "/categories/show/:id",
-              //     component: CategoryShow
-              //   },
-              //   canDelete: true,
-              // },
+              {
+                name: 'dashboard',
+                list: '/dashboard'
+              },
               {
                 name: "bookstore/tags",
                 list: {
@@ -111,8 +75,35 @@ function MyApp({Component, pageProps}: AppPropsWithLayout): JSX.Element {
                   path: "bookstore/tags/show/:id",
                   component: CategoryShow
                 },
-                canDelete: true,
-              },
+
+                meta: {
+                  canDelete: true,
+                  parent: 'group'
+                }
+              }, {
+                name: "bookstore/tags",
+                list: {
+                  path: "bookstore/tags1",
+                  component: CategoryList
+                },
+                create: {
+                  path: "bookstore/tags1/create",
+                  component: CategoryCreate
+                },
+                edit: {
+                  path: "bookstore/tags1/edit/:id",
+                  component: CategoryEdit
+                },
+                show: {
+                  path: "bookstore/tags1/show/:id",
+                  component: CategoryShow
+                },
+
+                meta: {
+                  canDelete: true,
+                  parent: 'group'
+                }
+              }
 
             ]}
             authProvider={authProvider}
