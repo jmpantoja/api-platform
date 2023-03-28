@@ -1,142 +1,140 @@
 {
   "pages": {
     "login": {
-      "title": "Melden Sie sich bei Ihrem Konto an",
-      "signin": "Einloggen",
-      "signup": "Anmelden",
-      "divider": "oder",
+      "title": "Accede con tu cuenta",
+      "signin": "Acceder",
+      "signup": "Registro",
+      "divider": "o",
       "fields": {
         "email": "Email",
-        "password": "Passwort"
+        "password": "Contraseña"
       },
       "errors": {
-        "validEmail": "Ungültige E-Mail-Adresse"
+        "validEmail": "El email no es correcto"
       },
       "buttons": {
-        "submit": "Anmeldung",
-        "forgotPassword": "Passwort vergessen?",
-        "noAccount": "Sie haben kein Konto?",
-        "rememberMe": "Erinnere dich an mich"
+        "submit": "Login",
+        "forgotPassword": "¿Olvidaste la contraseña?",
+        "noAccount": "¿No tienes cuenta?",
+        "rememberMe": "Recuerdame"
       }
     },
     "forgotPassword": {
-      "title": "Haben Sie Ihr Passwort vergessen?",
+      "title": "¿Olvidaste la contraseña??",
       "fields": {
         "email": "Email"
       },
       "errors": {
-        "validEmail": "Ungültige E-Mail-Adresse"
+        "validEmail": "El email no es correcto"
       },
       "buttons": {
-        "submit": "Anweisungen zum Zurücksetzen senden"
+        "submit": "Enviar instrucciones de restablecimiento"
       }
     },
     "register": {
-      "title": "Registrieren Sie sich für Ihr Konto",
+      "title": "Regístrese para obtener su cuenta",
       "fields": {
         "email": "Email",
-        "password": "Passwort"
+        "password": "Contraseña"
       },
       "errors": {
-        "validEmail": "Ungültige E-Mail-Adresse"
+        "validEmail": "El email no es correcto"
       },
       "buttons": {
-        "submit": "Registrieren",
-        "haveAccount": "Ein Konto haben?"
+        "submit": "Registrarse",
+        "haveAccount": "¿Tienes una cuenta?"
       }
     },
     "updatePassword": {
-      "title": "Kennwort aktualisieren",
+      "title": "Actualizar contraseña",
       "fields": {
-        "password": "Neues Passwort",
-        "confirmPassword": "Bestätige neues Passwort"
+        "password": "Nueva contraseña",
+        "confirmPassword": "Confirmar nueva contraseña"
       },
       "errors": {
-        "confirmPasswordNotMatch": "Passwörter stimmen nicht überein"
+        "confirmPasswordNotMatch": "Las contraseñas no coinciden"
       },
       "buttons": {
-        "submit": "Aktualisieren"
+        "submit": "Actualizar"
       }
     },
     "error": {
-      "info": "Sie haben vergessen, {{action}} component zu {{resource}} hinzufügen.",
-      "404": "Leider existiert diese Seite nicht.",
-      "resource404": "Haben Sie die {{resource}} resource erstellt?",
-      "backHome": "Zurück"
+      "info": "Puede que hayas olvidado añadir el componente {{action}} al recurso {{resource}}.",
+      "404": "Lo sentimos, la página que ha visitado no existe.",
+      "resource404": "¿Está seguro de haber creado el recurso {{resource}}?.",
+      "backHome": "Volver al inicio"
     }
   },
   "actions": {
-    "list": "Aufführen",
-    "create": "Erstellen",
-    "edit": "Bearbeiten",
-    "show": "Zeigen"
+    "list": "Lista",
+    "create": "Crear",
+    "edit": "Editar",
+    "show": "Mostrar"
   },
   "buttons": {
-    "create": "Erstellen",
-    "save": "Speichern",
-    "logout": "Abmelden",
-    "delete": "Löschen",
-    "edit": "Bearbeiten",
-    "cancel": "Abbrechen",
-    "confirm": "Sicher?",
-    "filter": "Filter",
-    "clear": "Löschen",
-    "refresh": "Erneuern",
-    "show": "Zeigen",
-    "undo": "Undo",
-    "import": "Importieren",
-    "clone": "Klon",
-    "notAccessTitle": "Sie haben keine zugriffsberechtigung"
+    "create": "Crear",
+    "save": "Guardar",
+    "logout": "Cerrar sesión",
+    "delete": "Borrar",
+    "edit": "Editar",
+    "cancel": "Cancelar",
+    "confirm": "¿Estas seguro?",
+    "filter": "Filtro",
+    "clear": "Limpiar",
+    "refresh": "Refrescar",
+    "show": "Mostrar",
+    "undo": "Deshacer",
+    "import": "Importar",
+    "clone": "Clonar",
+    "notAccessTitle": "No tienes permiso para acceder"
   },
-  "warnWhenUnsavedChanges": "Nicht gespeicherte Änderungen werden nicht übernommen.",
+  "warnWhenUnsavedChanges": "¿Estás seguro de que quieres irte? Tienes cambios sin guardar",
   "notifications": {
-    "success": "Erfolg",
-    "error": "Fehler (status code: {{statusCode}})",
-    "undoable": "Sie haben {{seconds}} Sekunden Zeit für Undo.",
-    "createSuccess": "{{resource}} erfolgreich erstellt.",
-    "createError": "Fehler beim Erstellen {{resource}} (status code: {{statusCode}})",
-    "deleteSuccess": "{{resource}} erfolgreich gelöscht.",
-    "deleteError": "Fehler beim Löschen {{resource}} (status code: {{statusCode}})",
-    "editSuccess": "{{resource}} erfolgreich bearbeitet.",
-    "editError": "Fehler beim Bearbeiten {{resource}} (status code: {{statusCode}})",
-    "importProgress": "{{processed}}/{{total}} importiert"
+    "success": "Exito",
+    "error": "Error (status code: {{statusCode}})",
+    "undoable": "Tienes {{seconds}} segundos para deshacer",
+    "createSuccess": "Creado con éxito {{resource}}",
+    "createError": "Se ha producido un error al crear {{resource}} (status code: {{statusCode}})",
+    "deleteSuccess": "Eliminado con éxito {{resource}}",
+    "deleteError": "Error al eliminar {{resource}} (status code: {{statusCode}})",
+    "editSuccess": "Editado con éxito {{resource}}",
+    "editError": "Error al editar {{resource}} (status code: {{statusCode}})",
+    "importProgress": "Importandoo: {{processed}}/{{total}}"
   },
-  "loading": "Wird geladen",
+  "loading": "Cargando",
   "tags": {
-    "clone": "Klon"
+    "clone": "Clonar"
   },
   "dashboard": {
-    "title": "Dashboard"
-  },
-  "bookstore/tags": {
-    "products": "Produkte",
-    "fields": {
-      "id": "Id",
-      "title": "Titel",
-      "createdAt": "Erstellt am"
-    },
+    "dashboard": "Escritorio",
     "titles": {
-      "create": "Erstellen",
-      "edit": "Bearbeiten",
-      "list": "Einträge",
-      "show": "Eintrag zeigen"
+      "list": "Escritorio"
     }
   },
-  "categories": {
-    "categories": "Kategorien",
+  "locale":{
+    "es": "Español",
+    "en": "English"
+  },
+  "bookstore": {
+    "titles": {
+      "list": "Librería"
+    }
+  },
+  "bookstore/tags": {
+    "tags": "Etiquetas",
     "fields": {
       "id": "Id",
-      "title": "Titel",
-      "createdAt": "Erstellt am"
+      "title": "Título",
+      "createdAt": "Creado el"
     },
     "titles": {
-      "create": "Erstellen",
-      "edit": "Bearbeiten",
-      "list": "Einträge",
-      "show": "Eintrag zeigen"
+      "create": "Crear Etiqueta",
+      "edit": "Editar Etiqueta",
+      "list": "Etiquetas",
+      "show": "Mostar Etiqueta"
     }
   },
   "table": {
-    "actions": "Aktionen"
+    "actions": "Acciones"
   }
 }

@@ -12,7 +12,8 @@ import {appWithTranslation, useTranslation} from "next-i18next";
 import {Header, Sider} from "@components/layout"
 import {ColorModeContextProvider} from "@contexts";
 import {authProvider, dataProvider} from "@planb/provider";
-import {CategoryCreate, CategoryEdit, CategoryList, CategoryShow} from "@components/crud";
+import {TagCreate, TagEdit, TagList, TagShow} from "@components/crud";
+import Dashboard from "@components/dashboard";
 
 
 export type NextPageWithLayout<P = {}, IP = P> = NextPage<P, IP> & {
@@ -30,14 +31,13 @@ function MyApp({Component, pageProps}: AppPropsWithLayout): JSX.Element {
     }
 
     return (
-      <Layout Header={Header} Sider={Sider} Footer={()=><></>}>
+      <Layout Header={Header} Sider={Sider}>
         <Component {...pageProps} />
       </Layout>
     );
   };
 
   const {t, i18n} = useTranslation();
-
   const i18nProvider = {
     translate: (key: string, params: object) => t(key, params),
     changeLocale: (lang: string) => i18n.changeLanguage(lang),
@@ -55,56 +55,35 @@ function MyApp({Component, pageProps}: AppPropsWithLayout): JSX.Element {
             resources={[
               {
                 name: 'dashboard',
-                list: '/dashboard'
+                list: {
+                  path: '/dashboard',
+                  component: Dashboard
+                }
               },
               {
                 name: "bookstore/tags",
                 list: {
                   path: "bookstore/tags",
-                  component: CategoryList
+                  component: TagList
                 },
                 create: {
                   path: "bookstore/tags/create",
-                  component: CategoryCreate
+                  component: TagCreate
                 },
                 edit: {
                   path: "bookstore/tags/edit/:id",
-                  component: CategoryEdit
+                  component: TagEdit
                 },
                 show: {
                   path: "bookstore/tags/show/:id",
-                  component: CategoryShow
+                  component: TagShow
                 },
 
                 meta: {
                   canDelete: true,
-                  parent: 'group'
-                }
-              }, {
-                name: "bookstore/tags",
-                list: {
-                  path: "bookstore/tags1",
-                  component: CategoryList
-                },
-                create: {
-                  path: "bookstore/tags1/create",
-                  component: CategoryCreate
-                },
-                edit: {
-                  path: "bookstore/tags1/edit/:id",
-                  component: CategoryEdit
-                },
-                show: {
-                  path: "bookstore/tags1/show/:id",
-                  component: CategoryShow
-                },
-
-                meta: {
-                  canDelete: true,
-                  parent: 'group'
+                  parent: 'bookstore'
                 }
               }
-
             ]}
             authProvider={authProvider}
             i18nProvider={i18nProvider}

@@ -1,8 +1,11 @@
 const {i18n} = require("./next-i18next.config");
 
+
+
 module.exports = {
   basePath: '/admin',
-  i18n, experimental: {
+  i18n,
+  experimental: {
     newNextLinkBehavior: true,
   },
   transpilePackages: [

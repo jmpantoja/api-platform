@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 // import {AntdLayout, Grid, Menu, Sider as DefaultSider,} from "@pankod/refine-antd";
-import {Grid, Layout as AntdLayout, Menu, MenuProps} from "antd";
+import {Grid, Layout as AntdLayout, Menu, MenuProps, theme} from "antd";
 import {useCan, useMenu, useNavigation, useRefineContext, useTitle, useTranslate,} from "@refinedev/core";
 // import Link from "next/link";
 
@@ -9,6 +9,7 @@ import {TreeMenuItem} from "@refinedev/core/src/hooks/menu/useMenu";
 import {ItemType} from "antd/es/menu/hooks/useItems";
 import {Title} from "@components/layout/title";
 import Link from "next/link";
+import {useToken} from "antd/es/theme/internal";
 
 
 export const Sider = () => {
@@ -20,14 +21,14 @@ export const Sider = () => {
   const {menuItems, selectedKey, defaultOpenKeys} = useMenu();
   const breakpoint = Grid.useBreakpoint();
   const isMobile = typeof breakpoint.lg === "undefined" ? false : !breakpoint.lg;
-  
+
   type MenuItem = Required<MenuProps>['items'][number];
 
   function parseItem(item: TreeMenuItem): ItemType {
     const {route, name, icon, children, meta} = item;
     const parent = meta?.parent ?? null
     const key = parent ? `/${parent}/${name}` : `/${name}`
-    const anchor = translate(`${name.toLowerCase()}.sider`)
+    const anchor = translate(`${name.toLowerCase()}.titles.list`)
 
     if ((children ?? []).length > 0) {
       return {
@@ -53,6 +54,7 @@ export const Sider = () => {
 
   const items: MenuItem[] = menuItems.map(parseItem)
 
+
   return (
 
     <AntdLayout.Sider
@@ -62,6 +64,9 @@ export const Sider = () => {
       onCollapse={(collapsed: boolean): void => setCollapsed(collapsed)}
       collapsedWidth={isMobile ? 0 : 80}
       breakpoint="lg"
+      // style={{
+      //   "backgroundColor": "red"
+      // }}
     >
       <Title collapsed={collapsed}/>
       <Menu

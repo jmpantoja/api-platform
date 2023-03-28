@@ -3,6 +3,9 @@ import {useLogin} from "@refinedev/core";
 import {Button, Card, Col, Form, Input, Layout as AntdLayout, Row, Typography, theme} from "antd";
 import Icon from "@components/icon";
 import {serialize} from 'cookie'
+import {GetServerSideProps} from "next";
+import {authProvider} from "@planb/provider";
+import {serverSideTranslations} from "next-i18next/serverSideTranslations";
 
 
 const {Text, Title} = Typography;
@@ -128,3 +131,17 @@ export default function Login() {
 
 Login.noLayout = true
 
+export const getServerSideProps: GetServerSideProps<{}> = async (context) => {
+  const {authenticated, redirectTo} = await authProvider.check(context);
+
+  const translateProps = await serverSideTranslations(
+    context.locale ?? "es",
+    ["common"],
+  );
+
+  return {
+    props: {
+      ...translateProps,
+    },
+  };
+};

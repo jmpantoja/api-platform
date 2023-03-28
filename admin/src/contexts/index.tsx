@@ -53,12 +53,15 @@ export const ColorModeContextProvider: React.FC<PropsWithChildren> = ({
         theme={{
           algorithm: mode === "light" ? defaultAlgorithm : darkAlgorithm,
           token: {
-            colorPrimary: '#FA541C'
+            colorPrimary: '#1677ff',
+            // colorLink: '#fff'
+            // colorBgBase: '#FFF',
+            // colorBgLayout: '#FFF'
           },
           components: {
             Menu: {
               colorItemText: "#fff",
-              radiusItem: 5,
+              radiusItem: 5
             }
           }
         }}
