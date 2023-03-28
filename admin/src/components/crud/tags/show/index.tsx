@@ -1,5 +1,5 @@
 import {AntdShowInferencer} from "@refinedev/inferencer/antd";
 
-export const CategoryShow = () => {
+export const TagShow = () => {
   return <AntdShowInferencer/>;
 }

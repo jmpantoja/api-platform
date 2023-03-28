@@ -1,6 +1,6 @@
 import {AntdListInferencer} from "@refinedev/inferencer/antd";
 
-export const CategoryList = () => {
+export const TagList = () => {
 
   return <AntdListInferencer/>;
 }

@@ -1,5 +1,5 @@
 import {AntdCreateInferencer} from "@refinedev/inferencer/antd";
 
-export const CategoryCreate = () => {
+export const TagCreate = () => {
   return <AntdCreateInferencer/>
 }
