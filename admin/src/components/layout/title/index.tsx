@@ -8,22 +8,25 @@ export const Title: React.FC<TitleProps> = ({collapsed}) => (
   <Link href="/">
     {collapsed ? (
       <Image
+        preview={false}
         src={"/admin/images/refine-collapsed.svg"}
         alt="Refine"
         style={{
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
-          padding: "12px 24px",
+          // padding: "12px 24px",
         }}
       />
     ) : (
       <Image
+        preview={false}
         src={"/admin/images/refine.svg"}
         alt="Refine"
         style={{
           width: "200px",
-          padding: "12px 24px",
+          // height: "70px",
+          padding: "13px 25px",
         }}
       />
     )}

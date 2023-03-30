@@ -1,16 +1,15 @@
 import {useTranslate} from "@refinedev/core";
 
-import { theme } from 'antd';
+import {theme} from 'antd';
 
-const { defaultAlgorithm, defaultSeed, darkAlgorithm } = theme;
+const {defaultAlgorithm, defaultSeed, darkAlgorithm, useToken} = theme;
 
-const mapToken = darkAlgorithm(defaultSeed);
-
-console.log(defaultSeed)
 
 export default function Dashboard() {
 
+  const token = useToken()
 
+  console.log(token)
 
   return <>
     Home

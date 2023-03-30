@@ -1,73 +1,33 @@
-import React, {
-  PropsWithChildren,
-  createContext,
-  useEffect,
-  useState,
-} from "react";
-import {ConfigProvider, theme} from "antd";
-import {parseCookies} from "nookies";
+import React, {PropsWithChildren,} from "react";
+import {ConfigProvider} from "antd";
 
-type ColorModeContextType = {
-  mode: string;
-  setMode: (mode: string) => void;
-};
-
-export const ColorModeContext = createContext<ColorModeContextType>(
-  {} as ColorModeContextType
-);
-
-export const ColorModeContextProvider: React.FC<PropsWithChildren> = ({
-                                                                        children,
-                                                                      }) => {
-  const [isMounted, setIsMounted] = useState(false);
-  const [mode, setMode] = useState("light");
-
-  useEffect(() => {
-    setIsMounted(true);
-  }, []);
-
-  useEffect(() => {
-    if (isMounted) {
-      setMode(parseCookies()["theme"] || "light");
-    }
-  }, [isMounted]);
-
-  const setColorMode = () => {
-    if (mode === "light") {
-      setMode("dark");
-    } else {
-      setMode("light");
-    }
-  };
-
-  const {darkAlgorithm, defaultAlgorithm} = theme;
+export const ColorModeContextProvider: React.FC<PropsWithChildren> = ({children}) => {
 
   return (
-    <ColorModeContext.Provider
-      value={{
-        setMode: setColorMode,
-        mode,
+    <ConfigProvider
+      theme={{
+        token: {
+          colorPrimary: '#00b297',
+          borderRadiusLG: 0,
+          borderRadiusSM: 0,
+          borderRadiusXS: 0,
+          borderRadius: 0,
+        },
+        components: {
+          Layout: {
+            colorBgHeader: '#323236',
+            colorBgContainer: '#323236'
+          },
+          Menu: {
+            colorItemText: "#FFF",
+            colorItemTextSelected: '#FFF',
+            colorItemTextHover: '#00b297',
+            colorItemBg: '#323236',
+            colorItemBgSelected: '#00b297'
+          }
+        }
       }}
     >
-      <ConfigProvider
-        theme={{
-          algorithm: mode === "light" ? defaultAlgorithm : darkAlgorithm,
-          token: {
-            colorPrimary: '#1677ff',
-            // colorLink: '#fff'
-            // colorBgBase: '#FFF',
-            // colorBgLayout: '#FFF'
-          },
-          components: {
-            Menu: {
-              colorItemText: "#fff",
-              radiusItem: 5
-            }
-          }
-        }}
-      >
-        {children}
-      </ConfigProvider>
-    </ColorModeContext.Provider>
-  );
+      {children}
+    </ConfigProvider>)
 };

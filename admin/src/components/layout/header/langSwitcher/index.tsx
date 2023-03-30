@@ -26,7 +26,7 @@ export const LangSwitcher = () => {
     }
   })
 
-  return <Dropdown menu={{items}}>
+  return <Dropdown menu={{items}} trigger={['click']}>
     <Button type="link">
       <Space>
         <Avatar size={16} src={`/admin/images/flags/${currentLocale}.svg`}/>
