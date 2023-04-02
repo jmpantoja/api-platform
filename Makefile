@@ -11,7 +11,7 @@ dev:
 prod:
 	echo "para levantar la aplicación en producción, ejecutar este comando directamente en una terminal"
 
-	SERVER_NAME=prueba.local \
+	SERVER_NAME=www.prueba.local \
 	APP_SECRET=secret \
 	POSTGRES_PASSWORD=secret \
 	POSTGRES_USER=api-platform \

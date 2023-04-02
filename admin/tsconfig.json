@@ -54,6 +54,7 @@
   },
   "include": [
     "next-env.d.ts",
+    "externals.d.ts",
     "**/*.ts",
     "**/*.tsx"
   ],

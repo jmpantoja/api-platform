@@ -116,16 +116,37 @@
     "en": "English"
   },
   "bookstore": {
+    "bookstore": "Libreria",
     "titles": {
       "list": "Librería"
     }
   },
-  "bookstore/tags": {
-    "tags": "Etiquetas",
+  "bookstore/books": {
+    "bookstore/books": "Libros",
     "fields": {
       "id": "Id",
       "title": "Título",
-      "createdAt": "Creado el"
+      "summary": "Sinopsis",
+      "@id": "@id",
+      "@context": "@context",
+      "@type": "@type"
+    },
+    "titles": {
+      "create": "Crear Libro",
+      "edit": "Editar Libro",
+      "list": "Libros",
+      "show": "Mostar Libro"
+    }
+  },
+  "bookstore/tags": {
+    "bookstore/tags": "Etiquetas",
+    "fields": {
+      "id": "Id",
+      "title": "Título",
+      "summary": "Sinopsis",
+      "@id": "@id",
+      "@context": "@context",
+      "@type": "@type"
     },
     "titles": {
       "create": "Crear Etiqueta",

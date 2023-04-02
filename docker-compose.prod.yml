@@ -3,15 +3,10 @@ version: "3.4"
 # Production environment override
 services:
   php:
-    environment:
-      APP_SECRET: ${APP_SECRET}
-      MERCURE_JWT_SECRET: ${CADDY_MERCURE_JWT_SECRET}
-
-  caddy:
-    environment:
-      MERCURE_PUBLISHER_JWT_KEY: ${CADDY_MERCURE_JWT_SECRET}
-      MERCURE_SUBSCRIBER_JWT_KEY: ${CADDY_MERCURE_JWT_SECRET}
-
+    volumes:
+      - ./api:/srv/app
+      - ./api/docker/php/conf.d/api-platform.dev.ini:/usr/local/etc/php/conf.d/api-platform.dev.ini:ro
+  
   database:
     environment:
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
@@ -21,3 +16,4 @@ services:
 
   admin:
     command: 'sh -c "yarn build; yarn start"'
+#    command: "yarn dev"

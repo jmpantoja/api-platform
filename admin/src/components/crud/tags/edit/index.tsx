@@ -1,5 +1,10 @@
-import {AntdEditInferencer} from "@refinedev/inferencer/antd";
+import {useFormLayout} from "@planb/components/form/useFormLayout";
+import React from "react";
+import {TagForm} from "@components/crud/tags/form";
 
 export const TagEdit = () => {
-  return <AntdEditInferencer/>;
+
+  const props = useFormLayout()
+
+  return <TagForm  {...props} />
 }

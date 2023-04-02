@@ -1,10 +1,11 @@
 import React, {useState} from "react";
 import {Grid, Layout as AntdLayout, Menu, MenuProps} from "antd";
 import {useMenu, useTranslate,} from "@refinedev/core";
-import {TreeMenuItem} from "@refinedev/core/src/hooks/menu/useMenu";
 import {ItemType} from "antd/es/menu/hooks/useItems";
 import {Title} from "@components/layout/title";
 import Link from "next/link";
+import {TreeMenuItem} from "@refinedev/core/dist/hooks/menu/useMenu";
+import {useTranslation} from "next-i18next";
 
 
 export const Sider = () => {
@@ -43,6 +44,7 @@ export const Sider = () => {
       label: <Link href={route}>{anchor}</Link>,
     }
   }
+
   const items: MenuItem[] = menuItems.map(parseItem)
 
   return (

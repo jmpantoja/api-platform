@@ -1,7 +1,7 @@
 import React from "react";
 import {AppProps} from "next/app";
 import type {NextPage} from "next";
-import {Refine,} from '@refinedev/core';
+import {Refine} from '@refinedev/core';
 import {RefineKbar, RefineKbarProvider} from "@refinedev/kbar";
 import {Layout, notificationProvider} from '@refinedev/antd';
 import routerProvider, {UnsavedChangesNotifier} from "@refinedev/nextjs-router";
@@ -12,8 +12,9 @@ import {appWithTranslation, useTranslation} from "next-i18next";
 import {Header, Sider} from "@components/layout"
 import {ColorModeContextProvider} from "@contexts";
 import {authProvider, dataProvider} from "@planb/provider";
-import {TagCreate, TagEdit, TagList, TagShow} from "@components/crud";
 import Dashboard from "@components/dashboard";
+import {BookCreate, BookEdit, BookList, BookShow} from "@components/crud/books";
+import {TagCreate, TagEdit, TagList, TagShow} from "@components/crud/tags";
 
 
 export type NextPageWithLayout<P = {}, IP = P> = NextPage<P, IP> & {
@@ -32,7 +33,9 @@ function MyApp({Component, pageProps}: AppPropsWithLayout): JSX.Element {
 
     return (
       <Layout Header={Header} Sider={Sider}>
+
         <Component {...pageProps} />
+
       </Layout>
     );
   };
@@ -61,6 +64,29 @@ function MyApp({Component, pageProps}: AppPropsWithLayout): JSX.Element {
                 }
               },
               {
+                name: "bookstore/books",
+                list: {
+                  path: "bookstore/books",
+                  component: BookList
+                },
+                create: {
+                  path: "bookstore/books/create",
+                  component: BookCreate
+                },
+                edit: {
+                  path: "bookstore/books/edit/:id",
+                  component: BookEdit
+                },
+                show: {
+                  path: "bookstore/books/show/:id",
+                  component: BookShow
+                },
+                meta: {
+                  canDelete: true,
+                  parent: 'bookstore'
+                }
+              },
+              {
                 name: "bookstore/tags",
                 list: {
                   path: "bookstore/tags",
@@ -78,12 +104,12 @@ function MyApp({Component, pageProps}: AppPropsWithLayout): JSX.Element {
                   path: "bookstore/tags/show/:id",
                   component: TagShow
                 },
-
                 meta: {
                   canDelete: true,
                   parent: 'bookstore'
                 }
               }
+
             ]}
             authProvider={authProvider}
             i18nProvider={i18nProvider}

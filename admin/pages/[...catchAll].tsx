@@ -4,15 +4,19 @@ import {authProvider} from "@planb/provider";
 import {serverSideTranslations} from "next-i18next/serverSideTranslations";
 import {useResource} from "@refinedev/core";
 import {ResourceRouteDefinition} from "@refinedev/core/dist/interfaces/bindings/resource"
+import NoSSR from 'react-no-ssr';
 
 export default function CatchAll() {
   const {resource, action} = useResource()
 
   if (resource && action) {
+
     const {component: NextComponent} = resource[action] as ResourceRouteDefinition
 
     if (NextComponent) {
-      return <NextComponent/>
+      return <NoSSR>
+        <NextComponent/>
+      </NoSSR>
     }
   }
   return <ErrorComponent/>;

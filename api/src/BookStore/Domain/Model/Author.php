@@ -51,9 +51,9 @@ class Author implements Entity
         }
 
         $books
-    ->add($this->addBook(...))
-    ->remove($this->removeBook(...))
-    ->with($this->books);
+            ->add($this->addBook(...))
+            ->remove($this->removeBook(...))
+            ->with($this->books);
 
         return $this;
     }

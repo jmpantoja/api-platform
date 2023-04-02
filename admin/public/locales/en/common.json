@@ -111,7 +111,7 @@
       "list": "Dashboard"
     }
   },
-  "locale":{
+  "locale": {
     "es": "Español",
     "en": "English"
   },
@@ -120,21 +120,23 @@
       "list": "Bookstore"
     }
   },
-  "bookstore/tags": {
-    "tags": "Tags",
+  "bookstore/books": {
+    "tags": "Books",
     "fields": {
       "id": "Id",
       "title": "Title",
-      "createdAt": "Created At"
+      "summary": "Summary",
+      "@id": "@id",
+      "@context": "@context",
+      "@type": "@type"
     },
     "titles": {
-      "create": "Create Tag",
-      "edit": "Edit Tag",
-      "list": "Tags",
-      "show": "Show Tag"
+      "create": "Create Book",
+      "edit": "Edit Book",
+      "list": "Books",
+      "show": "Show Book"
     }
   },
-
   "table": {
     "actions": "Actions"
   }

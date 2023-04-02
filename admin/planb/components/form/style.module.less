@@ -1,0 +1,120 @@
+.tabError {
+    color: @colorErrorText;
+}
+
+.fieldset {
+    //padding-bottom: 80em;
+    margin: 3em 1em 2em 0;
+    border-top: solid 1px @colorPrimary;
+
+    :global(legend) {
+        width: auto;
+        margin: -2em .5em .5em .5em;
+        padding: .2em .5em;
+        color: @colorPrimary;
+        border: none;
+    }
+
+    &:global(.error) {
+        border-top: solid 1px @colorErrorText;
+
+        legend {
+            color: @colorErrorText;
+        }
+    }
+
+    :global(.ant-form-item) {
+        padding: 1em;
+
+        :global {
+            .ant-form-item-control-input + div {
+                display: block !important;
+            }
+        }
+    }
+
+    :global(.ant-form-item-has-error) {
+        :global(.ant-form-item-label label) {
+            color: @colorErrorText;
+            font-weight: bold;
+        }
+    }
+}
+
+.toc {
+    :global(.anchor-links) {
+        :global(.ant-anchor-link) {
+            &:global(.error) a {
+                color: @colorErrorText;
+            }
+        }
+    }
+
+    :global(.anchor-container) {
+        overflow: scroll;
+    }
+}
+
+.drawerForm {
+    :global(.ant-drawer-body) {
+        padding: 1em;
+
+        :global(.ant-card-body) {
+            padding: 1em 0;
+        }
+    }
+}
+
+.modalForm{
+    --view-height: 80vh;
+    --actions-height: 140px;
+    --form-height: calc(var(--view-height) - var(--actions-height));
+
+    max-height: var(--view-height);
+    margin-bottom: 0;
+    padding: 0;
+    overflow: hidden;
+
+    :global(form) {
+        margin: 0;
+        overflow: hidden;
+        max-height: var(--form-height);
+    }
+
+    :global(.anchor-container) {
+        max-height: calc(var(--form-height) - 4em);
+    }
+}
+
+.formView {
+    &:global(.view) {
+        :global(.ant-card-body) {
+            padding: 1em;
+        }
+        --view-height: 88vh;
+        --actions-height: 155px;
+    }
+
+    &:global(.drawer) {
+        --view-height: 93vh;
+        --actions-height: 140px;
+    }
+
+    --form-height: calc(var(--view-height) - var(--actions-height));
+
+    height: var(--view-height);
+    margin-bottom: 0;
+    padding: 0;
+    overflow: hidden;
+
+    :global(form) {
+        margin: 0;
+        overflow: hidden;
+        height: var(--form-height);
+    }
+
+    :global(.anchor-container) {
+        height: calc(var(--form-height) - 4em);
+    }
+}
+

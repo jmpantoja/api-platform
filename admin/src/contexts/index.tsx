@@ -1,5 +1,13 @@
 import React, {PropsWithChildren,} from "react";
 import {ConfigProvider} from "antd";
+import seed from "@styles/seed"
+import {SeedToken} from "antd/es/theme/interface";
+
+interface CssToken extends SeedToken {
+  white: string
+}
+
+const css = (seed as unknown as CssToken)
 
 export const ColorModeContextProvider: React.FC<PropsWithChildren> = ({children}) => {
 
@@ -7,7 +15,7 @@ export const ColorModeContextProvider: React.FC<PropsWithChildren> = ({children}
     <ConfigProvider
       theme={{
         token: {
-          colorPrimary: '#00b297',
+          colorPrimary: css.colorPrimary,
           borderRadiusLG: 0,
           borderRadiusSM: 0,
           borderRadiusXS: 0,
@@ -15,15 +23,15 @@ export const ColorModeContextProvider: React.FC<PropsWithChildren> = ({children}
         },
         components: {
           Layout: {
-            colorBgHeader: '#323236',
-            colorBgContainer: '#323236'
+            colorBgHeader: css.colorBgBase,
+            colorBgContainer: css.colorBgBase
           },
           Menu: {
-            colorItemText: "#FFF",
+            colorItemText: css.white,
             colorItemTextSelected: '#FFF',
-            colorItemTextHover: '#00b297',
-            colorItemBg: '#323236',
-            colorItemBgSelected: '#00b297'
+            colorItemTextHover: css.colorPrimary,
+            colorItemBg: css.colorBgBase,
+            colorItemBgSelected: css.colorPrimary
           }
         }
       }}

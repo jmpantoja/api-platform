@@ -15,13 +15,8 @@ services:
       # See https://xdebug.org/docs/all_settings#mode 
       XDEBUG_MODE: "${XDEBUG_MODE:-off}"
       #CORS_ALLOW_ORIGIN: "*"
-    extra_hosts:
-      # Ensure that host.docker.internal is correctly defined on Linux
-      - host.docker.internal:host-gateway
 
   caddy:
-    volumes:
-      - ./api/docker/caddy/Caddyfile:/etc/caddy/Caddyfile:rw
     environment:
       MERCURE_EXTRA_DIRECTIVES: demo
     ports:

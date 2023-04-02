@@ -1,14 +1,13 @@
 import React from "react";
 import {useLogin} from "@refinedev/core";
-import {Button, Card, Col, Form, Input, Layout as AntdLayout, Row, Typography, theme} from "antd";
+import {Button, Card, Col, Form, Input, Layout as AntdLayout, Row, theme, Typography} from "antd";
 import Icon from "@components/icon";
-import {serialize} from 'cookie'
 import {GetServerSideProps} from "next";
 import {authProvider} from "@planb/provider";
 import {serverSideTranslations} from "next-i18next/serverSideTranslations";
 
 
-const {Text, Title} = Typography;
+const {Title} = Typography;
 
 
 export interface ILoginForm {
@@ -79,31 +78,6 @@ export default function Login() {
                     size="large"
                   />
                 </Form.Item>
-                {/*<div style={{ marginBottom: "12px" }}>*/}
-                {/*  <Form.Item*/}
-                {/*    name="remember"*/}
-                {/*    valuePropName="checked"*/}
-                {/*    noStyle*/}
-                {/*  >*/}
-                {/*    <Checkbox*/}
-                {/*      style={{*/}
-                {/*        fontSize: "12px",*/}
-                {/*      }}*/}
-                {/*    >*/}
-                {/*      Remember me*/}
-                {/*    </Checkbox>*/}
-                {/*  </Form.Item>*/}
-
-                {/*  <a*/}
-                {/*    style={{*/}
-                {/*      float: "right",*/}
-                {/*      fontSize: "12px",*/}
-                {/*    }}*/}
-                {/*    href="#"*/}
-                {/*  >*/}
-                {/*    Forgot password?*/}
-                {/*  </a>*/}
-                {/*</div>*/}
                 <Button
                   type="primary"
                   size="large"
@@ -113,14 +87,6 @@ export default function Login() {
                   Sign in
                 </Button>
               </Form>
-              {/*<div style={{ marginTop: 8 }}>*/}
-              {/*  <Text style={{ fontSize: 12 }}>*/}
-              {/*    Don’t have an account?{" "}*/}
-              {/*    <a href="#" style={{ fontWeight: "bold" }}>*/}
-              {/*      Sign up*/}
-              {/*    </a>*/}
-              {/*  </Text>*/}
-              {/*</div>*/}
             </Card>
           </div>
         </Col>
