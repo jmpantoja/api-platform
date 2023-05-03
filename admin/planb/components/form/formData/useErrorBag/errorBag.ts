@@ -1,5 +1,5 @@
-import {ChildrenLike} from "./utils";
-import {itemsMap} from "@planb/components/form/errorBag/itemsMap";
+import {ChildrenLike} from "../../nodeTree/utils";
+import {itemsMap} from "@planb/components/form/formData/useErrorBag/itemsMap";
 import {useMemo, useState} from "react";
 import {FieldData} from "rc-field-form/es/interface";
 import {isEqual} from "lodash";
@@ -17,6 +17,7 @@ export interface ErrorBag {
   update: (fields: FieldData[]) => void
   errorFieldsets: { [key: string]: boolean }
   errorTabs: { [key: string]: boolean }
+  isValid: boolean
 }
 
 
@@ -67,10 +68,15 @@ export const createErrorBag = (children: ChildrenLike): ErrorBag => {
     return build(fields, map, 'tabs')
   }, [fields])
 
+  const isValid = useMemo(() => {
+    return fields.length === 0
+  }, [fields])
+
   return {
     update,
     errorFieldsets: fieldsets,
-    errorTabs: tabs
+    errorTabs: tabs,
+    isValid
   }
 }
 

@@ -1,12 +1,8 @@
 import React from "react";
-import {Col, Form, FormProps, Input, Row, Tabs} from "antd";
-import {Edit} from "@refinedev/antd";
-import {FormLayout, FormLayoutProps, useFormContext} from "@planb/components/form/formLayout";
-import {Fieldset} from "@planb/components/form/fieldset";
-import {Toc} from "@planb/components/form/toc";
-import {tab} from "@planb/components/form/tabs";
+import {Col, Form, Input, Row, Tabs} from "antd";
+import {Fieldset, FormData, FormDataProps, tab, Toc, useFormContext} from "@planb/components/form";
 import {useTranslate} from "@refinedev/core";
-import {useTranslation} from "next-i18next";
+import {IBook} from "@model";
 
 const Tab1 = () => {
   const t = useTranslate()
@@ -75,10 +71,12 @@ const Tab3 = () => {
 }
 
 
-export const BookForm: React.FC<FormLayoutProps> = (props: FormLayoutProps) => {
+export const BookForm: React.FC<FormDataProps> = (props: FormDataProps) => {
   const {like} = useFormContext()
 
-  return <FormLayout {...props}>
+  return <FormData
+    {...props}>
+    {/*{Tab3()}*/}
     <Tabs type='card' items={[
       tab({
         label: 'UNO',
@@ -94,6 +92,6 @@ export const BookForm: React.FC<FormLayoutProps> = (props: FormLayoutProps) => {
       })
     ]}
     />
-  </FormLayout>
+  </FormData>
 
 };

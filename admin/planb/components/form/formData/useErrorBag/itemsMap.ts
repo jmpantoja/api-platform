@@ -1,4 +1,4 @@
-import {nodeTree} from "@planb/components/form/errorBag/nodeTree";
+import {nodeTree} from "@planb/components/form/nodeTree/nodeTree";
 import {ReactNode} from "react";
 import {FormProps} from "antd";
 

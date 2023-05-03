@@ -1,0 +1,57 @@
+.filterForm {
+    height: 100%;
+    padding: 1em;
+
+    :global {
+        .ant-form-item-label > label {
+            font-weight: bold;
+            color: @colorBgBase
+        }
+    }
+}
+
+
+.filterPanel {
+    height: 100%;
+
+    background-color: @colorBgPanel;
+    border: solid 1px #d9d9d9;
+
+    display: flex;
+    flex-direction: column;
+
+    :global {
+
+        .ant-card-head {
+            height: 3em;
+            margin: 0;
+            padding: 0 0 0 1em;
+            border: none;
+        }
+
+        .ant-card-body {
+            flex-grow: 1;
+            padding: 1em;
+        }
+
+        .ant-card-actions {
+            border: none;
+            //border-top: solid 1px #d9d9d9;
+            background-color: @colorBgPanel;
+            //background-color: @colorBgBase; //darken(@colorBgPanel, 70%);
+            padding-right: 1em;
+
+
+            .footer {
+                width: 100%;
+                display: flex;
+                justify-content: end;
+                gap: 1em;
+            }
+        }
+
+    }
+}
+
+
+

@@ -57,9 +57,6 @@ export const Sider = () => {
       collapsedWidth={isMobile ? 0 : 80}
       breakpoint="lg"
       theme={'light'}
-      // style={{
-      //   "backgroundColor": "red"
-      // }}
     >
       <Title collapsed={collapsed}/>
       <Menu

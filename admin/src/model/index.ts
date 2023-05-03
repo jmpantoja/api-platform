@@ -29,6 +29,7 @@ export interface IBook extends BaseRecord {
   title: string
   author: IAuthor,
   price: Money
+  summary: string
 }
 
 export interface Money {

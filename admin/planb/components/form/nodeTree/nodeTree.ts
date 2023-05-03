@@ -1,7 +1,7 @@
 import {isValidElement, ReactElement, ReactNode} from "react";
 import {Tab} from "rc-tabs/lib/interface";
 import {FormItemProps} from "antd/es/form/FormItem";
-import {FieldsetProps} from "@planb/components/form/fieldset";
+import {FieldsetProps} from "@planb/components/form/fieldset/fieldset";
 import {ChildrenLike, isFieldset, isFormItem, isTab} from "./utils";
 
 

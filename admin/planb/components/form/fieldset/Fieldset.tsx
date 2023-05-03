@@ -1,5 +1,5 @@
 import React, {ReactNode} from "react";
-import css from '@planb/components/form/style.module.less'
+import css from './style.module.less'
 import classNames from "classnames";
 import {useErrorBag} from "@planb/components/form";
 

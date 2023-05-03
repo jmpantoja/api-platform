@@ -115,6 +115,14 @@
     "es": "Español",
     "en": "English"
   },
+  "filters": {
+    "operators": {
+      "partial": "contiene",
+      "exact": "igual a",
+      "start": "empieza por",
+      "end": "termina en"
+    }
+  },
   "bookstore": {
     "bookstore": "Libreria",
     "titles": {

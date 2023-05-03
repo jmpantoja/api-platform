@@ -88,6 +88,14 @@
     "clone": "Clone",
     "notAccessTitle": "You don't have permission to access"
   },
+  "filters": {
+    "operators": {
+      "partial": "contains",
+      "exact": "equals",
+      "start": "begins with",
+      "end": "ends in"
+    }
+  },
   "warnWhenUnsavedChanges": "Are you sure you want to leave? You have unsaved changes.",
   "notifications": {
     "success": "Successful",

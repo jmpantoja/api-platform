@@ -1,11 +1,14 @@
-import {Children, isValidElement, ReactElement, ReactNode} from "react";
+import {ReactNode} from "react";
 import {Anchor, AnchorProps, Col, Row} from "antd";
-import css from '@planb/components/form/style.module.less'
+import css from './style.module.less'
 import {useErrorBag} from "@planb/components/form";
 import {AnchorLinkItemProps} from "antd/es/anchor/Anchor";
 import {ReactNodeArray} from "prop-types";
-import {nodeTree} from "@planb/components/form/errorBag";
-import {useFormContext} from "@planb/components/form/formLayout";
+
+import {nodeTree} from "@planb/components/form/nodeTree";
+import {useFormContext} from "@planb/components/form/formData/useFormContext";
+import classNames from "classnames";
+
 
 interface TocProps {
   children: ReactNode | ReactNode[] | ReactNodeArray
@@ -14,7 +17,7 @@ interface TocProps {
 export const Toc = ({children}: TocProps) => {
 
   const {errorFieldsets} = useErrorBag()
-  const {action, like} = useFormContext()
+  const {like} = useFormContext()
 
   const items: AnchorLinkItemProps[] = nodeTree({children})
     .fieldsets((props, index, node) => {
@@ -28,17 +31,18 @@ export const Toc = ({children}: TocProps) => {
 
   const hasToc = items.length > 0
   const anchorProps: AnchorProps = {
-    affix: true,
+    affix: false,
     getContainer: () => (document.querySelector(`.${css.toc} .anchor-container`) as HTMLElement),
     offsetTop: 10,
-    targetOffset: 30,
+    targetOffset: 50,
     showInkInFixed: true,
     items
   }
 
   const lg = like === 'view' ? 12 : 18
+  const className = classNames(css.toc, 'toc')
 
-  return <Row className={css.toc}>
+  return <Row className={className}>
     <Col className={'anchor-links'} sm={24} md={6}>
       {hasToc && <Anchor {...anchorProps}/>}
     </Col>

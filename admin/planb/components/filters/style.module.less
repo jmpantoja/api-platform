@@ -1,0 +1,140 @@
+.formPage {
+    height: 100%;
+    width: 100%;
+
+    :global {
+        .ant-page-header {
+            height: 100%;
+        }
+
+        .ant-page-header-heading {
+            height: 3em;
+        }
+
+        .ant-page-header-content {
+            height: calc(100% - 3em);
+        }
+
+        div[class^="ant-spin"] {
+            height: 100%;
+        }
+
+        .ant-card {
+            height: 100%;
+        }
+
+        .ant-card-body {
+            height: calc(100% - 4em);
+            padding: 1em;
+            overflow: auto;
+        }
+
+        .ant-card-actions {
+            height: 4em;
+        }
+    }
+}
+
+.formData {
+    height: 100%;
+    width: 100%;
+
+    :global {
+        .ant-page-header, .ant-page-header-content {
+            height: 100%;
+        }
+
+        .ant-page-header-heading {
+            height: 3em;
+        }
+
+        .ant-page-header-content {
+            height: calc(100% - 3em);
+        }
+
+        div[class^="ant-spin"] {
+            height: 100%;
+        }
+
+        .ant-card {
+            height: 100%;
+        }
+
+        .ant-card-body {
+            height: calc(100% - 4em);
+            padding: 1em;
+            overflow: auto;
+        }
+
+        .ant-card-actions {
+            height: 4em;
+        }
+
+        .ant-form {
+            height: 100%;
+
+        }
+
+        .ant-tabs {
+            height: 100%;
+
+        }
+
+        .ant-tabs-nav {
+            height: 2.5em;
+        }
+
+        .ant-tabs-content-holder {
+            height: calc(100% - 2.5em);
+
+        }
+
+        .ant-tabs-content {
+            height: 100%;
+        }
+
+        .ant-tabs-tabpane {
+            height: 100%;
+            overflow: auto;
+        }
+
+        .toc {
+            height: 100%;
+        }
+
+        .anchor-container {
+            height: 100%;
+            overflow: auto;
+        }
+
+        .ant-form-item-label > label {
+            font-weight: bold;
+            color: @colorBgBase
+        }
+        //label {
+        //    font-weight: bold;
+        //    color: @colorPrimary !important;
+        //}
+    }
+}
+
+.modalForm {
+    --view-height: 80vh;
+    --actions-height: 140px;
+    --form-height: calc(var(--view-height) - var(--actions-height));
+
+    max-height: var(--view-height);
+    margin-bottom: 0;
+    padding: 0;
+    overflow: hidden;
+
+    :global(form) {
+        margin: 0;
+        overflow: hidden;
+        max-height: var(--form-height);
+    }
+
+    :global(.anchor-container) {
+        max-height: calc(var(--form-height) - 4em);
+    }
+}
