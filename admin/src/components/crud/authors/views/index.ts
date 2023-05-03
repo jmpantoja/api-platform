@@ -1,0 +1,5 @@
+export {AuthorCreate} from './AuthorCreate'
+export {AuthorEdit} from './AuthorEdit'
+export {AuthorForm} from './AuthorForm'
+export {AuthorList} from './AuthorList'
+export {AuthorShow} from './AuthorShow'

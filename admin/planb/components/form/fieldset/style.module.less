@@ -1,0 +1,38 @@
+.fieldset {
+    //padding-bottom: 80em;
+    margin: 3em 1em 2em 0;
+    border-top: solid 1px @colorPrimary;
+
+    :global(legend) {
+        width: auto;
+        margin: -2em .5em .5em .5em;
+        padding: .2em .5em;
+        color: @colorPrimary;
+        border: none;
+    }
+
+    &:global(.error) {
+        border-top: solid 1px @colorErrorText;
+
+        legend {
+            color: @colorErrorText;
+        }
+    }
+
+    :global(.ant-form-item) {
+        padding: 1em;
+
+        :global {
+            .ant-form-item-control-input + div {
+                display: block !important;
+            }
+        }
+    }
+
+    :global(.ant-form-item-has-error) {
+        :global(.ant-form-item-label label) {
+            color: @colorErrorText;
+            font-weight: bold;
+        }
+    }
+}

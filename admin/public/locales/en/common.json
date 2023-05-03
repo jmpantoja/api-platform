@@ -79,7 +79,8 @@
     "edit": "Edit",
     "cancel": "Cancel",
     "confirm": "Are you sure?",
-    "filter": "Filter",
+    "filter": "Search",
+    "search": "Search",
     "clear": "Clear",
     "refresh": "Refresh",
     "show": "Show",
@@ -87,6 +88,14 @@
     "import": "Import",
     "clone": "Clone",
     "notAccessTitle": "You don't have permission to access"
+  },
+  "filters": {
+    "operators": {
+      "partial": "contains",
+      "exact": "equals",
+      "start": "begins with",
+      "end": "ends in"
+    }
   },
   "warnWhenUnsavedChanges": "Are you sure you want to leave? You have unsaved changes.",
   "notifications": {
@@ -130,11 +139,51 @@
       "@context": "@context",
       "@type": "@type"
     },
+    "columns": {
+      "id": "Id",
+      "title": "Title",
+      "summary": "Summary",
+      "author": "Author",
+      "price": "price"
+    },
+    "filters": {
+      "id": "Id",
+      "title": "Title",
+      "price": "Price"
+    },
+    "fieldsets": {
+      "data": "Data",
+      "metadata": "Metadata"
+    },
     "titles": {
       "create": "Create Book",
       "edit": "Edit Book",
       "list": "Books",
       "show": "Show Book"
+    }
+  },
+  "bookstore/tags": {
+    "bookstore/tags": "Tags",
+    "fields": {
+      "id": "Id",
+      "name": "Name"
+    },
+    "columns": {
+      "id": "Id",
+      "name": "Name"
+    },
+    "filters": {
+      "id": "Id",
+      "name": "Name"
+    },
+    "fieldsets": {
+      "tag": "Tag"
+    },
+    "titles": {
+      "create": "Create Tag",
+      "edit": "Edit Tag",
+      "list": "Tags",
+      "show": "Show Tag"
     }
   },
   "table": {

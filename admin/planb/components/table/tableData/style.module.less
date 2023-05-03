@@ -1,0 +1,61 @@
+.tableData {
+    height: 100%;
+    width: 100%;
+
+    :global {
+        .ant-page-header, .ant-page-header-content {
+            height: 100%;
+        }
+
+        .ant-page-header-heading {
+            height: 4em;
+            padding: 0 1em;
+            display: flex;
+            align-items: center;
+        }
+
+        .ant-page-header-content {
+            background-color: white;
+            border: solid 1px #d9d9d9;
+            padding-top: 0;
+            height: calc(100% - 4em);
+        }
+
+        .ant-page-header-content > div {
+            height: 100%;
+        }
+
+        div[class^="ant-spin"] {
+            height: 100%;
+        }
+
+        .ant-row {
+            height: 100%;
+
+        }
+
+        .ant-col {
+            height: 100%;
+        }
+
+        .ant-table-wrapper {
+            height: 100%;
+            background-color: white;
+        }
+
+        thead th.ant-table-cell, thead td.ant-table-cell {
+            text-transform: uppercase;
+            background-color: white;
+        }
+
+        .ant-table {
+            height: calc(100% - 4em);
+            overflow: auto;
+            margin-right: 1em;
+        }
+
+        .ant-table-pagination.ant-pagination {
+            margin: 1em;
+        }
+    }
+}

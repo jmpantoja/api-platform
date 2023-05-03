@@ -3,7 +3,7 @@ import {AppProps} from "next/app";
 import type {NextPage} from "next";
 import {Refine} from '@refinedev/core';
 import {RefineKbar, RefineKbarProvider} from "@refinedev/kbar";
-import {Layout, notificationProvider} from '@refinedev/antd';
+import {notificationProvider, ThemedLayoutV2} from '@refinedev/antd';
 import routerProvider, {UnsavedChangesNotifier} from "@refinedev/nextjs-router";
 
 import "@refinedev/antd/dist/reset.css";
@@ -15,6 +15,9 @@ import {authProvider, dataProvider} from "@planb/provider";
 import Dashboard from "@components/dashboard";
 import {BookCreate, BookEdit, BookList, BookShow} from "@components/crud/books";
 import {TagCreate, TagEdit, TagList, TagShow} from "@components/crud/tags";
+import {Title} from "@components/layout/title";
+import {Layout} from "@components/layout/layout";
+import {AuthorCreate, AuthorEdit, AuthorList, AuthorShow} from "@components/crud/authors";
 
 
 export type NextPageWithLayout<P = {}, IP = P> = NextPage<P, IP> & {
@@ -32,10 +35,8 @@ function MyApp({Component, pageProps}: AppPropsWithLayout): JSX.Element {
     }
 
     return (
-      <Layout Header={Header} Sider={Sider}>
-
+      <Layout >
         <Component {...pageProps} />
-
       </Layout>
     );
   };
@@ -80,6 +81,29 @@ function MyApp({Component, pageProps}: AppPropsWithLayout): JSX.Element {
                 show: {
                   path: "bookstore/books/show/:id",
                   component: BookShow
+                },
+                meta: {
+                  canDelete: true,
+                  parent: 'bookstore'
+                }
+              },
+              {
+                name: "bookstore/authors",
+                list: {
+                  path: "bookstore/authors",
+                  component: AuthorList
+                },
+                create: {
+                  path: "bookstore/authors/create",
+                  component: AuthorCreate
+                },
+                edit: {
+                  path: "bookstore/authors/edit/:id",
+                  component: AuthorEdit
+                },
+                show: {
+                  path: "bookstore/authors/show/:id",
+                  component: AuthorShow
                 },
                 meta: {
                   canDelete: true,

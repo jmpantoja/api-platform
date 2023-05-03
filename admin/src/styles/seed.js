@@ -2,6 +2,7 @@ const seed = {
   blue: "#1677ff",
   borderRadius: 6,
   colorBgBase: "#323236",
+  colorBgPanel: "#f5f5f5",
   colorError: "#ff4d4f",
   colorInfo: "#1677ff",
   // colorPrimary: "#1677ff",

@@ -79,7 +79,8 @@
     "edit": "Editar",
     "cancel": "Cancelar",
     "confirm": "¿Estas seguro?",
-    "filter": "Filtro",
+    "filter": "Búsqueda",
+    "search": "Buscar",
     "clear": "Limpiar",
     "refresh": "Refrescar",
     "show": "Mostrar",
@@ -111,9 +112,17 @@
       "list": "Escritorio"
     }
   },
-  "locale":{
+  "locale": {
     "es": "Español",
     "en": "English"
+  },
+  "filters": {
+    "operators": {
+      "partial": "contiene",
+      "exact": "igual a",
+      "start": "empieza por",
+      "end": "termina en"
+    }
   },
   "bookstore": {
     "bookstore": "Libreria",
@@ -131,6 +140,21 @@
       "@context": "@context",
       "@type": "@type"
     },
+    "columns": {
+      "id": "Id",
+      "title": "Título",
+      "author": "Autor",
+      "price": "precio"
+    },
+    "filters": {
+      "id": "Id",
+      "title": "Título",
+      "price.amount": "Precio"
+    },
+    "fieldsets": {
+      "data": "Datos",
+      "metadata": "Metadata"
+    },
     "titles": {
       "create": "Crear Libro",
       "edit": "Editar Libro",
@@ -142,11 +166,18 @@
     "bookstore/tags": "Etiquetas",
     "fields": {
       "id": "Id",
-      "title": "Título",
-      "summary": "Sinopsis",
-      "@id": "@id",
-      "@context": "@context",
-      "@type": "@type"
+      "name": "Nombre"
+    },
+    "columns": {
+      "id": "Id",
+      "name": "Nombre"
+    },
+    "filters": {
+      "id": "Id",
+      "name": "Nombre"
+    },
+    "fieldsets": {
+      "tag": "Etiqueta"
     },
     "titles": {
       "create": "Crear Etiqueta",

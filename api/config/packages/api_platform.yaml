@@ -28,7 +28,7 @@ api_platform:
     # Good cache defaults for REST APIs
     defaults:
         stateless: true
-        pagination_items_per_page: 10
+#        pagination_items_per_page: 50
         pagination_client_items_per_page: true
         pagination_maximum_items_per_page: 50
         
