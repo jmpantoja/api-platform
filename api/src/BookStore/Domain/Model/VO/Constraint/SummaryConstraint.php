@@ -11,6 +11,11 @@ use Symfony\Component\Validator\Constraints\Length;
 
 final class SummaryConstraint extends Compound
 {
+    public function getClassName(): string
+    {
+        return VO_Summary::class;
+    }
+
     /**
      * @param mixed[] $options
      *
@@ -19,14 +24,9 @@ final class SummaryConstraint extends Compound
     protected function getConstraints(array $options): array
     {
         return [
-    new Length([
-  'min' => 10,
-]),
+            new Length([
+                'min' => 10,
+            ]),
         ];
-    }
-
-    public function getClassName(): string
-    {
-        return VO_Summary::class;
     }
 }

@@ -11,6 +11,11 @@ use Symfony\Component\Validator\Constraints\Collection;
 
 final class MoneyConstraint extends Compound
 {
+    public function getClassName(): string
+    {
+        return VO_Money::class;
+    }
+
     /**
      * @param mixed[] $options
      *
@@ -19,19 +24,14 @@ final class MoneyConstraint extends Compound
     protected function getConstraints(array $options): array
     {
         return [
-    new Collection([
-    'amount' => [
-            new AmountConstraint(),
-                    ],
-    'currency' => [
-            new CurrencyConstraint(),
-                    ],
-        ]),
-    ];
-    }
-
-    public function getClassName(): string
-    {
-        return VO_Money::class;
+            new Collection([
+                'amount' => [
+                    new AmountConstraint(),
+                ],
+                'currency' => [
+                    new CurrencyConstraint(),
+                ],
+            ]),
+        ];
     }
 }

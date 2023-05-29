@@ -6,8 +6,9 @@ namespace App\Auth\Domain\Repository;
 
 use App\Auth\Domain\Model\User;
 use App\Auth\Domain\Model\UserId;
+use Symfony\Bridge\Doctrine\Security\User\UserLoaderInterface;
 
-interface UserRepository 
+interface UserRepository extends UserLoaderInterface
 {
     public function save(User $user): void;
 

@@ -11,6 +11,11 @@ use Symfony\Component\Validator\Constraints\Range;
 
 final class AmountConstraint extends Compound
 {
+    public function getClassName(): string
+    {
+        return VO_Amount::class;
+    }
+
     /**
      * @param mixed[] $options
      *
@@ -19,14 +24,9 @@ final class AmountConstraint extends Compound
     protected function getConstraints(array $options): array
     {
         return [
-    new Range([
-  'min' => 0,
-]),
+            new Range([
+                'min' => 0,
+            ]),
         ];
-    }
-
-    public function getClassName(): string
-    {
-        return VO_Amount::class;
     }
 }

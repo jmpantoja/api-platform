@@ -7,26 +7,29 @@ namespace App\BookStore\Domain\Model\VO\Constraint;
 use App\BookStore\Domain\Model\VO\Currency as VO_Currency;
 use PlanB\Framework\Symfony\Validator\Constraints\Compound;
 use Symfony\Component\Validator\Constraint;
-use Symfony\Component\Validator\Constraints\Regex;
+use Symfony\Component\Validator\Constraints\Choice;
 
 final class CurrencyConstraint extends Compound
 {
+    public function getClassName(): string
+    {
+        return VO_Currency::class;
+    }
+
     /**
-     * @param   mixed[]  $options
+     * @param mixed[] $options
      *
      * @return Constraint[]
      */
     protected function getConstraints(array $options): array
     {
         return [
-            new Regex([
-                'pattern' => '/^[A-Z]{3}$/',
+            new Choice([
+                'choices' => [
+                    0 => 'EUR',
+                    1 => 'DOL',
+                ],
             ]),
         ];
-    }
-
-    public function getClassName(): string
-    {
-        return VO_Currency::class;
     }
 }

@@ -3,7 +3,11 @@
   <resource class="App\BookStore\Domain\Model\Author" routePrefix="bookstore" shortName="Author" input="App\BookStore\Application\Input\AuthorInput" processor="App\BookStore\Framework\Api\State\AuthorProcessor" forceEager="false">
     <operations>
       <operation class="ApiPlatform\Metadata\Get"/>
-      <operation class="ApiPlatform\Metadata\GetCollection"/>
+      <operation class="ApiPlatform\Metadata\GetCollection">
+        <filters>
+          <filter>bookstore.author.filters.text</filter>
+        </filters>
+      </operation>
       <operation class="ApiPlatform\Metadata\Post"/>
       <operation class="ApiPlatform\Metadata\Put"/>
       <operation class="ApiPlatform\Metadata\Delete"/>

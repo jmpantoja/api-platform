@@ -24,12 +24,13 @@ final class TagProcessor implements ProcessorInterface
         $this->commandBus = $commandBus;
     }
 
-    public function process($data, Operation $operation, array $uriVariables = [], array $context = [])
+    public function process(mixed $data, Operation $operation, array $uriVariables = [], array $context = []): mixed
     {
         $command = match (true) {
             $operation instanceof Post => new CreateTag($data),
             $operation instanceof Put => new UpdateTag(new TagId($uriVariables['id']), $data),
             $operation instanceof Delete => new DeleteTag(new TagId($uriVariables['id'])),
+            default => throw new \Exception('Invalid operation')
         };
 
         return $this->commandBus->handle($command);

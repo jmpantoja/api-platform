@@ -24,12 +24,13 @@ final class UserProcessor implements ProcessorInterface
         $this->commandBus = $commandBus;
     }
 
-    public function process($data, Operation $operation, array $uriVariables = [], array $context = [])
+    public function process(mixed $data, Operation $operation, array $uriVariables = [], array $context = []): mixed
     {
         $command = match (true) {
             $operation instanceof Post => new CreateUser($data),
             $operation instanceof Put => new UpdateUser(new UserId($uriVariables['id']), $data),
             $operation instanceof Delete => new DeleteUser(new UserId($uriVariables['id'])),
+            default => throw new \Exception('Invalid operation')
         };
 
         return $this->commandBus->handle($command);

@@ -1,0 +1,66 @@
+<?xml version="1.0"?>
+<properties xmlns="https://api-platform.com/schema/metadata/properties-3.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://api-platform.com/schema/metadata/properties https://api-platform.com/schema/metadata/properties.xsd">
+  <property resource="App\BookStore\Application\Input\BookInput" name="id" identifier="1"/>
+  <property resource="App\BookStore\Application\Input\BookInput" name="author">
+    <openapiContext>
+      <values>
+        <value name="type">object</value>
+        <value name="example">
+          <values>
+            <value name="name">
+              <values>
+                <value name="firstName">pepe</value>
+                <value name="lastName">martinez</value>
+              </values>
+            </value>
+          </values>
+        </value>
+      </values>
+    </openapiContext>
+  </property>
+  <property resource="App\BookStore\Application\Input\BookInput" name="title">
+    <openapiContext>
+      <values>
+        <value name="type">object</value>
+        <value name="example">the title</value>
+      </values>
+    </openapiContext>
+  </property>
+  <property resource="App\BookStore\Application\Input\BookInput" name="summary">
+    <openapiContext>
+      <values>
+        <value name="type">object</value>
+        <value name="example">a long text with summary</value>
+      </values>
+    </openapiContext>
+  </property>
+  <property resource="App\BookStore\Application\Input\BookInput" name="price">
+    <openapiContext>
+      <values>
+        <value name="type">object</value>
+        <value name="example">
+          <values>
+            <value name="amount">10</value>
+            <value name="currency">EUR</value>
+          </values>
+        </value>
+      </values>
+    </openapiContext>
+  </property>
+  <property resource="App\BookStore\Application\Input\BookInput" name="tags">
+    <openapiContext>
+      <values>
+        <value name="type">array</value>
+        <value name="example">
+          <values>
+            <value name="0">
+              <values>
+                <value name="name">the tag name</value>
+              </values>
+            </value>
+          </values>
+        </value>
+      </values>
+    </openapiContext>
+  </property>
+</properties>

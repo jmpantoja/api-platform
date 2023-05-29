@@ -1,12 +1,26 @@
 version: "3.4"
 
 services:
+  
+  whisper:
+    build: 
+      context: ./whisper
+      target: app_whisper
+    volumes:
+      - ./whisper/app:/code/app
+      - ./storage/whisper:/code/downloads      
+    restart: unless-stopped
+#    volumes:
+#      - ./storage/pdf:/var/run/php
+    tty: true
+    
   php:
     build:
       context: ./api
       target: app_php
     depends_on:
       - database
+      - whisper
     restart: unless-stopped
     volumes:
       - ./storage/php_socket:/var/run/php
@@ -54,7 +68,7 @@ services:
       - ./storage/caddy/config:/config
       - ./api/public:/srv/app/public:ro
         
-    ports:
+    ports:      
       # HTTP
       - target: 80
         published: ${HTTP_PORT:-80}
@@ -98,7 +112,7 @@ services:
     environment:
       SERVER_NAME: ${SERVER_NAME:-localhost}
 
-
+  
   
 # Mercure is installed as a Caddy module, prevent the Flex recipe from installing another service
 ###> symfony/mercure-bundle ###

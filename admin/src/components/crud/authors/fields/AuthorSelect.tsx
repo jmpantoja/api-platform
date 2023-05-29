@@ -10,14 +10,14 @@ export const AuthorSelect = (props: SelectProps) => {
   });
 
   const options = queryResult.data?.data.map((item) => ({
-    label: item.name.firstName,
+    label: `${item.name.firstName} ${item.name.lastName}`,
     value: item['@id'],
   }));
 
   const value = typeof props.value === 'object' ? props.value['@id'] : props.value
   return (
     <Select
-      placeholder="Select an  author"
+      placeholder="Select an  Author"
       style={{width: 300}}
       value={value}
       {...selectProps}

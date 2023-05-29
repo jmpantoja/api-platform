@@ -24,12 +24,13 @@ final class AuthorProcessor implements ProcessorInterface
         $this->commandBus = $commandBus;
     }
 
-    public function process($data, Operation $operation, array $uriVariables = [], array $context = [])
+    public function process(mixed $data, Operation $operation, array $uriVariables = [], array $context = []): mixed
     {
         $command = match (true) {
             $operation instanceof Post => new CreateAuthor($data),
             $operation instanceof Put => new UpdateAuthor(new AuthorId($uriVariables['id']), $data),
             $operation instanceof Delete => new DeleteAuthor(new AuthorId($uriVariables['id'])),
+            default => throw new \Exception('Invalid operation')
         };
 
         return $this->commandBus->handle($command);

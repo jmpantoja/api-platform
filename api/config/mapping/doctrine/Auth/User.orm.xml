@@ -1,12 +1,10 @@
 <?xml version="1.0"?>
 <doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping https://www.doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
-  <entity name="App\Auth\Domain\Model\User"
-          table="users"
-          repository-class="App\Auth\Framework\Doctrine\Repository\UserDoctrineRepository">
+  <entity name="App\Auth\Domain\Model\User" table="users" repository-class="App\Auth\Framework\Doctrine\Repository\UserDoctrineRepository">
     <id name="id" type="Auth.UserId"/>
     <field name="username" type="Auth.Username"/>
     <field name="email" type="Auth.Email"/>
-    <field name="roles" type="Auth.Roles"/>
+    <field name="roles" type="Auth.Roles" />
     <field name="password" />
   </entity>
 </doctrine-mapping>

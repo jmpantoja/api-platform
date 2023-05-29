@@ -19,12 +19,12 @@ final class Currency implements StringValue
         $this->currency = $currency;
     }
 
-    public function getCurrency(): string
+    public function __toString(): string
     {
         return $this->currency;
     }
 
-    public function __toString(): string
+    public function getCurrency(): string
     {
         return $this->currency;
     }

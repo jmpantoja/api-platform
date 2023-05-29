@@ -13,8 +13,8 @@ App\Auth\Domain\Model\User:
                 - write
         password:
             groups:
+                - read
                 - write
-
 App\Auth\Application\Input\UserInput:
     attributes:
         username:

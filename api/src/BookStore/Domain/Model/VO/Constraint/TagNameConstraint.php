@@ -12,6 +12,11 @@ use Symfony\Component\Validator\Constraints\Regex;
 
 final class TagNameConstraint extends Compound
 {
+    public function getClassName(): string
+    {
+        return VO_TagName::class;
+    }
+
     /**
      * @param mixed[] $options
      *
@@ -20,17 +25,12 @@ final class TagNameConstraint extends Compound
     protected function getConstraints(array $options): array
     {
         return [
-    new Regex([
-  'pattern' => '/^[\\p{L} \\-]*$/u',
-]),
-    new Length([
-  'min' => 3,
-]),
+            new Regex([
+                'pattern' => '/^[\\p{L} \\-]*$/u',
+            ]),
+            new Length([
+                'min' => 3,
+            ]),
         ];
-    }
-
-    public function getClassName(): string
-    {
-        return VO_TagName::class;
     }
 }

@@ -3,6 +3,24 @@ App:
         Entity:
             Book:
                 root: true
+                filters:
+                    text:
+                        parent: planb.doctrine.orm.text_filter
+                        arguments:
+                            $properties:
+                                title: ~
+                                summary: ~
+                    range:
+                        parent: api_platform.doctrine.orm.range_filter
+                        arguments:
+                            - { price.amount: ~ }
+                    sorting:
+                        parent: api_platform.doctrine.orm.order_filter
+                        arguments:
+                            $properties:
+                                title: ~
+                                author.name.lastName: ~
+
                 attributes:
                     author:
                         type: ManyToOne(Author)
@@ -10,28 +28,27 @@ App:
                         cascade:
                             - PERSIST
                         example: {
-                            books: [ ],
                             "name": {
                                 "firstName": "pepe",
                                 "lastName": "martinez"
                             }
                         }
-                    
+                   
                     title:
                         type: VO(Title)
-                        example: the summary                    
-                    
+                        example: the title
+
                     summary:
                         type: VO(Summary)
-                        example: the summary
-                    
+                        example: a long text with summary
+
                     price:
                         type: VO(Money)
                         example: {
                             amount: 10,
                             currency: EUR
                         }
-                    
+
                     tags:
                         type: ManyToMany(Tag)
                         inversedBy: books
@@ -41,10 +58,16 @@ App:
                         example: [
                             { "name": "the tag name" }
                         ]
-            
-            
+
             Author:
                 root: true
+                filters:
+                    text:
+                        parent: planb.doctrine.orm.text_filter
+                        arguments:
+                            $properties:
+                                name.firstName: ~
+                
                 attributes:
                     books:
                         type: OneToMany(Book)
@@ -52,46 +75,51 @@ App:
                         mappedBy: author
                         cascade:
                             - PERSIST
+                        example: [] 
                     name:
                         type: VO(Fullname)
                         example: {
-                            firstName: the name,
-                            lastName: the lastName
+                            firstName: pepe,
+                            lastName: martinez
                         }
-            
+
             Tag:
                 root: true
                 attributes:
                     name:
                         type: VO(TagName)
                         example: the tag name
-                    
+
                     books:
                         type: ManyToMany(Book)
                         nullable: true
                         inversedBy: tags
-        
+                        example: ~
+
         VO:
             Title:
                 attributes:
                     title:
                         type: string
+                        example: the title
                         constraints:
                             Length:
-                                min: 3            
-            
+                                min: 4
+
             Summary:
                 attributes:
                     summary:
                         type: string
+                        example: a long text with summary
                         constraints:
                             Length:
                                 min: 10
-            
+
             Fullname:
                 attributes:
                     firstName:
                         type: string
+                        example: pepe
                         constraints:
                             Regex:
                                 pattern: /^[\p{L} ]*$/u
@@ -99,16 +127,18 @@ App:
                                 min: 3
                     lastName:
                         type: string
+                        example: martinez
                         constraints:
                             Regex:
                                 pattern: /^[\p{L} \-]*$/u
                             Length:
                                 min: 3
-            
+
             TagName:
                 attributes:
                     name:
                         type: string
+                        example: the tag name
                         constraints:
                             Regex:
                                 pattern: /^[\p{L} \-]*$/u
@@ -118,21 +148,23 @@ App:
                 attributes:
                     amount: VO(Amount)
                     currency: VO(Currency)
-            
+
             Amount:
                 attributes:
                     amount:
                         type: int
+                        example: 3
                         nullable: false
                         constraints:
                             Range:
                                 min: 0
-            
+
             Currency:
                 attributes:
                     currency:
                         type: string
+                        example: 'EUR'
                         nullable: false
                         constraints:
-                            Regex:
-                                pattern: /^[A-Z]{3}$/
+                            Choice:
+                                choices: [ 'EUR', 'DOL' ]

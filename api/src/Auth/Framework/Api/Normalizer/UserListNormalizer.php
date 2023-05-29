@@ -11,14 +11,14 @@ use PlanB\Framework\Api\Normalizer\EntityListNormalizer;
 
 final class UserListNormalizer extends EntityListNormalizer
 {
-    protected function collect(array $data): UserListInput
-    {
-        return UserListInput::collect($data);
-    }
-
     public function supportsDenormalization($data, string $type, $format = null, array $context = []): bool
     {
         return UserListInput::class === $type;
+    }
+
+    protected function collect(array $data): UserListInput
+    {
+        return UserListInput::collect($data);
     }
 
     protected function itemFromIri(string $input, mixed $format, array $context): User

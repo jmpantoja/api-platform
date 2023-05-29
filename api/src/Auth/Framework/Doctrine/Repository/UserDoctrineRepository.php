@@ -9,10 +9,9 @@ use App\Auth\Domain\Model\UserId;
 use App\Auth\Domain\Repository\UserRepository;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
-use Symfony\Bridge\Doctrine\Security\User\UserLoaderInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
 
-final class UserDoctrineRepository extends ServiceEntityRepository implements UserRepository, UserLoaderInterface
+final class UserDoctrineRepository extends ServiceEntityRepository implements UserRepository
 {
     public function __construct(ManagerRegistry $registry)
     {
@@ -45,8 +44,8 @@ final class UserDoctrineRepository extends ServiceEntityRepository implements Us
             ->where('U.username = :identifier')
             ->orWhere('U.email = :identifier')
             ->setParameter('identifier', $identifier)
-            ->getQuery();
-
+            ->getQuery()
+        ;
 
         return $query->getOneOrNullResult();
     }

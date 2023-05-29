@@ -30,7 +30,7 @@
             <directory suffix=".php">src</directory>
         </include>
         <report>
-            <clover outputFile="build/reports/coverage.xml"/>
+<!--            <clover outputFile="build/reports/coverage.xml"/>-->
             <html outputDirectory="build/reports/coverage"/>
         </report>
     </coverage>

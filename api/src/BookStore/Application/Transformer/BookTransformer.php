@@ -20,7 +20,9 @@ final class BookTransformer
         $book->setTitle($input->title);
         $book->setSummary($input->summary);
         $book->setPrice($input->price);
-        $book->setTags($input->tags);
+        if (!is_null($input->tags)) {
+            $book->setTags($input->tags); //nullable
+        }
 
         return $book;
     }

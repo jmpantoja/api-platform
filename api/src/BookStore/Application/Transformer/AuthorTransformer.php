@@ -17,7 +17,9 @@ final class AuthorTransformer
     public function update(Author $author, AuthorInput $input): Author
     {
         $author->setName($input->name);
-        $author->setBooks($input->books);
+        if (!is_null($input->books)) {
+            $author->setBooks($input->books); //nullable
+        }
 
         return $author;
     }

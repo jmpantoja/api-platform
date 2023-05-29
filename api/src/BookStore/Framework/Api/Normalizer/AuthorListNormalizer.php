@@ -11,14 +11,14 @@ use PlanB\Framework\Api\Normalizer\EntityListNormalizer;
 
 final class AuthorListNormalizer extends EntityListNormalizer
 {
-    protected function collect(array $data): AuthorListInput
-    {
-        return AuthorListInput::collect($data);
-    }
-
     public function supportsDenormalization($data, string $type, $format = null, array $context = []): bool
     {
         return AuthorListInput::class === $type;
+    }
+
+    protected function collect(array $data): AuthorListInput
+    {
+        return AuthorListInput::collect($data);
     }
 
     protected function itemFromIri(string $input, mixed $format, array $context): Author

@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<properties xmlns="https://api-platform.com/schema/metadata/properties-3.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://api-platform.com/schema/metadata/properties https://api-platform.com/schema/metadata/properties.xsd">
+  <property resource="App\BookStore\Application\Input\AuthorInput" name="id" identifier="1"/>
+  <property resource="App\BookStore\Application\Input\AuthorInput" name="name">
+    <openapiContext>
+      <values>
+        <value name="type">object</value>
+        <value name="example">
+          <values>
+            <value name="firstName">pepe</value>
+            <value name="lastName">martinez</value>
+          </values>
+        </value>
+      </values>
+    </openapiContext>
+  </property>
+  <property resource="App\BookStore\Application\Input\AuthorInput" name="books">
+    <openapiContext>
+      <values>
+        <value name="type">array</value>
+        <value name="example">null</value>
+      </values>
+    </openapiContext>
+  </property>
+</properties>

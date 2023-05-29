@@ -1,0 +1,12 @@
+services:
+    _defaults:
+        autowire: false
+        autoconfigure: false
+        public: false
+    bookstore.author.filters.text:
+        parent: planb.doctrine.orm.text_filter
+        arguments:
+            $properties:
+                name.firstName: ~
+        tags:
+            - api_platform.filter

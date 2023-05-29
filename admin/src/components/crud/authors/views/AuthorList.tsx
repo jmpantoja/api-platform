@@ -13,7 +13,7 @@ export const AuthorList = () => {
     // // edit={{modal: BookForm}}
     // // create={{drawer: BookForm, width: 1000}}
     filters={{
-      name: <TextFilter/>,
+      'name.firstName': <TextFilter/>,
     }}
 
     pagination={{

@@ -19,12 +19,12 @@ final class Email implements StringValue
         $this->email = $email;
     }
 
-    public function getEmail(): string
+    public function __toString(): string
     {
         return $this->email;
     }
 
-    public function __toString(): string
+    public function getEmail(): string
     {
         return $this->email;
     }

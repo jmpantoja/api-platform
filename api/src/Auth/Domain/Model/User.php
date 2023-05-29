@@ -19,7 +19,6 @@ class User implements Entity, UserInterface, PasswordAuthenticatedUserInterface
     private RoleList $roles;
     private string $password;
 
-
     public function __construct(Username $username, Email $email, RoleList $roles, PasswordHasher $password)
     {
         $this->id = new UserId();
@@ -66,6 +65,11 @@ class User implements Entity, UserInterface, PasswordAuthenticatedUserInterface
         return $this;
     }
 
+    public function getRoles(): array
+    {
+        return $this->roles->toArray();
+    }
+
     public function setPassword(PasswordHasher $hasher): static
     {
         $this->password = $hasher->hash($this);
@@ -78,10 +82,6 @@ class User implements Entity, UserInterface, PasswordAuthenticatedUserInterface
         return $this->password;
     }
 
-    public function getRoles(): array
-    {
-        return $this->roles->toArray();
-    }
 
     public function eraseCredentials()
     {
@@ -89,8 +89,6 @@ class User implements Entity, UserInterface, PasswordAuthenticatedUserInterface
 
     public function getUserIdentifier(): string
     {
-        return (string)$this->getEmail();
+        return (string) $this->getEmail();
     }
-
-
 }

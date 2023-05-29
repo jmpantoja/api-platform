@@ -24,12 +24,13 @@ final class BookProcessor implements ProcessorInterface
         $this->commandBus = $commandBus;
     }
 
-    public function process($data, Operation $operation, array $uriVariables = [], array $context = [])
+    public function process(mixed $data, Operation $operation, array $uriVariables = [], array $context = []): mixed
     {
         $command = match (true) {
             $operation instanceof Post => new CreateBook($data),
             $operation instanceof Put => new UpdateBook(new BookId($uriVariables['id']), $data),
             $operation instanceof Delete => new DeleteBook(new BookId($uriVariables['id'])),
+            default => throw new \Exception('Invalid operation')
         };
 
         return $this->commandBus->handle($command);

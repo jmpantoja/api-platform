@@ -1,0 +1,14 @@
+App\BookStore\Domain\Model\Pepe:
+    attributes:
+        id:
+            groups:
+                - read
+        name:
+            groups:
+                - read
+                - write
+App\BookStore\Application\Input\PepeInput:
+    attributes:
+        name:
+            groups:
+                - write

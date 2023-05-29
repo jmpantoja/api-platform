@@ -17,7 +17,9 @@ final class TagTransformer
     public function update(Tag $tag, TagInput $input): Tag
     {
         $tag->setName($input->name);
-        $tag->setBooks($input->books);
+        if (!is_null($input->books)) {
+            $tag->setBooks($input->books); //nullable
+        }
 
         return $tag;
     }

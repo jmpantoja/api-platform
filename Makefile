@@ -37,7 +37,7 @@ build:
 	docker-compose  build
 
 blueprint:
-	(cd api; ../../blueprint/bin/entrypoint && php-cs-fixer fix src)
+	(cd api; ../../blueprint/bin/entrypoint && php-cs-fixer fix --config=".php-cs-fixer.dist.php" src tests > /dev/null)
 
 qa:
 	(cd api; bin/qa src)
@@ -46,4 +46,4 @@ tests:
 	docker-compose exec -T php bin/phpunit --no-coverage
 
 coverage:
-	docker-compose exec -T php bin/phpunit
+	docker-compose exec -T -e XDEBUG_MODE=coverage php bin/phpunit -d memory_limit=512M

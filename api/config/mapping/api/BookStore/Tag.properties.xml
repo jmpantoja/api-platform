@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<properties xmlns="https://api-platform.com/schema/metadata/properties-3.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://api-platform.com/schema/metadata/properties https://api-platform.com/schema/metadata/properties.xsd">
+  <property resource="App\BookStore\Application\Input\TagInput" name="id" identifier="1"/>
+  <property resource="App\BookStore\Application\Input\TagInput" name="name">
+    <openapiContext>
+      <values>
+        <value name="type">object</value>
+        <value name="example">the tag name</value>
+      </values>
+    </openapiContext>
+  </property>
+  <property resource="App\BookStore\Application\Input\TagInput" name="books">
+    <openapiContext>
+      <values>
+        <value name="type">array</value>
+        <value name="example">null</value>
+      </values>
+    </openapiContext>
+  </property>
+</properties>

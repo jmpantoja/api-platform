@@ -14,6 +14,7 @@ export const BookList = () => {
     // create={{drawer: BookForm, width: 1000}}
     filters={{
       title: <TextFilter/>,
+      summary: <TextFilter/>,
       'price.amount': <RangeFilter/>
     }}
 
@@ -37,10 +38,12 @@ export const BookList = () => {
 
     <Table.Column
       width={200}
-      dataIndex={"author"}
+      dataIndex={"author.name.lastName"}
       title={t('bookstore/books.columns.author')}
-      render={(field) => {
-        return <>{field.name.firstName} {field.name.lastName}</>
+      sorter={true}
+      render={(field, record: IBook) => {
+        const name = record.author.name
+        return <>{name.lastName}, {name.firstName}</>
       }}
     />
 

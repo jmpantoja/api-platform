@@ -30,7 +30,7 @@ class Book implements Entity
         $this->setTitle($title);
         $this->setSummary($summary);
         $this->setPrice($price);
-        $this->setTags($tags);
+        $this->setTags($tags ?? TagListInput::collect());
     }
 
     public function getId(): BookId
@@ -88,19 +88,26 @@ class Book implements Entity
 
     public function setTags(?TagListInput $tags): static
     {
-        if (is_null($tags)) {
-            $tags = TagListInput::collect();
-        }
-
         $tags
-    ->add($this->addTag(...))
-    ->remove($this->removeTag(...))
-    ->with($this->tags);
+            ->add($this->addTag(...))
+            ->create($this->createTag(...))
+            ->remove($this->removeTag(...))
+            ->with($this->tags)
+        ;
 
         return $this;
     }
 
-    public function addTag(TagName $name, ?BookListInput $books = null): static
+    public function addTag(Tag $tag): static
+    {
+        if (!$this->tags->contains($tag)) {
+            $this->tags->add($tag);
+        }
+
+        return $this;
+    }
+
+    public function createTag(TagName $name, ?BookListInput $books = null): static
     {
         $tag = new Tag($name, $books);
         $this->tags->add($tag);
@@ -108,9 +115,13 @@ class Book implements Entity
         return $this;
     }
 
-    public function removeTag(Tag $tag): static
+    public function removeTag(TagId $tagId): static
     {
-        if ($this->tags->contains($tag)) {
+        $tag = $this->tags->findFirst(function (int $key, Tag $tag) use ($tagId) {
+            return $tagId->equals($tag->getId());
+        });
+
+        if ($tag instanceof Tag) {
             $this->tags->removeElement($tag);
         }
 

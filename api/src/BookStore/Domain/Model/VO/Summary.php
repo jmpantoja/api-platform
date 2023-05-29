@@ -19,12 +19,12 @@ final class Summary implements StringValue
         $this->summary = $summary;
     }
 
-    public function getSummary(): string
+    public function __toString(): string
     {
         return $this->summary;
     }
 
-    public function __toString(): string
+    public function getSummary(): string
     {
         return $this->summary;
     }

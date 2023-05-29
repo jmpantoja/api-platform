@@ -23,10 +23,22 @@ services:
             - '../src/Entity/'
             - '../src/Kernel.php'
             - '../src/Tests/'
-
+                
+#    planb.doctrine.orm.text_filter:
+#        class: App\PlanB\Framework\Api\Filter\TextFilter
+#        arguments:
+#            $managerRegistry: '@doctrine'
+#            $logger: '@?logger'
+#            $properties: ~
+#            $nameConverter: '@?api_platform.name_converter'
+#
+#        tags: [ 'api_platform.filter' ]
+    
+    
     App\Auth\Framework\Api\OpenApi\JwtDecorator:
         decorates: 'api_platform.openapi.factory'
         arguments: [ '@.inner' ]
+        
         
     jwt_event_listener:
         class: App\Auth\Framework\EventListener\JWTCreatedListener

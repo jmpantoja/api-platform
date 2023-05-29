@@ -1,0 +1,28 @@
+services:
+    _defaults:
+        autowire: false
+        autoconfigure: false
+        public: false
+    bookstore.book.filters.text:
+        parent: planb.doctrine.orm.text_filter
+        arguments:
+            $properties:
+                title: ~
+                summary: ~
+        tags:
+            - api_platform.filter
+    bookstore.book.filters.range:
+        parent: api_platform.doctrine.orm.range_filter
+        arguments:
+            -
+                price.amount: ~
+        tags:
+            - api_platform.filter
+    bookstore.book.filters.sorting:
+        parent: api_platform.doctrine.orm.order_filter
+        arguments:
+            $properties:
+                title: ~
+                author.name.lastName: ~
+        tags:
+            - api_platform.filter

@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<properties xmlns="https://api-platform.com/schema/metadata/properties-3.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://api-platform.com/schema/metadata/properties https://api-platform.com/schema/metadata/properties.xsd">
+  <property resource="App\Auth\Application\Input\UserInput" name="id" identifier="1"/>
+  <property resource="App\Auth\Application\Input\UserInput" name="username">
+    <openapiContext>
+      <values>
+        <value name="type">object</value>
+        <value name="example">pepito58</value>
+      </values>
+    </openapiContext>
+  </property>
+  <property resource="App\Auth\Application\Input\UserInput" name="email">
+    <openapiContext>
+      <values>
+        <value name="type">object</value>
+        <value name="example">pepito@prueba.com</value>
+      </values>
+    </openapiContext>
+  </property>
+  <property resource="App\Auth\Application\Input\UserInput" name="password">
+    <openapiContext>
+      <values>
+        <value name="type">object</value>
+        <value name="example">secret</value>
+      </values>
+    </openapiContext>
+  </property>
+</properties>

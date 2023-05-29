@@ -19,12 +19,12 @@ final class Username implements StringValue
         $this->username = $username;
     }
 
-    public function getUsername(): string
+    public function __toString(): string
     {
         return $this->username;
     }
 
-    public function __toString(): string
+    public function getUsername(): string
     {
         return $this->username;
     }

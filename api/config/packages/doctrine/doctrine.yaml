@@ -1,6 +1,11 @@
 doctrine:
     orm:
         mappings:
+            Auth:
+                is_bundle: false
+                type: xml
+                dir: '%kernel.project_dir%/config/mapping/doctrine/Auth'
+                prefix: App\Auth\Domain\Model
             BookStore:
                 is_bundle: false
                 type: xml
@@ -8,6 +13,10 @@ doctrine:
                 prefix: App\BookStore\Domain\Model
     dbal:
         types:
+            Auth.Email: App\Auth\Framework\Doctrine\DBAL\EmailDBALType
+            Auth.Role: App\Auth\Framework\Doctrine\DBAL\RoleDBALType
+            Auth.UserId: App\Auth\Framework\Doctrine\DBAL\UserIdDBALType
+            Auth.Username: App\Auth\Framework\Doctrine\DBAL\UsernameDBALType
             BookStore.Amount: App\BookStore\Framework\Doctrine\DBAL\AmountDBALType
             BookStore.AuthorId: App\BookStore\Framework\Doctrine\DBAL\AuthorIdDBALType
             BookStore.BookId: App\BookStore\Framework\Doctrine\DBAL\BookIdDBALType
@@ -16,5 +25,3 @@ doctrine:
             BookStore.TagId: App\BookStore\Framework\Doctrine\DBAL\TagIdDBALType
             BookStore.TagName: App\BookStore\Framework\Doctrine\DBAL\TagNameDBALType
             BookStore.Title: App\BookStore\Framework\Doctrine\DBAL\TitleDBALType
-
-            Borrame.HolaId: App\BookStore\Framework\Doctrine\DBAL\TitleDBALType

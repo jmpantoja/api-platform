@@ -5,17 +5,16 @@ declare(strict_types=1);
 namespace App\Auth\Application;
 
 use App\Auth\Application\Input\UserInput;
-use App\Auth\Domain\Model\User;
 use App\Auth\Domain\Model\UserId;
 
 final class UpdateUser
 {
     private UserInput $input;
-    private User $user;
+    private UserId $userId;
 
     public function __construct(UserId $userId, UserInput $input)
     {
-        $this->userid = $userId;
+        $this->userId = $userId;
         $this->input = $input;
     }
 
@@ -26,6 +25,6 @@ final class UpdateUser
 
     public function getId(): UserId
     {
-        return $this->userid;
+        return $this->userId;
     }
 }

@@ -11,14 +11,14 @@ use PlanB\Framework\Api\Normalizer\EntityListNormalizer;
 
 final class TagListNormalizer extends EntityListNormalizer
 {
-    protected function collect(array $data): TagListInput
-    {
-        return TagListInput::collect($data);
-    }
-
     public function supportsDenormalization($data, string $type, $format = null, array $context = []): bool
     {
         return TagListInput::class === $type;
+    }
+
+    protected function collect(array $data): TagListInput
+    {
+        return TagListInput::collect($data);
     }
 
     protected function itemFromIri(string $input, mixed $format, array $context): Tag

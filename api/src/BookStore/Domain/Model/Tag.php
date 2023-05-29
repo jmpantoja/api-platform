@@ -24,7 +24,7 @@ class Tag implements Entity
         $this->books = new ArrayCollection();
 
         $this->setName($name);
-        $this->setBooks($books);
+        $this->setBooks($books ?? BookListInput::collect());
     }
 
     public function getId(): TagId
@@ -46,19 +46,26 @@ class Tag implements Entity
 
     public function setBooks(?BookListInput $books): static
     {
-        if (is_null($books)) {
-            $books = BookListInput::collect();
-        }
-
         $books
-    ->add($this->addBook(...))
-    ->remove($this->removeBook(...))
-    ->with($this->books);
+            ->add($this->addBook(...))
+            ->create($this->createBook(...))
+            ->remove($this->removeBook(...))
+            ->with($this->books)
+        ;
 
         return $this;
     }
 
-    public function addBook(Author $author, Title $title, Summary $summary, Money $price, ?TagListInput $tags = null): static
+    public function addBook(Book $book): static
+    {
+        if (!$this->books->contains($book)) {
+            $this->books->add($book);
+        }
+
+        return $this;
+    }
+
+    public function createBook(Author $author, Title $title, Summary $summary, Money $price, ?TagListInput $tags = null): static
     {
         $book = new Book($author, $title, $summary, $price, $tags);
         $this->books->add($book);
@@ -66,9 +73,13 @@ class Tag implements Entity
         return $this;
     }
 
-    public function removeBook(Book $book): static
+    public function removeBook(BookId $bookId): static
     {
-        if ($this->books->contains($book)) {
+        $book = $this->books->findFirst(function (int $key, Book $book) use ($bookId) {
+            return $bookId->equals($book->getId());
+        });
+
+        if ($book instanceof Book) {
             $this->books->removeElement($book);
         }
 

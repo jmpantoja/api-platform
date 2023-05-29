@@ -25,12 +25,8 @@ final class Money
         return $this->amount;
     }
 
-
     public function getCurrency(): Currency
     {
         return $this->currency;
     }
-
-
-
 }

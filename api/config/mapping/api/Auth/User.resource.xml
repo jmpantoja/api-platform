@@ -1,30 +1,38 @@
 <?xml version="1.0"?>
-<resources xmlns="https://api-platform.com/schema/metadata/resources-3.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://api-platform.com/schema/metadata/resources-3.0 https://api-platform.com/schema/metadata/resources-3.0.xsd">
-  <resource class="App\Auth\Domain\Model\User" routePrefix="auth" shortName="User" input="App\Auth\Application\Input\UserInput" processor="App\Auth\Framework\Api\State\UserProcessor" forceEager="false">
-    <operations>
-      <operation class="ApiPlatform\Metadata\Get"/>
-      <operation class="ApiPlatform\Metadata\GetCollection"/>
-      <operation class="ApiPlatform\Metadata\Post"/>
-      <operation class="ApiPlatform\Metadata\Put"/>
-      <operation class="ApiPlatform\Metadata\Delete"/>
-    </operations>
-    <denormalizationContext>
-      <values>
-        <value name="groups">
-          <values>
-            <value>write</value>
-          </values>
-        </value>
-      </values>
-    </denormalizationContext>
-    <normalizationContext>
-      <values>
-        <value name="groups">
-          <values>
-            <value>read</value>
-          </values>
-        </value>
-      </values>
-    </normalizationContext>
-  </resource>
+<resources xmlns="https://api-platform.com/schema/metadata/resources-3.0"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="https://api-platform.com/schema/metadata/resources-3.0 https://api-platform.com/schema/metadata/resources-3.0.xsd">
+    <resource class="App\Auth\Domain\Model\User" routePrefix="auth" shortName="User"
+              input="App\Auth\Application\Input\UserInput" processor="App\Auth\Framework\Api\State\UserProcessor"
+              forceEager="false">
+        <operations>
+            <operation class="ApiPlatform\Metadata\Get"/>
+            <operation class="ApiPlatform\Metadata\GetCollection">
+                <filters>
+                    <filter/>
+                </filters>
+            </operation>
+            <operation class="ApiPlatform\Metadata\Post"/>
+            <operation class="ApiPlatform\Metadata\Put"/>
+            <operation class="ApiPlatform\Metadata\Delete"/>
+        </operations>
+        <denormalizationContext>
+            <values>
+                <value name="groups">
+                    <values>
+                        <value>write</value>
+                    </values>
+                </value>
+            </values>
+        </denormalizationContext>
+        <normalizationContext>
+            <values>
+                <value name="groups">
+                    <values>
+                        <value>read</value>
+                    </values>
+                </value>
+            </values>
+        </normalizationContext>
+    </resource>
 </resources>

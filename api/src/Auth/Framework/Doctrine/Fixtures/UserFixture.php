@@ -8,6 +8,7 @@ use App\Auth\Application\CreateUser;
 use App\Auth\Application\Input\UserInput;
 use App\Auth\Domain\Model\RoleList;
 use App\Auth\Domain\Model\VO\Email;
+use App\Auth\Domain\Model\VO\Role;
 use App\Auth\Domain\Model\VO\Username;
 use PlanB\Framework\Doctrine\Fixtures\UseCaseFixture;
 
@@ -21,15 +22,19 @@ final class UserFixture extends UseCaseFixture
             $input->email = new Email("{$name}@prueba.local");
 
             $input->roles = RoleList::collect([
-                strtoupper("ROLE_{$name}"),
+                new Role(strtoupper("ROLE_{$name}")),
             ]);
 
             $input->password = $name;
-
 
             $command = new CreateUser($input);
 
             return $this->handle($command);
         });
+    }
+
+    protected function allowedEnvironments(): array
+    {
+        return ['dev'];
     }
 }

@@ -19,12 +19,12 @@ final class TagName implements StringValue
         $this->name = $name;
     }
 
-    public function getName(): string
+    public function __toString(): string
     {
         return $this->name;
     }
 
-    public function __toString(): string
+    public function getName(): string
     {
         return $this->name;
     }

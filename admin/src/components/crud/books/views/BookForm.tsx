@@ -1,9 +1,10 @@
 import React from "react";
-import {Col, Form, Input, Row} from "antd";
+import {Button, Col, Form, Input, Row, Space} from "antd";
 import {Fieldset, FormData, FormDataProps, Toc} from "@planb/components/form";
 import {useTranslate} from "@refinedev/core";
-import {AuthorSelect, } from "@components/crud/authors";
+import {AuthorSelect,} from "@components/crud/authors";
 import {PriceRule, PriceInput} from "@components/form";
+import {MinusCircleOutlined, PlusOutlined} from "@ant-design/icons";
 
 
 const Info = () => {
@@ -18,11 +19,36 @@ const Info = () => {
                    wrapperCol={{span: 12}}>
           <Input/>
         </Form.Item>
-        <Form.Item label={t('bookstore/books.fields.price')} name={'price'} rules={[{required: true}, {validator: PriceRule}]}>
+        <Form.Item label={t('bookstore/books.fields.price')} name={'price'}
+                   rules={[{required: true}, {validator: PriceRule}]}>
           <PriceInput/>
         </Form.Item>
 
         <Form.Item label={t('bookstore/books.fields.author')} name={'author'} rules={[{required: true}]}>
+          <AuthorSelect/>
+        </Form.Item>
+
+        <Form.List name="tags">
+          {(fields, {add, remove}) => (
+            <>
+              {fields.map(({key, name, ...restField}) => (
+                <Space key={key} style={{display: "flex", marginBottom: 8}} align="baseline">
+                  <Form.Item {...restField} name={[name, "name"]} rules={[{required: true, message: "Missing last name"}]}>
+                    <Input placeholder="Tag Name"/>
+                  </Form.Item>
+                  <MinusCircleOutlined onClick={() => remove(name)}/>
+                </Space>
+              ))}
+              <Form.Item>
+                <Button type="dashed" onClick={() => add()} block icon={<PlusOutlined/>}>
+                  Add field
+                </Button>
+              </Form.Item>
+            </>
+          )}
+        </Form.List>
+
+        <Form.Item label={t('bookstore/books.fields.tags')} name={'tags'} rules={[{required: true}]}>
           <AuthorSelect/>
         </Form.Item>
 

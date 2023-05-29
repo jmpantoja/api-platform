@@ -1,0 +1,42 @@
+App:
+    Auth:
+        Entity:
+            User:
+                root: true
+                attributes:
+                    username:
+                        type: VO(Username)
+                        example: pepito58
+                    email:
+                        type: VO(Email)
+                        example: pepito@prueba.com                    
+                    password:
+                        type: App\Auth\Domain\Service\PasswordHasher
+                        example: secret
+        
+        VO:
+            Username:
+                attributes:
+                    username:
+                        type: string
+                        example: pepito58
+                        constraints:
+                            Length:
+                                min: 3
+            Email:
+                attributes:
+                    email:
+                        type: string
+                        example: pepito@prueba.com
+                        constraints:
+                            Email: ~
+                    
+            Role:
+                attributes:
+                    role:
+                        type: string
+                        example: editor
+                        constraints:
+                            Length:
+                                min: 3
+                                        

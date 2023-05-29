@@ -1,11 +1,12 @@
 <?php
+
 declare(strict_types=1);
 
 namespace App\Auth\Framework\Api\OpenApi;
 
 use ApiPlatform\OpenApi\Factory\OpenApiFactoryInterface;
-use ApiPlatform\OpenApi\OpenApi;
 use ApiPlatform\OpenApi\Model;
+use ApiPlatform\OpenApi\OpenApi;
 use Symfony\Component\Routing\RouterInterface;
 
 final class JwtDecorator implements OpenApiFactoryInterface

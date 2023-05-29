@@ -19,12 +19,12 @@ final class Title implements StringValue
         $this->title = $title;
     }
 
-    public function getTitle(): string
+    public function __toString(): string
     {
         return $this->title;
     }
 
-    public function __toString(): string
+    public function getTitle(): string
     {
         return $this->title;
     }

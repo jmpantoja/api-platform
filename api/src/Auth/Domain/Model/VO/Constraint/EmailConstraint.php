@@ -11,6 +11,11 @@ use Symfony\Component\Validator\Constraints\Email;
 
 final class EmailConstraint extends Compound
 {
+    public function getClassName(): string
+    {
+        return VO_Email::class;
+    }
+
     /**
      * @param mixed[] $options
      *
@@ -19,12 +24,7 @@ final class EmailConstraint extends Compound
     protected function getConstraints(array $options): array
     {
         return [
-    new Email(),
+            new Email(),
         ];
-    }
-
-    public function getClassName(): string
-    {
-        return VO_Email::class;
     }
 }
