@@ -7,11 +7,15 @@
               forceEager="false">
         <operations>
             <operation class="ApiPlatform\Metadata\Get"/>
-            <operation class="ApiPlatform\Metadata\GetCollection">
-                <filters>
-                    <filter/>
-                </filters>
+            <operation class="ApiPlatform\Metadata\Get" uriTemplate="/profile"
+                       provider="App\Auth\Framework\Api\State\ProfileProvider">
+                <openapiContext>
+                    <values>
+                        <value name="summary">Retrieves the current user</value>
+                    </values>
+                </openapiContext>
             </operation>
+            <operation class="ApiPlatform\Metadata\GetCollection"/>
             <operation class="ApiPlatform\Metadata\Post"/>
             <operation class="ApiPlatform\Metadata\Put"/>
             <operation class="ApiPlatform\Metadata\Delete"/>

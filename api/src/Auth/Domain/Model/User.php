@@ -82,7 +82,6 @@ class User implements Entity, UserInterface, PasswordAuthenticatedUserInterface
         return $this->password;
     }
 
-
     public function eraseCredentials()
     {
     }
