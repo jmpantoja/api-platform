@@ -29,6 +29,10 @@
         <include>
             <directory suffix=".php">src</directory>
         </include>
+        <exclude>
+            <directory>src/Auth/Framework</directory>
+            <directory>src/Bookstore/Framework</directory>
+        </exclude>
         <report>
 <!--            <clover outputFile="build/reports/coverage.xml"/>-->
             <html outputDirectory="build/reports/coverage"/>

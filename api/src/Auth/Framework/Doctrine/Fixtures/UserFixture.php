@@ -10,6 +10,7 @@ use App\Auth\Domain\Model\RoleList;
 use App\Auth\Domain\Model\VO\Email;
 use App\Auth\Domain\Model\VO\Role;
 use App\Auth\Domain\Model\VO\Username;
+use App\Auth\Domain\Service\PasswordHasher;
 use PlanB\Framework\Doctrine\Fixtures\UseCaseFixture;
 
 final class UserFixture extends UseCaseFixture

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Tests\BookStore\Application;
+namespace App\Tests\Auth\Application;
 
 use App\Auth\Application\Input\UserInput;
 use App\Auth\Application\UpdateUser;
@@ -28,6 +28,8 @@ class UpdateUserUseCaseTest extends KernelTestCase
             'username' => 'pepito58',
             'email' => 'pepito@prueba.com',
             'password' => 'secret',
+            'roles' => ['ROLE_EDITOR'],
+
         ]);
 
         $command = new UpdateUser($userId, $input);
@@ -39,7 +41,7 @@ class UpdateUserUseCaseTest extends KernelTestCase
             'id' => $userId,
             'username' => $input->username,
             'email' => $input->email,
-            'password' => $input->password,
+            'roles' => ['ROLE_EDITOR'],
         ]);
     }
 }

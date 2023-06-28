@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Tests\BookStore\Application;
+namespace App\Tests\Auth\Application;
 
 use App\Auth\Application\DeleteUser;
 use App\Auth\Domain\Model\UserId;
