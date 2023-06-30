@@ -4,7 +4,6 @@ namespace App\Tests\Auth\Application;
 
 use App\Auth\Application\CreateUser;
 use App\Auth\Application\Input\UserInput;
-use App\Auth\Domain\Model\RoleList;
 use App\Auth\Domain\Model\User;
 use App\Auth\Domain\Repository\UserRepository;
 use App\Auth\Domain\Service\PasswordHasher;
@@ -22,12 +21,6 @@ class CreateUserUseCaseTest extends KernelTestCase
     use DoublesTrait;
     use AssertTrait;
     use FrameworkTrait;
-
-    private function doublePasswordHasher(callable $configure = null): PasswordHasher
-    {
-        $builder = new PasswordHasherDouble($this->prophesize(...), $configure);
-        return $builder->reveal();
-    }
 
     public function test_user_is_created_properly()
     {
@@ -49,7 +42,14 @@ class CreateUserUseCaseTest extends KernelTestCase
             'id' => $userId,
             'username' => $input->username,
             'email' => $input->email,
-            'roles' => ['ROLE_EDITOR']
+            'roles' => ['ROLE_EDITOR'],
         ]);
+    }
+
+    private function doublePasswordHasher(callable $configure = null): PasswordHasher
+    {
+        $builder = new PasswordHasherDouble($this->prophesize(...), $configure);
+
+        return $builder->reveal();
     }
 }

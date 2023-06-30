@@ -7,11 +7,9 @@ namespace App\Tests\Auth\Domain\Model;
 use App\Auth\Domain\Model\RoleList;
 use App\Auth\Domain\Model\User;
 use App\Auth\Domain\Model\UserId;
-use App\Auth\Domain\Model\UserList;
 use App\Auth\Domain\Model\VO\Email;
 use App\Auth\Domain\Model\VO\Username;
 use App\Auth\Domain\Service\PasswordHasher;
-use App\Tests\Doubles\Auth\Domain\Model\UserListDouble;
 use App\Tests\Doubles\Auth\Domain\Service\PasswordHasherDouble;
 use App\Tests\Doubles\Traits\DoublesTrait;
 use PHPUnit\Framework\TestCase;
@@ -25,17 +23,11 @@ class UserTest extends TestCase
     use DoublesTrait;
     use AssertTrait;
 
-    private function doublePasswordHasher(callable $configure = null): PasswordHasher
-    {
-        $builder = new PasswordHasherDouble($this->prophesize(...), $configure);
-        return $builder->reveal();
-    }
-
     public function test_it_can_be_properly_created()
     {
         $username = $this->doubleUsername();
         $email = $this->doubleEmail();
-        $password = $this->doublePasswordHasher(function (PasswordHasherDouble $builder){
+        $password = $this->doublePasswordHasher(function (PasswordHasherDouble $builder) {
             $builder->withHash('hash');
         });
 
@@ -51,6 +43,13 @@ class UserTest extends TestCase
             'email' => $email,
             'password' => $password->hash($user),
         ]);
+    }
+
+    private function doublePasswordHasher(callable $configure = null): PasswordHasher
+    {
+        $builder = new PasswordHasherDouble($this->prophesize(...), $configure);
+
+        return $builder->reveal();
     }
 
     private function newInstance(?Username $username = null, ?Email $email = null, ?PasswordHasher $password = null): User

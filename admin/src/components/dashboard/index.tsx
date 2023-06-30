@@ -1,17 +1,25 @@
 import React from "react";
 import {BookList} from "@components/crud/books";
+import {FormData, useFormData} from "@planb/components/form/formData";
+import {Button} from "antd";
+import {TagForm} from "@components/crud/tags";
 
 
 export default function Dashboard() {
+  // const {show, ...props} = useFormData({
+  //   resource: 'bookstore/tags',
+  //   action: 'create',
+  //   like: "modal",
+  // })
 
   return <>
 
-    <div style={{width: '1000px', height: '500px', border: 'solid 3px red'}}>
+    {/*{TagForm(props)}*/}
 
-      <BookList/>
-      {/*<BookForm {...props}/>*/}
+    {/*/!*<TagForm {...props}/>*!/*/}
+    {/*<Button onClick={()=>(*/}
+    {/*  show()*/}
+    {/*)}>dale</Button>*/}
 
-      {/*<BookEdit id={'01841e4b-eb6a-6342-1e7c-127845ce7ed6'}/>*/}
-    </div>
   </>
 }

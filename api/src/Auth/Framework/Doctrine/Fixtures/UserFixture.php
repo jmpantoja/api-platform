@@ -8,9 +8,7 @@ use App\Auth\Application\CreateUser;
 use App\Auth\Application\Input\UserInput;
 use App\Auth\Domain\Model\RoleList;
 use App\Auth\Domain\Model\VO\Email;
-use App\Auth\Domain\Model\VO\Role;
 use App\Auth\Domain\Model\VO\Username;
-use App\Auth\Domain\Service\PasswordHasher;
 use PlanB\Framework\Doctrine\Fixtures\UseCaseFixture;
 
 final class UserFixture extends UseCaseFixture
@@ -23,7 +21,7 @@ final class UserFixture extends UseCaseFixture
             $input->email = new Email("{$name}@prueba.local");
 
             $input->roles = RoleList::collect([
-                new Role(strtoupper("ROLE_{$name}")),
+                strtoupper("ROLE_{$name}"),
             ]);
 
             $input->password = $name;

@@ -29,7 +29,6 @@ class UpdateUserUseCaseTest extends KernelTestCase
             'email' => 'pepito@prueba.com',
             'password' => 'secret',
             'roles' => ['ROLE_EDITOR'],
-
         ]);
 
         $command = new UpdateUser($userId, $input);

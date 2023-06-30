@@ -26,7 +26,7 @@ final class TagListNormalizer extends EntityListNormalizer
         return $this->convert($input, Tag::class, $format, $context);
     }
 
-    protected function itemFromArray(array $input, mixed $format, array $context): TagInput
+    protected function itemFromArray(array $input, mixed $format, array $context): TagInput|Tag
     {
         return $this->convert($input, TagInput::class, $format, $context);
     }

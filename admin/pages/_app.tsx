@@ -3,20 +3,19 @@ import {AppProps} from "next/app";
 import type {NextPage} from "next";
 import {Refine} from '@refinedev/core';
 import {RefineKbar, RefineKbarProvider} from "@refinedev/kbar";
-import {notificationProvider, ThemedLayoutV2} from '@refinedev/antd';
+import {notificationProvider} from '@refinedev/antd';
 import routerProvider, {UnsavedChangesNotifier} from "@refinedev/nextjs-router";
 
 import "@refinedev/antd/dist/reset.css";
 
 import {appWithTranslation, useTranslation} from "next-i18next";
-import {Header, Sider} from "@components/layout"
 import {ColorModeContextProvider} from "@contexts";
-import {authProvider, dataProvider} from "@planb/provider";
+import {accessControlProvider, authProvider, dataProvider} from "@planb/provider";
+import {Layout} from "@components/layout/layout";
 import Dashboard from "@components/dashboard";
 import {BookCreate, BookEdit, BookList, BookShow} from "@components/crud/books";
 import {TagCreate, TagEdit, TagList, TagShow} from "@components/crud/tags";
-import {Title} from "@components/layout/title";
-import {Layout} from "@components/layout/layout";
+
 import {AuthorCreate, AuthorEdit, AuthorList, AuthorShow} from "@components/crud/authors";
 
 
@@ -35,7 +34,7 @@ function MyApp({Component, pageProps}: AppPropsWithLayout): JSX.Element {
     }
 
     return (
-      <Layout >
+      <Layout>
         <Component {...pageProps} />
       </Layout>
     );
@@ -54,8 +53,11 @@ function MyApp({Component, pageProps}: AppPropsWithLayout): JSX.Element {
         <ColorModeContextProvider>
           <Refine
             routerProvider={routerProvider}
+            authProvider={authProvider}
+            i18nProvider={i18nProvider}
             dataProvider={dataProvider()}
             notificationProvider={notificationProvider}
+            accessControlProvider={accessControlProvider(authProvider)}
             resources={[
               {
                 name: 'dashboard',
@@ -135,8 +137,7 @@ function MyApp({Component, pageProps}: AppPropsWithLayout): JSX.Element {
               }
 
             ]}
-            authProvider={authProvider}
-            i18nProvider={i18nProvider}
+
 
             options={{
               syncWithLocation: true,

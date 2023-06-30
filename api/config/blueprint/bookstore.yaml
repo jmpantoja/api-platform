@@ -85,6 +85,12 @@ App:
 
             Tag:
                 root: true
+                filters:
+                    text:
+                        parent: planb.doctrine.orm.text_filter
+                        arguments:
+                            $properties:
+                                name: ~                
                 attributes:
                     name:
                         type: VO(TagName)
@@ -130,7 +136,7 @@ App:
                         example: martinez
                         constraints:
                             Regex:
-                                pattern: /^[\p{L} \-]*$/u
+                                pattern: /^[\p{L} \-\']*$/u                            
                             Length:
                                 min: 3
 
@@ -141,7 +147,7 @@ App:
                         example: the tag name
                         constraints:
                             Regex:
-                                pattern: /^[\p{L} \-]*$/u
+                                pattern: /^[0-9\_\p{L} \-]*$/u
                             Length:
                                 min: 3
             Money:

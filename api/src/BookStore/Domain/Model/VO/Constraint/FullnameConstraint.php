@@ -37,7 +37,7 @@ final class FullnameConstraint extends Compound
                 ],
                 'lastName' => [
                     new Regex([
-                        'pattern' => '/^[\\p{L} \\-]*$/u',
+                        'pattern' => '/^[\\p{L} \\-\\\']*$/u',
                     ]),
                     new Length([
                         'min' => 3,

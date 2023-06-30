@@ -1,10 +1,10 @@
 import React from "react";
-import {Button, Col, Form, Input, Row, Space} from "antd";
+import {Button, Col, Form, Input, Row, Space, Tag} from "antd";
 import {Fieldset, FormData, FormDataProps, Toc} from "@planb/components/form";
 import {useTranslate} from "@refinedev/core";
 import {AuthorSelect,} from "@components/crud/authors";
 import {PriceRule, PriceInput} from "@components/form";
-import {MinusCircleOutlined, PlusOutlined} from "@ant-design/icons";
+import {TagSelect} from "@components/crud/tags/fields/TagSelect";
 
 
 const Info = () => {
@@ -28,28 +28,8 @@ const Info = () => {
           <AuthorSelect/>
         </Form.Item>
 
-        <Form.List name="tags">
-          {(fields, {add, remove}) => (
-            <>
-              {fields.map(({key, name, ...restField}) => (
-                <Space key={key} style={{display: "flex", marginBottom: 8}} align="baseline">
-                  <Form.Item {...restField} name={[name, "name"]} rules={[{required: true, message: "Missing last name"}]}>
-                    <Input placeholder="Tag Name"/>
-                  </Form.Item>
-                  <MinusCircleOutlined onClick={() => remove(name)}/>
-                </Space>
-              ))}
-              <Form.Item>
-                <Button type="dashed" onClick={() => add()} block icon={<PlusOutlined/>}>
-                  Add field
-                </Button>
-              </Form.Item>
-            </>
-          )}
-        </Form.List>
-
-        <Form.Item label={t('bookstore/books.fields.tags')} name={'tags'} rules={[{required: true}]}>
-          <AuthorSelect/>
+        <Form.Item label={t('bookstore/books.fields.tags')} name={'tags'}>
+          <TagSelect/>
         </Form.Item>
 
         <Form.Item label={t('bookstore/books.fields.summary')} name={'summary'} rules={[{required: true}]}>

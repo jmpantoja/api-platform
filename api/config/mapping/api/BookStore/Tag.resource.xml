@@ -5,7 +5,7 @@
       <operation class="ApiPlatform\Metadata\Get"/>
       <operation class="ApiPlatform\Metadata\GetCollection">
         <filters>
-          <filter/>
+          <filter>bookstore.tag.filters.text</filter>
         </filters>
       </operation>
       <operation class="ApiPlatform\Metadata\Post"/>

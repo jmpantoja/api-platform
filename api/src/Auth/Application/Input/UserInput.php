@@ -8,7 +8,6 @@ use App\Auth\Domain\Model\RoleList;
 use App\Auth\Domain\Model\UserId;
 use App\Auth\Domain\Model\VO\Email;
 use App\Auth\Domain\Model\VO\Username;
-use App\Auth\Domain\Service\PasswordHasher;
 
 final class UserInput
 {

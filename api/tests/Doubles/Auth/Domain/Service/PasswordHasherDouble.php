@@ -4,13 +4,11 @@ declare(strict_types=1);
 
 namespace App\Tests\Doubles\Auth\Domain\Service;
 
-use App\Auth\Domain\Model\UserId;
 use App\Auth\Domain\Service\PasswordHasher;
 use PlanB\Framework\Testing\Double;
 use Prophecy\Argument;
 use Prophecy\Prophecy\ObjectProphecy;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
-use Symfony\Component\Security\Core\User\UserInterface;
 
 final class PasswordHasherDouble extends Double
 {
@@ -38,6 +36,4 @@ final class PasswordHasherDouble extends Double
     {
         return $this->double;
     }
-
-
 }

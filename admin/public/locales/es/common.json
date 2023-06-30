@@ -149,6 +149,7 @@
     "filters": {
       "id": "Id",
       "title": "Título",
+      "summary": "Sinopsis",
       "price.amount": "Precio"
     },
     "fieldsets": {
@@ -166,15 +167,15 @@
     "bookstore/tags": "Etiquetas",
     "fields": {
       "id": "Id",
-      "name": "Nombre"
+      "name": "Etiqueta"
     },
     "columns": {
       "id": "Id",
-      "name": "Nombre"
+      "name": "Etiqueta"
     },
     "filters": {
       "id": "Id",
-      "name": "Nombre"
+      "name": "Etiqueta"
     },
     "fieldsets": {
       "tag": "Etiqueta"
@@ -184,6 +185,30 @@
       "edit": "Editar Etiqueta",
       "list": "Etiquetas",
       "show": "Mostar Etiqueta"
+    }
+  },
+  "bookstore/authors": {
+    "bookstore/authors": "Autores",
+    "fields": {
+      "id": "Id",
+      "name": "Nombre"
+    },
+    "columns": {
+      "id": "Id",
+      "name": "Nombre"
+    },
+    "filters": {
+      "id": "Id",
+      "name.firstName": "Nombre"
+    },
+    "fieldsets": {
+      "tag": "Autor"
+    },
+    "titles": {
+      "create": "Crear Autor",
+      "edit": "Editar Autor",
+      "list": "Autores",
+      "show": "Mostar Autor"
     }
   },
   "table": {

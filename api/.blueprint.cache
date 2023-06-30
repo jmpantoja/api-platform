@@ -1,534 +1,534 @@
 config/packages/doctrine/doctrine.yaml:
-    time: 1687968888
+    time: 1688121516
     hash: f15ef956ce6b3dacf732bf9cdb5cae29
 tests/Doubles/Traits/DoublesTrait.php:
-    time: 1687968888
+    time: 1688121516
     hash: 2c8b426edacaba322a38cd5b30268c6d
 config/filters/Auth/User.yaml:
-    time: 1687968888
+    time: 1688121516
     hash: 7e97fdf5011bfad47d6926e463225c23
 config/mapping/api/Auth/User.properties.xml:
-    time: 1687968888
+    time: 1688121516
     hash: 5266640eb6de2926536e75617c99257e
 config/mapping/api/Auth/User.resource.xml:
-    time: 1687968888
+    time: 1688121516
     hash: 90294b4797e25fef97b8d3df22c53fc3
 src/Auth/Application/CreateUser.php:
-    time: 1687968888
+    time: 1688121516
     hash: 142d93abcd379587cc40cbbc0e46145f
 src/Auth/Application/CreateUserUseCase.php:
-    time: 1687968888
+    time: 1688121516
     hash: 2234575ef0ae038ea911343480b82080
 tests/Auth/Application/CreateUserUseCaseTest.php:
-    time: 1687968888
+    time: 1688121516
     hash: 3a81fa6c1759a01a37716b0d08489313
 src/Auth/Application/DeleteUser.php:
-    time: 1687968888
+    time: 1688121516
     hash: f86bb939dfd06b5f53fcd3d7be327b3a
 src/Auth/Application/DeleteUserUseCase.php:
-    time: 1687968888
+    time: 1688121516
     hash: bef7663e04acee34645f7d2212ee8ca9
 tests/Auth/Application/DeleteUserUseCaseTest.php:
-    time: 1687968888
+    time: 1688121516
     hash: 8632bf184932bbec1afb936cb6e0cbfd
 config/mapping/doctrine/Auth/User.orm.xml:
-    time: 1687968888
+    time: 1688121516
     hash: cefd41015830dc3707ce61cc3ae69a18
 src/Auth/Framework/Doctrine/Repository/UserDoctrineRepository.php:
-    time: 1687968888
+    time: 1688121516
     hash: f88f0c564151bb37d418f179e64fe4ad
 src/Auth/Domain/Model/User.php:
-    time: 1687968888
+    time: 1688121516
     hash: aaec5674cbc6099e138a7e0ee610b4a6
 tests/Doubles/Auth/Domain/Model/UserDouble.php:
-    time: 1687968888
+    time: 1688121516
     hash: ddf6e93c4291b90ed9a74133c4a7c3dd
 src/Auth/Domain/Model/UserId.php:
-    time: 1687968888
+    time: 1688121516
     hash: 62c298649285a1e703bc2f45f741adc2
 src/Auth/Framework/Doctrine/DBAL/UserIdDBALType.php:
-    time: 1687968888
+    time: 1688121516
     hash: 6141da6aa1548a0688b413d4edb78402
 tests/Auth/Domain/Model/UserTest.php:
-    time: 1687968888
+    time: 1688121516
     hash: 5852acb0f3e523e92da12852f4c7db6c
 src/Auth/Application/Input/UserInput.php:
-    time: 1687968888
+    time: 1688121516
     hash: eb46a5ab8f86857e1f3ea169d772af7a
 src/Auth/Domain/Model/UserList.php:
-    time: 1687968888
+    time: 1688121516
     hash: 9706fced44aae4881c8f427223098404
 tests/Doubles/Auth/Domain/Model/UserListDouble.php:
-    time: 1687968888
+    time: 1688121516
     hash: fbfd42572f9f162a3fb43b07bc939888
 src/Auth/Domain/Model/UserListInput.php:
-    time: 1687968888
+    time: 1688121516
     hash: e3e72b332a5b142e451cd637adb5e1e1
 tests/Doubles/Auth/Domain/Model/UserListInputDouble.php:
-    time: 1687968888
+    time: 1688121516
     hash: d6e91398ac927376029355e2a9db70aa
 src/Auth/Framework/Api/Normalizer/UserListNormalizer.php:
-    time: 1687968888
+    time: 1688121516
     hash: 665a343439a03a68fe3459252b42624b
 src/Auth/Framework/Api/State/UserProcessor.php:
-    time: 1687968888
+    time: 1688121516
     hash: b5219359f328080e9a2d446a9c606b07
 src/Auth/Domain/Repository/UserRepository.php:
-    time: 1687968888
+    time: 1688121516
     hash: 6d08fe08c80894e5dd9ae5017023a865
 config/mapping/serialization/Auth/User.yaml:
-    time: 1687968888
+    time: 1688121516
     hash: 69b9e1b315cc6e1f761e386d83913d0d
 src/Auth/Application/Transformer/UserTransformer.php:
-    time: 1687968888
+    time: 1688121516
     hash: 9d32de60f021090889b99848a61fa411
 src/Auth/Application/UpdateUser.php:
-    time: 1687968888
+    time: 1688121516
     hash: 934c0e3d3dc9da5fd2e3ed2826d8a25f
 src/Auth/Application/UpdateUserUseCase.php:
-    time: 1687968888
+    time: 1688121516
     hash: a72207e8963b6f2ab89b602b6f68eff2
 tests/Auth/Application/UpdateUserUseCaseTest.php:
-    time: 1687968888
+    time: 1688121516
     hash: 2979ef9bea15d763821a7d933174d65c
 config/filters/BookStore/Author.yaml:
-    time: 1687968888
+    time: 1688121516
     hash: 935df97504aaa23181f5b5e0df0ad329
 config/mapping/api/BookStore/Author.properties.xml:
-    time: 1687968888
+    time: 1688121516
     hash: bc9a7988439507658374757b7d695101
 config/mapping/api/BookStore/Author.resource.xml:
-    time: 1687968888
+    time: 1688121516
     hash: 21d8e54bbfb66310118075cdbdcf7a7a
 src/BookStore/Application/CreateAuthor.php:
-    time: 1687968888
+    time: 1688121516
     hash: 77e12d0909aa8a56113b0c344548ee06
 src/BookStore/Application/CreateAuthorUseCase.php:
-    time: 1687968888
+    time: 1688121516
     hash: bf5f6d4a20d6d2f4e3984c68cfa114e7
 tests/BookStore/Application/CreateAuthorUseCaseTest.php:
-    time: 1687968888
+    time: 1688121516
     hash: bdd8b402c8b11214728b341fb4abdd2e
 src/BookStore/Application/DeleteAuthor.php:
-    time: 1687968888
+    time: 1688121516
     hash: 8ac9d08d3df24d25fefd58e730084387
 src/BookStore/Application/DeleteAuthorUseCase.php:
-    time: 1687968888
+    time: 1688121516
     hash: a2b939e09720f80303f021218799f1c8
 tests/BookStore/Application/DeleteAuthorUseCaseTest.php:
-    time: 1687968888
+    time: 1688121516
     hash: 43d8ed1dc638aafd160ac81bcacca976
 config/mapping/doctrine/BookStore/Author.orm.xml:
-    time: 1687968888
+    time: 1688121516
     hash: 211f680cd83e91b2f487d665c842ff41
 src/BookStore/Framework/Doctrine/Repository/AuthorDoctrineRepository.php:
-    time: 1687968888
+    time: 1688121516
     hash: 2f57cc6dfa49b64dff4158ed81eec96a
 src/BookStore/Domain/Model/Author.php:
-    time: 1687968888
+    time: 1688121516
     hash: 6be47d4ee98dbff1f0908341bfb0933a
 tests/Doubles/BookStore/Domain/Model/AuthorDouble.php:
-    time: 1687968888
+    time: 1688121516
     hash: 23193210ceb843b9d32e4fae56c29252
 src/BookStore/Domain/Model/AuthorId.php:
-    time: 1687968888
+    time: 1688121516
     hash: 01467863ec4855477b5f3f4681a296a2
 src/BookStore/Framework/Doctrine/DBAL/AuthorIdDBALType.php:
-    time: 1687968888
+    time: 1688121516
     hash: 9febae1fa1c74c142f9fed695c67f555
 tests/BookStore/Domain/Model/AuthorTest.php:
-    time: 1687968888
+    time: 1688121516
     hash: ed9b6e631d8977483170272429d84e7c
 src/BookStore/Application/Input/AuthorInput.php:
-    time: 1687968888
+    time: 1688121516
     hash: 3863eae8ffc3abbee828888b5fcee684
 src/BookStore/Domain/Model/AuthorList.php:
-    time: 1687968888
+    time: 1688121516
     hash: 816d01bc94cb0edaf297a71bd08c3c3b
 tests/Doubles/BookStore/Domain/Model/AuthorListDouble.php:
-    time: 1687968888
+    time: 1688121516
     hash: 42d418c15e268da978a4377e32f53ef3
 src/BookStore/Domain/Model/AuthorListInput.php:
-    time: 1687968888
+    time: 1688121516
     hash: 421aa929e0791f0a670a04026bda920f
 tests/Doubles/BookStore/Domain/Model/AuthorListInputDouble.php:
-    time: 1687968888
+    time: 1688121516
     hash: ac49804706c292118021163ea006e4fe
 src/BookStore/Framework/Api/Normalizer/AuthorListNormalizer.php:
-    time: 1687968888
+    time: 1688121516
     hash: 1149fd5141756969ef2e53d1cad292bb
 src/BookStore/Framework/Api/State/AuthorProcessor.php:
-    time: 1687968888
+    time: 1688121516
     hash: b5cef7cdf261a4bfbd6bad3324aacac8
 src/BookStore/Domain/Repository/AuthorRepository.php:
-    time: 1687968888
+    time: 1688121516
     hash: 7eba56b26eb07ad9a793d72da6c27aa8
 config/mapping/serialization/BookStore/Author.yaml:
-    time: 1687968888
+    time: 1688121516
     hash: 4e78c58bba4b1b86861ed8d1805c8eab
 src/BookStore/Application/Transformer/AuthorTransformer.php:
-    time: 1687968888
+    time: 1688121516
     hash: 38a773b5b8349bac25b9d60d52adaf9f
 src/BookStore/Application/UpdateAuthor.php:
-    time: 1687968888
+    time: 1688121516
     hash: d3c70cd52ecb02597c41107fb680707b
 src/BookStore/Application/UpdateAuthorUseCase.php:
-    time: 1687968888
+    time: 1688121516
     hash: 81ef899939435e35c089c85958dd47b2
 tests/BookStore/Application/UpdateAuthorUseCaseTest.php:
-    time: 1687968888
+    time: 1688121516
     hash: 628a963d4e417cd2567a6b4286eca5fa
 config/filters/BookStore/Book.yaml:
-    time: 1687968888
+    time: 1688121516
     hash: 9ef1365dd199a05ddccb8aec9a62cf64
 config/mapping/api/BookStore/Book.properties.xml:
-    time: 1687968888
+    time: 1688121516
     hash: 65a9fd5ae79ca9d2c79b94ad15c4fb97
 config/mapping/api/BookStore/Book.resource.xml:
-    time: 1687968888
+    time: 1688121516
     hash: 0b62f05f73f79752fa13c62034159b0d
 src/BookStore/Application/CreateBook.php:
-    time: 1687968888
+    time: 1688121516
     hash: f0888e2a93c3db95d1eb7954d518776e
 src/BookStore/Application/CreateBookUseCase.php:
-    time: 1687968888
+    time: 1688121517
     hash: 331e60ab4f3c551c8faf7d0e89a030eb
 tests/BookStore/Application/CreateBookUseCaseTest.php:
-    time: 1687968888
+    time: 1688121517
     hash: d83637052853b47bd84d367f832f3279
 src/BookStore/Application/DeleteBook.php:
-    time: 1687968888
+    time: 1688121517
     hash: f77957087dc31750225a9746e33f41a7
 src/BookStore/Application/DeleteBookUseCase.php:
-    time: 1687968888
+    time: 1688121517
     hash: 615bece060983be12c00ed1a4a5cf4b1
 tests/BookStore/Application/DeleteBookUseCaseTest.php:
-    time: 1687968888
+    time: 1688121517
     hash: 76eee3510b03e309f3f46b2bd546815a
 config/mapping/doctrine/BookStore/Book.orm.xml:
-    time: 1687968888
+    time: 1688121517
     hash: 204853ef1f7df4f3797c8e0e430bddfa
 src/BookStore/Framework/Doctrine/Repository/BookDoctrineRepository.php:
-    time: 1687968888
+    time: 1688121517
     hash: e804c2e52bd19f32b39144ba7f4365b7
 src/BookStore/Domain/Model/Book.php:
-    time: 1687968888
+    time: 1688121517
     hash: d715246ae8a75a1d11436970492e1393
 tests/Doubles/BookStore/Domain/Model/BookDouble.php:
-    time: 1687968888
+    time: 1688121517
     hash: da4e17d2195470ac4411c9c7d51d62e3
 src/BookStore/Domain/Model/BookId.php:
-    time: 1687968888
+    time: 1688121517
     hash: 98575f9ca9ee69e83e6a418723c25784
 src/BookStore/Framework/Doctrine/DBAL/BookIdDBALType.php:
-    time: 1687968888
+    time: 1688121517
     hash: 04d141c1b76dfa7b26ab68cca7aede89
 tests/BookStore/Domain/Model/BookTest.php:
-    time: 1687968888
+    time: 1688121517
     hash: 30eb09e058cef6d2f98b1bb07de127ec
 src/BookStore/Application/Input/BookInput.php:
-    time: 1687968888
+    time: 1688121517
     hash: d8274e15f274930cd82428ef46a95355
 src/BookStore/Domain/Model/BookList.php:
-    time: 1687968888
+    time: 1688121517
     hash: 58995ddb93fa4cba6a33d867684ccdbb
 tests/Doubles/BookStore/Domain/Model/BookListDouble.php:
-    time: 1687968888
+    time: 1688121517
     hash: ffa9c69ee95be7cbda9d9589d9c945ab
 src/BookStore/Domain/Model/BookListInput.php:
-    time: 1687968888
+    time: 1688121517
     hash: 69fe0b35ddc9f28fcab558719b5a9d09
 tests/Doubles/BookStore/Domain/Model/BookListInputDouble.php:
-    time: 1687968888
+    time: 1688121517
     hash: cf6e66ea74825646c0b776542e325707
 src/BookStore/Framework/Api/Normalizer/BookListNormalizer.php:
-    time: 1687968888
+    time: 1688121517
     hash: d8dd47c9621eb35015e61fc5066aff29
 src/BookStore/Framework/Api/State/BookProcessor.php:
-    time: 1687968888
+    time: 1688121517
     hash: a6e36ada79b128084b9682e8cc9a0931
 src/BookStore/Domain/Repository/BookRepository.php:
-    time: 1687968888
+    time: 1688121517
     hash: fbc532280c6efcf6c8758786341b1981
 config/mapping/serialization/BookStore/Book.yaml:
-    time: 1687968888
+    time: 1688121517
     hash: 991460d900fbdeea838bd34ecfaf889f
 src/BookStore/Application/Transformer/BookTransformer.php:
-    time: 1687968888
+    time: 1688121517
     hash: b9635b74db8d6aae108ccda9f5b1050c
 src/BookStore/Application/UpdateBook.php:
-    time: 1687968888
+    time: 1688121517
     hash: bd2c634383ef1e88a3e23b9eabad8328
 src/BookStore/Application/UpdateBookUseCase.php:
-    time: 1687968888
+    time: 1688121517
     hash: e547fde42021985a9b6b3e43895911e5
 tests/BookStore/Application/UpdateBookUseCaseTest.php:
-    time: 1687968888
+    time: 1688121517
     hash: 2459a64a258271bc08b039fe6185c970
 config/filters/BookStore/Tag.yaml:
-    time: 1687968888
-    hash: 7e97fdf5011bfad47d6926e463225c23
+    time: 1688121517
+    hash: b91bb63eaf7c407c42dc229e27d72a4b
 config/mapping/api/BookStore/Tag.properties.xml:
-    time: 1687968888
+    time: 1688121517
     hash: 635c0aa3a2a537442e2a2dd57e9ff4c1
 config/mapping/api/BookStore/Tag.resource.xml:
-    time: 1687968888
-    hash: 05d06b95f6c736f6e6be1fe13655eb52
+    time: 1688121517
+    hash: c740bb7c987922f1b5e7f5e5b5110524
 src/BookStore/Application/CreateTag.php:
-    time: 1687968888
+    time: 1688121517
     hash: 12a3fc122f23d2a7befae49ce4416627
 src/BookStore/Application/CreateTagUseCase.php:
-    time: 1687968888
+    time: 1688121517
     hash: 0fd1a0e8958e856a7c8924cba9af67fc
 tests/BookStore/Application/CreateTagUseCaseTest.php:
-    time: 1687968888
+    time: 1688121517
     hash: 93b58d18e84d282613f11d3d402aa33e
 src/BookStore/Application/DeleteTag.php:
-    time: 1687968888
+    time: 1688121517
     hash: 4a7e980c620153ad22af89c65ef0d34f
 src/BookStore/Application/DeleteTagUseCase.php:
-    time: 1687968888
+    time: 1688121517
     hash: d01a9e7e31e8168bb5b1e372a8dd3608
 tests/BookStore/Application/DeleteTagUseCaseTest.php:
-    time: 1687968888
+    time: 1688121517
     hash: b240a2425fd32aa7a425939dbb48c4d0
 config/mapping/doctrine/BookStore/Tag.orm.xml:
-    time: 1687968888
+    time: 1688121517
     hash: 14d2223692466cce986da954156e9d70
 src/BookStore/Framework/Doctrine/Repository/TagDoctrineRepository.php:
-    time: 1687968888
+    time: 1688121517
     hash: 77ea13a7ac2fe3614a76c14b2c440c77
 src/BookStore/Domain/Model/Tag.php:
-    time: 1687968888
+    time: 1688121517
     hash: 44620736a1f07ef1997d8b1446da702f
 tests/Doubles/BookStore/Domain/Model/TagDouble.php:
-    time: 1687968888
+    time: 1688121517
     hash: 714cb655fb9414a02932545edda3faf9
 src/BookStore/Domain/Model/TagId.php:
-    time: 1687968888
+    time: 1688121517
     hash: f83ca8a04df3f0bfb9c41c927a568a97
 src/BookStore/Framework/Doctrine/DBAL/TagIdDBALType.php:
-    time: 1687968888
+    time: 1688121517
     hash: e63cc192213ce773b0183b2391926a48
 tests/BookStore/Domain/Model/TagTest.php:
-    time: 1687968888
+    time: 1688121517
     hash: 4a19a3bb649888a077708554d536a404
 src/BookStore/Application/Input/TagInput.php:
-    time: 1687968888
+    time: 1688121517
     hash: 38c95c01291aa342a6f4aa8737e5541b
 src/BookStore/Domain/Model/TagList.php:
-    time: 1687968888
+    time: 1688121517
     hash: 2f49af730f63aa47f2a72423b713480f
 tests/Doubles/BookStore/Domain/Model/TagListDouble.php:
-    time: 1687968888
+    time: 1688121517
     hash: 98d6b437ea1b0e8c51916427027b2874
 src/BookStore/Domain/Model/TagListInput.php:
-    time: 1687968888
+    time: 1688121517
     hash: e3e5cfe049840f4baf8acc358f4e13a1
 tests/Doubles/BookStore/Domain/Model/TagListInputDouble.php:
-    time: 1687968888
+    time: 1688121517
     hash: bda370b701253b1fdecb35b8a3063a98
 src/BookStore/Framework/Api/Normalizer/TagListNormalizer.php:
-    time: 1687968888
+    time: 1688121517
     hash: e5806c9318759d0c38b87884f1542041
 src/BookStore/Framework/Api/State/TagProcessor.php:
-    time: 1687968888
+    time: 1688121517
     hash: f830f8b36baf15b2d75913ac0e3bad0e
 src/BookStore/Domain/Repository/TagRepository.php:
-    time: 1687968888
+    time: 1688121517
     hash: 69a9d5d2c63bb51f3d6d8105a59048b7
 config/mapping/serialization/BookStore/Tag.yaml:
-    time: 1687968888
+    time: 1688121517
     hash: 76dee5afc8d6b9571eae14fe38a53af2
 src/BookStore/Application/Transformer/TagTransformer.php:
-    time: 1687968888
+    time: 1688121517
     hash: 5bc531eb9b40fbae510b399512f9dcba
 src/BookStore/Application/UpdateTag.php:
-    time: 1687968888
+    time: 1688121517
     hash: 06b6452120856cae88196816fda580fc
 src/BookStore/Application/UpdateTagUseCase.php:
-    time: 1687968888
+    time: 1688121517
     hash: 47a381c56cc4f1013ce4d94edd75489f
 tests/BookStore/Application/UpdateTagUseCaseTest.php:
-    time: 1687968888
+    time: 1688121517
     hash: e0a992925e46b582ec3486e4ec891be3
 src/Auth/Domain/Model/VO/Constraint/EmailConstraint.php:
-    time: 1687968888
+    time: 1688121517
     hash: 5f75ec514e9d90cc90093f4e47f5cf33
 config/mapping/serialization/Auth/VO/Email.yaml:
-    time: 1687968888
+    time: 1688121517
     hash: 2067ea039a89012c97e362a4cefcd778
 src/Auth/Domain/Model/VO/Email.php:
-    time: 1687968888
+    time: 1688121517
     hash: 3908a1b83739b01b7e7ec436a0f4ec09
 src/Auth/Framework/Doctrine/DBAL/EmailDBALType.php:
-    time: 1687968888
+    time: 1688121517
     hash: 81a001f8a8efca41da7341e5bfc09bbc
 tests/Doubles/Auth/Domain/Model/VO/EmailDouble.php:
-    time: 1687968888
+    time: 1688121517
     hash: ecf18235504229f69b41731255bd1936
 tests/Auth/Domain/Model/VO/EmailTest.php:
-    time: 1687968888
+    time: 1688121517
     hash: 29bd8fe595384d0b438344476dbf0761
 src/Auth/Domain/Model/VO/Constraint/RoleConstraint.php:
-    time: 1687968888
+    time: 1688121517
     hash: ca39e66f1533fc38b16281c2312cbf29
 config/mapping/serialization/Auth/VO/Role.yaml:
-    time: 1687968888
+    time: 1688121517
     hash: 8205598dae80ad757b08d157c882412e
 src/Auth/Domain/Model/VO/Role.php:
-    time: 1687968888
+    time: 1688121517
     hash: 81b07d0fd7f1d3557e692c8345e7af5a
 src/Auth/Framework/Doctrine/DBAL/RoleDBALType.php:
-    time: 1687968888
+    time: 1688121517
     hash: 2a3623909462c93f132cd1a66a1e0478
 tests/Doubles/Auth/Domain/Model/VO/RoleDouble.php:
-    time: 1687968888
+    time: 1688121517
     hash: 1fdfc710a5b104583cd991856e69f629
 tests/Auth/Domain/Model/VO/RoleTest.php:
-    time: 1687968888
+    time: 1688121517
     hash: 4c8fce0680f01031c379e3fffb7200e0
 src/Auth/Domain/Model/VO/Constraint/UsernameConstraint.php:
-    time: 1687968888
+    time: 1688121517
     hash: 839f14e0319a8aebd9ec543a5bee2955
 config/mapping/serialization/Auth/VO/Username.yaml:
-    time: 1687968888
+    time: 1688121517
     hash: 0de1cfff0e8019483678d5d927d7f264
 src/Auth/Domain/Model/VO/Username.php:
-    time: 1687968888
+    time: 1688121517
     hash: 6de646b5c3bcf43acd11d7370c9db7c1
 src/Auth/Framework/Doctrine/DBAL/UsernameDBALType.php:
-    time: 1687968888
+    time: 1688121517
     hash: 5c3a3516b7e8215f6dd036d629ee6e72
 tests/Doubles/Auth/Domain/Model/VO/UsernameDouble.php:
-    time: 1687968888
+    time: 1688121517
     hash: 5279199a7e0fa06e90be64cc9353c3a7
 tests/Auth/Domain/Model/VO/UsernameTest.php:
-    time: 1687968888
+    time: 1688121517
     hash: 46b9aeb9aa8c69974182b266b23236d2
 src/BookStore/Domain/Model/VO/Constraint/AmountConstraint.php:
-    time: 1687968888
+    time: 1688121517
     hash: aa9209aeb7db27986170c3f1dad5f5f3
 config/mapping/serialization/BookStore/VO/Amount.yaml:
-    time: 1687968888
+    time: 1688121517
     hash: 05ae51052b9db73c25798093d766c823
 src/BookStore/Domain/Model/VO/Amount.php:
-    time: 1687968888
+    time: 1688121517
     hash: 05b88e47190d4c56ca3615a5a0586a1e
 src/BookStore/Framework/Doctrine/DBAL/AmountDBALType.php:
-    time: 1687968888
+    time: 1688121517
     hash: 44982e5618f30d6106f2fd25770fc5ef
 tests/Doubles/BookStore/Domain/Model/VO/AmountDouble.php:
-    time: 1687968888
+    time: 1688121517
     hash: 2231bea02c2f0671e3538111143e2dd8
 tests/BookStore/Domain/Model/VO/AmountTest.php:
-    time: 1687968888
+    time: 1688121517
     hash: 721d38e506348882ba0a3f0638bd3352
 src/BookStore/Domain/Model/VO/Constraint/CurrencyConstraint.php:
-    time: 1687968888
+    time: 1688121517
     hash: 054bb28f7cd19cf2f1f7d391a70c6c0e
 config/mapping/serialization/BookStore/VO/Currency.yaml:
-    time: 1687968888
+    time: 1688121517
     hash: f0c21593282f5b426b2acb03e6a79122
 src/BookStore/Domain/Model/VO/Currency.php:
-    time: 1687968888
+    time: 1688121517
     hash: 6690debaeb9dd4551ad8b38cd5d0c182
 src/BookStore/Framework/Doctrine/DBAL/CurrencyDBALType.php:
-    time: 1687968888
+    time: 1688121517
     hash: 0e8ce10768350a8666f95b429327a88d
 tests/Doubles/BookStore/Domain/Model/VO/CurrencyDouble.php:
-    time: 1687968888
+    time: 1688121517
     hash: 27287e385e66b7293f7f2555d0d08366
 tests/BookStore/Domain/Model/VO/CurrencyTest.php:
-    time: 1687968888
+    time: 1688121517
     hash: b88b5b125de2cf8aa5e4c7df5baecdbf
 src/BookStore/Domain/Model/VO/Constraint/FullnameConstraint.php:
-    time: 1687968888
-    hash: 6adf24f3ca386c3a8d523aa98ee414fd
+    time: 1688121517
+    hash: 283d6bfc5fa61f295c36e9a8b991b53f
 config/mapping/doctrine/BookStore/VO.Fullname.orm.xml:
-    time: 1687968888
+    time: 1688121517
     hash: f1dd8459af3be48900c1000f6cbcb088
 config/mapping/serialization/BookStore/VO/Fullname.yaml:
-    time: 1687968888
+    time: 1688121517
     hash: 339e20fe4406f6d06dec46162399e018
 src/BookStore/Domain/Model/VO/Fullname.php:
-    time: 1687968888
+    time: 1688121517
     hash: 0c446c2fab683afd42b0e74cc62952e7
 tests/Doubles/BookStore/Domain/Model/VO/FullnameDouble.php:
-    time: 1687968888
+    time: 1688121517
     hash: 7d3e675f3d624d3731db15103bbd02c9
 tests/BookStore/Domain/Model/VO/FullnameTest.php:
-    time: 1687968888
+    time: 1688121517
     hash: f0e6fcea62ad0965b3cfb18da403b549
 src/BookStore/Domain/Model/VO/Constraint/MoneyConstraint.php:
-    time: 1687968888
+    time: 1688121517
     hash: fdb332fba09bdcca1d6ef624f781ec15
 config/mapping/doctrine/BookStore/VO.Money.orm.xml:
-    time: 1687968888
+    time: 1688121517
     hash: 55ce3287f01351db52a1d0e599d55df3
 config/mapping/serialization/BookStore/VO/Money.yaml:
-    time: 1687968888
+    time: 1688121517
     hash: 0154228dad3a3fb4d92662654c07994e
 src/BookStore/Domain/Model/VO/Money.php:
-    time: 1687968888
+    time: 1688121517
     hash: c8fede13f29e22063f550db39d0c3182
 tests/Doubles/BookStore/Domain/Model/VO/MoneyDouble.php:
-    time: 1687968888
+    time: 1688121517
     hash: 34791587d363d6ccb48b5e9de60f5e39
 tests/BookStore/Domain/Model/VO/MoneyTest.php:
-    time: 1687968888
+    time: 1688121517
     hash: 2572583c0344c2ba06a427829bb096c0
 src/BookStore/Domain/Model/VO/Constraint/SummaryConstraint.php:
-    time: 1687968888
+    time: 1688121517
     hash: 376a087f78053be9ce83868540d115fe
 config/mapping/serialization/BookStore/VO/Summary.yaml:
-    time: 1687968888
+    time: 1688121517
     hash: 8364972b1eb7f45f30e878533c7ff12c
 src/BookStore/Domain/Model/VO/Summary.php:
-    time: 1687968888
+    time: 1688121517
     hash: 7db9e513a4cd34ab5268483a4db06799
 src/BookStore/Framework/Doctrine/DBAL/SummaryDBALType.php:
-    time: 1687968888
+    time: 1688121517
     hash: b21415a9578c0b631910f9cc0ba34a81
 tests/Doubles/BookStore/Domain/Model/VO/SummaryDouble.php:
-    time: 1687968888
+    time: 1688121517
     hash: 13a6fb95181b5460019aea8f328465ad
 tests/BookStore/Domain/Model/VO/SummaryTest.php:
-    time: 1687968888
+    time: 1688121517
     hash: b7677471a85d8f8c2bd79cacf3a6cf38
 src/BookStore/Domain/Model/VO/Constraint/TagNameConstraint.php:
-    time: 1687968888
-    hash: cdc868ea4051470ea5d4e3cf9a2e57b4
+    time: 1688121517
+    hash: 382e88ba0ea70c8e5609ac5b9f236d3a
 config/mapping/serialization/BookStore/VO/TagName.yaml:
-    time: 1687968888
+    time: 1688121517
     hash: bd0d34355abfcb8e38abe7d880335427
 src/BookStore/Domain/Model/VO/TagName.php:
-    time: 1687968888
+    time: 1688121517
     hash: 86e1e1a566ef34a194fcf662ed1eeaf7
 src/BookStore/Framework/Doctrine/DBAL/TagNameDBALType.php:
-    time: 1687968888
+    time: 1688121517
     hash: 39fe5bd0a1a7a15727a3f905617928e6
 tests/Doubles/BookStore/Domain/Model/VO/TagNameDouble.php:
-    time: 1687968888
+    time: 1688121517
     hash: 80e166777761d7a4f1c46d6d8f96a126
 tests/BookStore/Domain/Model/VO/TagNameTest.php:
-    time: 1687968888
+    time: 1688121517
     hash: 1573369924a80de140b1067ed240b1f5
 src/BookStore/Domain/Model/VO/Constraint/TitleConstraint.php:
-    time: 1687968888
+    time: 1688121517
     hash: cdb866b0d583472960a8a99a8acf5e82
 config/mapping/serialization/BookStore/VO/Title.yaml:
-    time: 1687968888
+    time: 1688121517
     hash: 8c68f546fbb3e5c5a391d47bb8d53759
 src/BookStore/Domain/Model/VO/Title.php:
-    time: 1687968888
+    time: 1688121517
     hash: dda40e621d09687ae69fe9e3b4732be7
 src/BookStore/Framework/Doctrine/DBAL/TitleDBALType.php:
-    time: 1687968888
+    time: 1688121517
     hash: 94fce78299d7990defd479dfc6a8b916
 tests/Doubles/BookStore/Domain/Model/VO/TitleDouble.php:
-    time: 1687968888
+    time: 1688121517
     hash: c0b3bb02f142146e06415ec74a6fc684
 tests/BookStore/Domain/Model/VO/TitleTest.php:
-    time: 1687968888
+    time: 1688121517
     hash: 2dbdf76f3c27aa9622fcf1a4128d27c4

@@ -1,30 +1,31 @@
-import {Select, SelectProps} from "antd";
+import {Select, SelectProps, Tag} from "antd";
 import {useSelect} from "@refinedev/antd";
 import {IAuthor} from "@model";
 import React from "react";
+import {BaseRecord} from "@refinedev/core";
+import {EntitySelect, RemoteFilter} from "@planb/components/fields/EntitySelect";
+import {CustomTagProps} from "rc-select/es/BaseSelect";
 
 export const AuthorSelect = (props: SelectProps) => {
 
-  const {queryResult, selectProps} = useSelect<IAuthor>({
-    resource: "bookstore/authors"
-  });
+  const itemToOption = (item: BaseRecord) => ({
 
-  const options = queryResult.data?.data.map((item) => ({
-    label: `${item.name.firstName} ${item.name.lastName}`,
-    value: item['@id'],
-  }));
+    label: item ? `${item.name.firstName} ${item.name.lastName}` : null,
+    value: item ? item['@id'] : null
+  })
 
-  const value = typeof props.value === 'object' ? props.value['@id'] : props.value
-  return (
-    <Select
-      placeholder="Select an  Author"
-      style={{width: 300}}
-      value={value}
-      {...selectProps}
-      options={options}
-      onChange={(value, option) => {
-        props.onChange?.(value, option)
-      }}
-    />
-  );
+  const remote: RemoteFilter = (term: any) => {
+    return {
+      field: 'name',
+      operator: 'partial',
+      value: term
+    }
+  }
+
+  return <EntitySelect
+    {...props}
+    resource={'bookstore/authors'}
+    itemToOption={itemToOption}
+    remote={remote}
+  />
 }

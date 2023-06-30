@@ -26,7 +26,7 @@ final class TagNameConstraint extends Compound
     {
         return [
             new Regex([
-                'pattern' => '/^[\\p{L} \\-]*$/u',
+                'pattern' => '/^[0-9\\_\\p{L} \\-]*$/u',
             ]),
             new Length([
                 'min' => 3,
